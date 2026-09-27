@@ -65,7 +65,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="figure-card">
-      <img src="ladder.svg" alt="Latency of one inference as optimizations are added">
+      <img src="ladder.svg?v=a9d0702" alt="Latency of one inference as optimizations are added">
     </div>
     <p class="caption">Example request: 3 questions, 7 candidates, 539 tokens. Median latency of the forward pass plus scoring head.</p>
   </div>
@@ -93,7 +93,7 @@
       <div class="column"><div class="step"><span class="k">3</span><h4>Tuned GEMMs + CUDA Graphs</h4><p>Merged weights, split-K with fp32 partial sums, per-shape cuBLASLt algorithms, and one CUDA Graph per request shape.</p></div></div>
     </div>
     <div class="figure-card mt-5">
-      <img src="prefix_tree.svg" alt="Two-level prefix tree for the example request">
+      <img src="prefix_tree.svg?v=a9d0702" alt="Two-level prefix tree for the example request">
     </div>
     <p class="caption">Prefix tree for the example request. Linear-attention layers still run each candidate over its full path, so results match the original; full-attention layers use an ancestor mask.</p>
   </div>
@@ -103,7 +103,7 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">JevBench</h2>
     <div class="figure-card">
-      <img src="jevbench_cdf.svg" alt="Per-task latency distribution on JevBench">
+      <img src="jevbench_cdf.svg?v=a9d0702" alt="Per-task latency distribution on JevBench">
     </div>
     <p class="caption">Cumulative share of the 231 public JevBench<sup><a href="#refs">[11]</a></sup> tasks finished within a given latency, sent over HTTP to the local server, one request at a time.</p>
     <div class="table-container mt-5">
