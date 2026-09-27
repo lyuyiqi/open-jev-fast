@@ -1,6 +1,6 @@
 # open-jev-fast
 
-**Report:** [web page](https://lyuyiqi.github.io/open-jev-fast/) · [PDF](docs/report.pdf)
+**Report:** [web page](https://yiqilyu.me/open-jev-fast/) · [PDF](docs/report.pdf)
 
 **A faster inference backend for [Open-Jev](https://github.com/Zefan-Cai/Open-Jev).** It serves the same HTTP API as Open-Jev's `jev.server`, with the same model ([Open-Jev-27B-v1.1](https://huggingface.co/ZefanCai/Open-Jev-27B-v1.1) on [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B)), in bf16 with no quantization. It replaces the model forward pass with hand-written fused CUDA kernels, a prefix tree that computes shared prompt text once, tuned matrix multiplies and CUDA Graphs.
 
@@ -135,7 +135,7 @@ python bench/run_jevbench.py http://localhost:18791 open-jev out.json
 | `phase1/` | Phase-1 PyTorch-level scripts (LoRA merge, sync removal, CUDA Graph, torch.compile) |
 | `patches/` | causal-conv1d build patch for sm_103 (phase 1 only) and its license |
 | `results/` | JevBench per-task results for the original and each optimized version |
-| `docs/` | Report web page (`index.html`, served by GitHub Pages), PDF report, figures, and the scripts that generate them |
+| `docs/` | Report web page (`index.html`, served by GitHub Pages at https://yiqilyu.me/open-jev-fast/), PDF report, figures, and the scripts that generate them |
 
 ## References
 
