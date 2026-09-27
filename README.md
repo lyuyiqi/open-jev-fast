@@ -1,4 +1,4 @@
-# OpenJev-Fast: Accelerating Open-Jev-27B Inference with Prefix Sharing and Fused CUDA Kernels
+# OpenJev-Fast: 5× Faster Open-Jev-27B Inference with Specialized CUDA Kernels
 
 **Report:** [web page](https://yiqilyu.me/open-jev-fast/) · [PDF](docs/report.pdf)
 
@@ -93,7 +93,7 @@ Probability differences from the original grow with input length, because bf16 r
 
 On JevBench, two tasks changed prediction versus the original:
 - `hard-opus-c-long_policy-03` is wrong both before and after.
-- `hard-opus-a-temporal_numeric-09` is a coin flip: the original gives no/yes = 0.504/0.496, merging LoRA alone gives 0.503/0.497, and the hand-written kernels give 0.496/0.504.
+- `hard-opus-a-temporal_numeric-09` is a near-tie prediction that changed: the original gives no/yes = 0.504/0.496, merging LoRA alone gives 0.503/0.497, and the hand-written kernels give 0.496/0.504.
 
 ## Scope and limitations
 
