@@ -1,18 +1,6 @@
 {
- "jevbench_original.json": {
-  "description": "Original Open-Jev jev.server (python -m jev.server), bf16",
-  "correct": 198,
-  "total": 231,
-  "latency_ms": {
-   "mean": 703.0,
-   "p50": 171.2,
-   "p95": 1271.9,
-   "max": 16017.5
-  },
-  "predictions_changed_vs_original": []
- },
  "jevbench_phase1_pytorch.json": {
-  "description": "Phase-1 PyTorch-optimized server (eager, merged LoRA + fused RMSNorm + sync patches + causal-conv1d)",
+  "description": "Phase-1 PyTorch-optimized server (eager, merged LoRA + fused RMSNorm + sync patches + causal-conv1d); JevBench client on another machine of the cluster (new connection per task adds about 25 ms)",
   "correct": 198,
   "total": 231,
   "latency_ms": {
@@ -26,7 +14,7 @@
   ]
  },
  "jevbench_service_v1.json": {
-  "description": "Service v1: custom kernels + 1-level prefix tree + CUDA graphs (second pass)",
+  "description": "Service v1: custom kernels + 1-level prefix tree + CUDA graphs (second pass); JevBench client on another machine of the cluster (new connection per task adds about 25 ms)",
   "correct": 198,
   "total": 231,
   "latency_ms": {
@@ -40,7 +28,7 @@
   ]
  },
  "jevbench_service_v3.json": {
-  "description": "Service v3 (this repo, src/server.py): 2-level prefix tree + split-K + cuBLASLt tuning (second pass)",
+  "description": "Service v3 (this repo, src/server.py): 2-level prefix tree + split-K + cuBLASLt tuning (second pass); JevBench client on another machine of the cluster (new connection per task adds about 25 ms)",
   "correct": 197,
   "total": 231,
   "latency_ms": {
@@ -48,6 +36,87 @@
    "p50": 24.2,
    "p95": 148.2,
    "max": 582.9
+  },
+  "predictions_changed_vs_original": [
+   "hard-opus-a-temporal_numeric-09",
+   "hard-opus-c-long_policy-03"
+  ]
+ },
+ "jevbench_original_remote_client.json": {
+  "description": "Original Open-Jev jev.server (python -m jev.server), bf16; JevBench client on another machine of the cluster (new connection per task adds about 25 ms)",
+  "correct": 198,
+  "total": 231,
+  "latency_ms": {
+   "mean": 703.0,
+   "p50": 171.2,
+   "p95": 1271.9,
+   "max": 16017.5
+  },
+  "predictions_changed_vs_original": []
+ },
+ "jevbench_original.json": {
+  "description": "Original Open-Jev jev.server (python -m jev.server) as in a standard install (FLA, causal-conv1d not used), bf16, --max-length 16384; client on the same machine; second pass (Triton kernels compiled), 2026-09-27",
+  "correct": 198,
+  "total": 231,
+  "latency_ms": {
+   "mean": 257.6,
+   "p50": 150.1,
+   "p95": 802.3,
+   "max": 1489.0
+  },
+  "predictions_changed_vs_original": []
+ },
+ "jevbench_service_v3_local_client.json": {
+  "description": "Service v3 (phase 2, previous release); client on the same machine, 2026-09-27 (second pass)",
+  "correct": 197,
+  "total": 231,
+  "latency_ms": {
+   "mean": 44.1,
+   "p50": 20.0,
+   "p95": 141.3,
+   "max": 212.4
+  },
+  "predictions_changed_vs_original": [
+   "hard-opus-a-temporal_numeric-09",
+   "hard-opus-c-long_policy-03"
+  ]
+ },
+ "jevbench_fast.json": {
+  "description": "Current src/server.py (phase 3); client on the same machine; second pass (CUDA Graphs captured), 2026-09-27",
+  "correct": 197,
+  "total": 231,
+  "latency_ms": {
+   "mean": 42.0,
+   "p50": 17.4,
+   "p95": 137.2,
+   "max": 207.8
+  },
+  "predictions_changed_vs_original": [
+   "hard-opus-a-temporal_numeric-09",
+   "hard-opus-c-long_policy-03"
+  ]
+ },
+ "jevbench_original_cold_cache.json": {
+  "description": "Same server, first pass with an empty Triton cache (FLA kernels compiled on first use of each shape), 2026-09-27",
+  "correct": 198,
+  "total": 231,
+  "latency_ms": {
+   "mean": 1966.8,
+   "p50": 160.9,
+   "p95": 24891.3,
+   "max": 65056.5
+  },
+  "predictions_changed_vs_original": []
+ },
+ "jevbench_fast_first_pass.json": {
+  "description": "Current src/server.py, first pass after start (includes CUDA Graph capture for each new shape), 2026-09-27",
+  "correct": 197,
+  "total": 231,
+  "latency_ms": {
+   "mean": 190.3,
+   "p50": 24.4,
+   "p95": 764.9,
+   "max": 3279.3
   },
   "predictions_changed_vs_original": [
    "hard-opus-a-temporal_numeric-09",

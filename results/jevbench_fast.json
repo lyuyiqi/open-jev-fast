@@ -8,7 +8,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 205.50853060558438,
+  "latency_ms": 76.94629393517971,
   "error": null
  },
  {
@@ -20,7 +20,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.12933897599578,
+  "latency_ms": 13.985457830131054,
   "error": null
  },
  {
@@ -32,7 +32,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.4972770512104,
+  "latency_ms": 14.153318013995886,
   "error": null
  },
  {
@@ -44,7 +44,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 139.83652973547578,
+  "latency_ms": 13.571316841989756,
   "error": null
  },
  {
@@ -56,7 +56,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 138.90449609607458,
+  "latency_ms": 13.850694056600332,
   "error": null
  },
  {
@@ -68,7 +68,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 142.03416230157018,
+  "latency_ms": 14.07466595992446,
   "error": null
  },
  {
@@ -80,7 +80,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 140.62429033219814,
+  "latency_ms": 13.585615903139114,
   "error": null
  },
  {
@@ -92,7 +92,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.60895585641265,
+  "latency_ms": 13.89705017209053,
   "error": null
  },
  {
@@ -104,7 +104,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.86223382502794,
+  "latency_ms": 14.03347309678793,
   "error": null
  },
  {
@@ -116,7 +116,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 149.41996708512306,
+  "latency_ms": 13.819895684719086,
   "error": null
  },
  {
@@ -128,7 +128,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.3271983191371,
+  "latency_ms": 14.21910198405385,
   "error": null
  },
  {
@@ -140,7 +140,7 @@
   "predicted": "no",
   "correct": false,
   "valid": true,
-  "latency_ms": 166.6742078959942,
+  "latency_ms": 13.87155381962657,
   "error": null
  },
  {
@@ -152,7 +152,7 @@
   "predicted": "refund",
   "correct": true,
   "valid": true,
-  "latency_ms": 153.08239124715328,
+  "latency_ms": 15.891906805336475,
   "error": null
  },
  {
@@ -164,7 +164,7 @@
   "predicted": "refund",
   "correct": true,
   "valid": true,
-  "latency_ms": 155.5597591213882,
+  "latency_ms": 15.43597225099802,
   "error": null
  },
  {
@@ -176,7 +176,7 @@
   "predicted": "other",
   "correct": false,
   "valid": true,
-  "latency_ms": 149.00542376562953,
+  "latency_ms": 16.999793238937855,
   "error": null
  },
  {
@@ -188,7 +188,7 @@
   "predicted": "status",
   "correct": true,
   "valid": true,
-  "latency_ms": 144.91511415690184,
+  "latency_ms": 15.836258884519339,
   "error": null
  },
  {
@@ -200,7 +200,7 @@
   "predicted": "change_address",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.13178437948227,
+  "latency_ms": 15.851343981921673,
   "error": null
  },
  {
@@ -212,7 +212,7 @@
   "predicted": "change_address",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.10128819569945,
+  "latency_ms": 16.32800279185176,
   "error": null
  },
  {
@@ -224,7 +224,7 @@
   "predicted": "cancel",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.8854130730033,
+  "latency_ms": 15.769492834806442,
   "error": null
  },
  {
@@ -236,7 +236,7 @@
   "predicted": "cancel",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.55927987769246,
+  "latency_ms": 16.264967154711485,
   "error": null
  },
  {
@@ -248,7 +248,7 @@
   "predicted": "other",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.72178495675325,
+  "latency_ms": 16.205203719437122,
   "error": null
  },
  {
@@ -260,7 +260,7 @@
   "predicted": "other",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.45304081588984,
+  "latency_ms": 15.954531729221344,
   "error": null
  },
  {
@@ -272,7 +272,7 @@
   "predicted": "status",
   "correct": true,
   "valid": true,
-  "latency_ms": 144.45759309455752,
+  "latency_ms": 15.753223095089197,
   "error": null
  },
  {
@@ -284,7 +284,7 @@
   "predicted": "status",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.91408101841807,
+  "latency_ms": 16.086972784250975,
   "error": null
  },
  {
@@ -296,7 +296,7 @@
   "predicted": "0",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.3675761371851,
+  "latency_ms": 15.518711879849434,
   "error": null
  },
  {
@@ -308,7 +308,7 @@
   "predicted": "0",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.92060619220138,
+  "latency_ms": 15.633728820830584,
   "error": null
  },
  {
@@ -320,7 +320,7 @@
   "predicted": "1",
   "correct": true,
   "valid": true,
-  "latency_ms": 149.94429610669613,
+  "latency_ms": 16.01565070450306,
   "error": null
  },
  {
@@ -332,7 +332,7 @@
   "predicted": "1",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.89178282767534,
+  "latency_ms": 15.932864043861628,
   "error": null
  },
  {
@@ -344,7 +344,7 @@
   "predicted": "2",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.22573387250304,
+  "latency_ms": 16.21869020164013,
   "error": null
  },
  {
@@ -356,7 +356,7 @@
   "predicted": "2",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.86485519632697,
+  "latency_ms": 15.821424778550863,
   "error": null
  },
  {
@@ -368,7 +368,7 @@
   "predicted": "3",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.76875418424606,
+  "latency_ms": 15.710999257862568,
   "error": null
  },
  {
@@ -380,7 +380,7 @@
   "predicted": "3",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.2153402864933,
+  "latency_ms": 16.219659708440304,
   "error": null
  },
  {
@@ -392,7 +392,7 @@
   "predicted": "0",
   "correct": true,
   "valid": true,
-  "latency_ms": 155.7917739264667,
+  "latency_ms": 16.474923118948936,
   "error": null
  },
  {
@@ -404,7 +404,7 @@
   "predicted": "0",
   "correct": true,
   "valid": true,
-  "latency_ms": 149.41529603675008,
+  "latency_ms": 15.736680012196302,
   "error": null
  },
  {
@@ -416,7 +416,7 @@
   "predicted": "2",
   "correct": true,
   "valid": true,
-  "latency_ms": 142.42097130045295,
+  "latency_ms": 15.977991744875908,
   "error": null
  },
  {
@@ -428,7 +428,7 @@
   "predicted": "2",
   "correct": true,
   "valid": true,
-  "latency_ms": 144.0425137989223,
+  "latency_ms": 16.148146707564592,
   "error": null
  },
  {
@@ -440,7 +440,7 @@
   "predicted": "unknown",
   "correct": false,
   "valid": true,
-  "latency_ms": 143.6340967193246,
+  "latency_ms": 15.183852054178715,
   "error": null
  },
  {
@@ -452,7 +452,7 @@
   "predicted": "pickup",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.5779290087521,
+  "latency_ms": 15.337236691266298,
   "error": null
  },
  {
@@ -464,7 +464,7 @@
   "predicted": "unknown",
   "correct": true,
   "valid": true,
-  "latency_ms": 141.95450209081173,
+  "latency_ms": 15.37712523713708,
   "error": null
  },
  {
@@ -476,7 +476,7 @@
   "predicted": "unknown",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.14698866009712,
+  "latency_ms": 15.17117628827691,
   "error": null
  },
  {
@@ -488,7 +488,7 @@
   "predicted": "courier",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.74035336449742,
+  "latency_ms": 15.338516794145107,
   "error": null
  },
  {
@@ -500,7 +500,7 @@
   "predicted": "courier",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.54200510308146,
+  "latency_ms": 15.311116818338633,
   "error": null
  },
  {
@@ -512,7 +512,7 @@
   "predicted": "post",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.95041996613145,
+  "latency_ms": 15.15567908063531,
   "error": null
  },
  {
@@ -524,7 +524,7 @@
   "predicted": "post",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.59401325136423,
+  "latency_ms": 15.285288915038109,
   "error": null
  },
  {
@@ -536,7 +536,7 @@
   "predicted": "unknown",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.30066400766373,
+  "latency_ms": 15.741076786071062,
   "error": null
  },
  {
@@ -548,7 +548,7 @@
   "predicted": "unknown",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.46223064139485,
+  "latency_ms": 15.010241884738207,
   "error": null
  },
  {
@@ -560,7 +560,7 @@
   "predicted": "courier",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.41436931863427,
+  "latency_ms": 15.376956667751074,
   "error": null
  },
  {
@@ -572,7 +572,7 @@
   "predicted": "courier",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.2055590711534,
+  "latency_ms": 15.754351392388344,
   "error": null
  },
  {
@@ -584,7 +584,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 139.12064721807837,
+  "latency_ms": 13.614084105938673,
   "error": null
  },
  {
@@ -596,7 +596,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.72542905807495,
+  "latency_ms": 13.889342080801725,
   "error": null
  },
  {
@@ -608,7 +608,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.00545573234558,
+  "latency_ms": 13.68770794942975,
   "error": null
  },
  {
@@ -620,7 +620,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 138.61223589628935,
+  "latency_ms": 16.205250285565853,
   "error": null
  },
  {
@@ -632,7 +632,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 140.5163649469614,
+  "latency_ms": 13.967019971460104,
   "error": null
  },
  {
@@ -644,7 +644,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 142.83093390986323,
+  "latency_ms": 14.291427098214626,
   "error": null
  },
  {
@@ -656,7 +656,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.53073700517416,
+  "latency_ms": 13.946223072707653,
   "error": null
  },
  {
@@ -668,7 +668,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.49996301159263,
+  "latency_ms": 13.941903598606586,
   "error": null
  },
  {
@@ -680,7 +680,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.01300489529967,
+  "latency_ms": 13.920520897954702,
   "error": null
  },
  {
@@ -692,7 +692,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.0199657380581,
+  "latency_ms": 14.130305033177137,
   "error": null
  },
  {
@@ -704,7 +704,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.13144702464342,
+  "latency_ms": 13.575793709605932,
   "error": null
  },
  {
@@ -716,7 +716,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.33225819468498,
+  "latency_ms": 13.858273159712553,
   "error": null
  },
  {
@@ -728,7 +728,7 @@
   "predicted": "math",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.41837901622057,
+  "latency_ms": 17.35193794593215,
   "error": null
  },
  {
@@ -740,7 +740,7 @@
   "predicted": "math",
   "correct": true,
   "valid": true,
-  "latency_ms": 153.5823862068355,
+  "latency_ms": 16.96039317175746,
   "error": null
  },
  {
@@ -752,7 +752,7 @@
   "predicted": "coding",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.5084459632635,
+  "latency_ms": 17.832960933446884,
   "error": null
  },
  {
@@ -764,7 +764,7 @@
   "predicted": "coding",
   "correct": true,
   "valid": true,
-  "latency_ms": 159.6008432097733,
+  "latency_ms": 16.511340625584126,
   "error": null
  },
  {
@@ -776,7 +776,7 @@
   "predicted": "coding_agent",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.80089182406664,
+  "latency_ms": 17.599383369088173,
   "error": null
  },
  {
@@ -788,7 +788,7 @@
   "predicted": "coding_agent",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.80260575935245,
+  "latency_ms": 17.419183161109686,
   "error": null
  },
  {
@@ -800,7 +800,7 @@
   "predicted": "document",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.37115923687816,
+  "latency_ms": 17.102085053920746,
   "error": null
  },
  {
@@ -812,7 +812,7 @@
   "predicted": "document",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.91030203923583,
+  "latency_ms": 16.81454572826624,
   "error": null
  },
  {
@@ -824,7 +824,7 @@
   "predicted": "tools",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.3127168826759,
+  "latency_ms": 24.017870891839266,
   "error": null
  },
  {
@@ -836,7 +836,7 @@
   "predicted": "tools",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.19652619957924,
+  "latency_ms": 16.831574961543083,
   "error": null
  },
  {
@@ -848,7 +848,7 @@
   "predicted": "general",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.43764991685748,
+  "latency_ms": 16.622313298285007,
   "error": null
  },
  {
@@ -860,7 +860,7 @@
   "predicted": "general",
   "correct": true,
   "valid": true,
-  "latency_ms": 149.43664008751512,
+  "latency_ms": 17.322794999927282,
   "error": null
  },
  {
@@ -872,7 +872,7 @@
   "predicted": "track_order",
   "correct": true,
   "valid": true,
-  "latency_ms": 144.08953906968236,
+  "latency_ms": 16.274002846330404,
   "error": null
  },
  {
@@ -884,7 +884,7 @@
   "predicted": "cancel_order",
   "correct": true,
   "valid": true,
-  "latency_ms": 149.96228413656354,
+  "latency_ms": 16.8427349999547,
   "error": null
  },
  {
@@ -896,7 +896,7 @@
   "predicted": "change_address",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.4805536456406,
+  "latency_ms": 16.358787193894386,
   "error": null
  },
  {
@@ -908,7 +908,7 @@
   "predicted": "report_damage",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.48196909204125,
+  "latency_ms": 16.3240279071033,
   "error": null
  },
  {
@@ -920,7 +920,7 @@
   "predicted": "billing_question",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.8812489658594,
+  "latency_ms": 16.246811021119356,
   "error": null
  },
  {
@@ -932,7 +932,7 @@
   "predicted": "track_order",
   "correct": true,
   "valid": true,
-  "latency_ms": 144.86956410109997,
+  "latency_ms": 16.28073677420616,
   "error": null
  },
  {
@@ -944,7 +944,7 @@
   "predicted": "set_alarm",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.0562478750944,
+  "latency_ms": 16.307062935084105,
   "error": null
  },
  {
@@ -956,7 +956,7 @@
   "predicted": "play_music",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.51103906705976,
+  "latency_ms": 15.857929829508066,
   "error": null
  },
  {
@@ -968,7 +968,7 @@
   "predicted": "weather",
   "correct": true,
   "valid": true,
-  "latency_ms": 149.74100003018975,
+  "latency_ms": 15.582188963890076,
   "error": null
  },
  {
@@ -980,7 +980,7 @@
   "predicted": "send_message",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.0895816348493,
+  "latency_ms": 16.008820850402117,
   "error": null
  },
  {
@@ -992,7 +992,7 @@
   "predicted": "turn_off_lights",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.42170907184482,
+  "latency_ms": 15.811136923730373,
   "error": null
  },
  {
@@ -1004,7 +1004,7 @@
   "predicted": "set_alarm",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.06316804140806,
+  "latency_ms": 16.037854366004467,
   "error": null
  },
  {
@@ -1016,7 +1016,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 138.13984720036387,
+  "latency_ms": 13.718378730118275,
   "error": null
  },
  {
@@ -1028,7 +1028,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.48049960285425,
+  "latency_ms": 13.989116065204144,
   "error": null
  },
  {
@@ -1040,7 +1040,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 140.78946271911263,
+  "latency_ms": 13.847099151462317,
   "error": null
  },
  {
@@ -1052,7 +1052,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 141.39331597834826,
+  "latency_ms": 13.730243314057589,
   "error": null
  },
  {
@@ -1064,7 +1064,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 141.967233736068,
+  "latency_ms": 14.117151964455843,
   "error": null
  },
  {
@@ -1076,7 +1076,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 139.75220965221524,
+  "latency_ms": 13.989443890750408,
   "error": null
  },
  {
@@ -1088,7 +1088,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 141.0813690163195,
+  "latency_ms": 13.91323795542121,
   "error": null
  },
  {
@@ -1100,7 +1100,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 144.52046528458595,
+  "latency_ms": 13.967389706522226,
   "error": null
  },
  {
@@ -1112,7 +1112,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 142.28184800595045,
+  "latency_ms": 14.155006036162376,
   "error": null
  },
  {
@@ -1124,7 +1124,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.24094530194998,
+  "latency_ms": 14.180703088641167,
   "error": null
  },
  {
@@ -1136,7 +1136,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.43221485614777,
+  "latency_ms": 13.554600067436695,
   "error": null
  },
  {
@@ -1148,7 +1148,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.38472006097436,
+  "latency_ms": 14.042099006474018,
   "error": null
  },
  {
@@ -1160,7 +1160,7 @@
   "predicted": "paypal",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.79000978544354,
+  "latency_ms": 15.234282705932856,
   "error": null
  },
  {
@@ -1172,7 +1172,7 @@
   "predicted": "cash",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.5209500901401,
+  "latency_ms": 14.795487280935049,
   "error": null
  },
  {
@@ -1184,7 +1184,7 @@
   "predicted": "bank_transfer",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.98257280886173,
+  "latency_ms": 14.640751294791698,
   "error": null
  },
  {
@@ -1196,7 +1196,7 @@
   "predicted": "high",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.1642750762403,
+  "latency_ms": 15.145760029554367,
   "error": null
  },
  {
@@ -1208,7 +1208,7 @@
   "predicted": "low",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.6988350301981,
+  "latency_ms": 16.460484825074673,
   "error": null
  },
  {
@@ -1220,7 +1220,7 @@
   "predicted": "urgent",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.14203292876482,
+  "latency_ms": 15.137187670916319,
   "error": null
  },
  {
@@ -1232,7 +1232,7 @@
   "predicted": "M",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.13947581872344,
+  "latency_ms": 14.999154023826122,
   "error": null
  },
  {
@@ -1244,7 +1244,7 @@
   "predicted": "XL",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.5298162549734,
+  "latency_ms": 14.910292811691761,
   "error": null
  },
  {
@@ -1256,7 +1256,7 @@
   "predicted": "thursday",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.30770885944366,
+  "latency_ms": 15.116990078240633,
   "error": null
  },
  {
@@ -1268,7 +1268,7 @@
   "predicted": "monday",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.44862588122487,
+  "latency_ms": 14.89371107891202,
   "error": null
  },
  {
@@ -1280,7 +1280,7 @@
   "predicted": "friday",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.13150139525533,
+  "latency_ms": 14.933697879314423,
   "error": null
  },
  {
@@ -1292,7 +1292,7 @@
   "predicted": "credit_card",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.33602295443416,
+  "latency_ms": 15.127821825444698,
   "error": null
  },
  {
@@ -1304,7 +1304,7 @@
   "predicted": "get_weather",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.2803051583469,
+  "latency_ms": 15.95855737105012,
   "error": null
  },
  {
@@ -1316,7 +1316,7 @@
   "predicted": "send_email",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.4902640543878,
+  "latency_ms": 15.6659921631217,
   "error": null
  },
  {
@@ -1328,7 +1328,7 @@
   "predicted": "create_calendar_event",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.42032328993082,
+  "latency_ms": 16.148832626640797,
   "error": null
  },
  {
@@ -1340,7 +1340,7 @@
   "predicted": "convert_currency",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.7292156778276,
+  "latency_ms": 16.36675512418151,
   "error": null
  },
  {
@@ -1352,7 +1352,7 @@
   "predicted": "translate_text",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.06048788502812,
+  "latency_ms": 15.909908805042505,
   "error": null
  },
  {
@@ -1364,7 +1364,7 @@
   "predicted": "create_calendar_event",
   "correct": true,
   "valid": true,
-  "latency_ms": 141.676246188581,
+  "latency_ms": 16.068928875029087,
   "error": null
  },
  {
@@ -1376,7 +1376,7 @@
   "predicted": "search_flights",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.8215620368719,
+  "latency_ms": 16.43853634595871,
   "error": null
  },
  {
@@ -1388,7 +1388,7 @@
   "predicted": "book_restaurant",
   "correct": true,
   "valid": true,
-  "latency_ms": 147.17232389375567,
+  "latency_ms": 16.337927896529436,
   "error": null
  },
  {
@@ -1400,7 +1400,7 @@
   "predicted": "set_reminder",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.18740912899375,
+  "latency_ms": 16.589305829256773,
   "error": null
  },
  {
@@ -1412,7 +1412,7 @@
   "predicted": "get_stock_price",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.76078080385923,
+  "latency_ms": 16.665141098201275,
   "error": null
  },
  {
@@ -1424,7 +1424,7 @@
   "predicted": "call_taxi",
   "correct": true,
   "valid": true,
-  "latency_ms": 143.9528251066804,
+  "latency_ms": 16.108731739223003,
   "error": null
  },
  {
@@ -1436,7 +1436,7 @@
   "predicted": "set_reminder",
   "correct": true,
   "valid": true,
-  "latency_ms": 141.38787286356091,
+  "latency_ms": 16.83402806520462,
   "error": null
  },
  {
@@ -1448,7 +1448,7 @@
   "predicted": "deny_repeated_seepage",
   "correct": false,
   "valid": true,
-  "latency_ms": 1401.7960783094168,
+  "latency_ms": 198.05615115910769,
   "error": null
  },
  {
@@ -1460,7 +1460,7 @@
   "predicted": "vp_and_finance_director",
   "correct": false,
   "valid": true,
-  "latency_ms": 934.2337232083082,
+  "latency_ms": 136.18962606415153,
   "error": null
  },
  {
@@ -1472,7 +1472,7 @@
   "predicted": "parts_covered_labour_charged",
   "correct": true,
   "valid": true,
-  "latency_ms": 708.3033719100058,
+  "latency_ms": 128.16269788891077,
   "error": null
  },
  {
@@ -1484,7 +1484,7 @@
   "predicted": "license_required",
   "correct": true,
   "valid": true,
-  "latency_ms": 768.692531157285,
+  "latency_ms": 131.78572803735733,
   "error": null
  },
  {
@@ -1496,7 +1496,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 241.74969410523772,
+  "latency_ms": 140.53784916177392,
   "error": null
  },
  {
@@ -1508,7 +1508,7 @@
   "predicted": "no",
   "correct": false,
   "valid": true,
-  "latency_ms": 241.36180616915226,
+  "latency_ms": 144.5553251542151,
   "error": null
  },
  {
@@ -1520,7 +1520,7 @@
   "predicted": "database_oncall",
   "correct": true,
   "valid": true,
-  "latency_ms": 849.2447366006672,
+  "latency_ms": 122.37210897728801,
   "error": null
  },
  {
@@ -1532,7 +1532,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 242.4040068872273,
+  "latency_ms": 137.1792140416801,
   "error": null
  },
  {
@@ -1544,7 +1544,7 @@
   "predicted": "no",
   "correct": false,
   "valid": true,
-  "latency_ms": 158.94050523638725,
+  "latency_ms": 30.504941008985043,
   "error": null
  },
  {
@@ -1556,7 +1556,7 @@
   "predicted": "late",
   "correct": false,
   "valid": true,
-  "latency_ms": 297.2556152381003,
+  "latency_ms": 65.96239609643817,
   "error": null
  },
  {
@@ -1568,7 +1568,7 @@
   "predicted": "escalated",
   "correct": true,
   "valid": true,
-  "latency_ms": 318.44745203852654,
+  "latency_ms": 74.43546410650015,
   "error": null
  },
  {
@@ -1580,7 +1580,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 161.47602209821343,
+  "latency_ms": 28.03006488829851,
   "error": null
  },
  {
@@ -1592,7 +1592,7 @@
   "predicted": "no",
   "correct": false,
   "valid": true,
-  "latency_ms": 160.90687923133373,
+  "latency_ms": 30.935820192098618,
   "error": null
  },
  {
@@ -1604,7 +1604,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 161.59508377313614,
+  "latency_ms": 32.99505962058902,
   "error": null
  },
  {
@@ -1616,7 +1616,7 @@
   "predicted": "sep_24",
   "correct": false,
   "valid": true,
-  "latency_ms": 485.2228038944304,
+  "latency_ms": 70.83970494568348,
   "error": null
  },
  {
@@ -1625,10 +1625,10 @@
   "type": "noul",
   "family": "temporal_numeric",
   "expected": "no",
-  "predicted": "no",
-  "correct": true,
+  "predicted": "yes",
+  "correct": false,
   "valid": true,
-  "latency_ms": 166.37317137792706,
+  "latency_ms": 36.8978064507246,
   "error": null
  },
  {
@@ -1640,7 +1640,7 @@
   "predicted": "2",
   "correct": false,
   "valid": true,
-  "latency_ms": 225.42476980015635,
+  "latency_ms": 43.317771051079035,
   "error": null
  },
  {
@@ -1652,7 +1652,7 @@
   "predicted": "real_incident",
   "correct": true,
   "valid": true,
-  "latency_ms": 179.48206793516874,
+  "latency_ms": 35.192408598959446,
   "error": null
  },
  {
@@ -1664,7 +1664,7 @@
   "predicted": "within_limitation",
   "correct": false,
   "valid": true,
-  "latency_ms": 165.8560731448233,
+  "latency_ms": 32.685467042028904,
   "error": null
  },
  {
@@ -1676,7 +1676,7 @@
   "predicted": "over_limit",
   "correct": false,
   "valid": true,
-  "latency_ms": 169.2577786743641,
+  "latency_ms": 33.74764695763588,
   "error": null
  },
  {
@@ -1688,7 +1688,7 @@
   "predicted": "legitimate",
   "correct": true,
   "valid": true,
-  "latency_ms": 201.4795271679759,
+  "latency_ms": 40.3157826513052,
   "error": null
  },
  {
@@ -1700,7 +1700,7 @@
   "predicted": "ask_user_which_alex",
   "correct": true,
   "valid": true,
-  "latency_ms": 159.87489372491837,
+  "latency_ms": 31.533803790807724,
   "error": null
  },
  {
@@ -1712,7 +1712,7 @@
   "predicted": "cannot_determine",
   "correct": true,
   "valid": true,
-  "latency_ms": 160.232646856457,
+  "latency_ms": 30.36543633788824,
   "error": null
  },
  {
@@ -1724,7 +1724,7 @@
   "predicted": "cannot_determine",
   "correct": true,
   "valid": true,
-  "latency_ms": 222.84782491624355,
+  "latency_ms": 45.35589413717389,
   "error": null
  },
  {
@@ -1736,7 +1736,7 @@
   "predicted": "tier3_cfo",
   "correct": true,
   "valid": true,
-  "latency_ms": 827.600026037544,
+  "latency_ms": 151.64462197571993,
   "error": null
  },
  {
@@ -1748,7 +1748,7 @@
   "predicted": "esra",
   "correct": false,
   "valid": true,
-  "latency_ms": 995.2192259952426,
+  "latency_ms": 127.3240689188242,
   "error": null
  },
  {
@@ -1760,7 +1760,7 @@
   "predicted": "2",
   "correct": true,
   "valid": true,
-  "latency_ms": 939.2400048673153,
+  "latency_ms": 131.88544288277626,
   "error": null
  },
  {
@@ -1772,7 +1772,7 @@
   "predicted": "credit_20_percent",
   "correct": true,
   "valid": true,
-  "latency_ms": 1101.070849224925,
+  "latency_ms": 136.36888470500708,
   "error": null
  },
  {
@@ -1784,7 +1784,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 243.66143392398953,
+  "latency_ms": 135.24787267670035,
   "error": null
  },
  {
@@ -1796,7 +1796,7 @@
   "predicted": "merchant_wins",
   "correct": true,
   "valid": true,
-  "latency_ms": 466.58223308622837,
+  "latency_ms": 114.14531711488962,
   "error": null
  },
  {
@@ -1808,7 +1808,7 @@
   "predicted": "upstream_provider",
   "correct": true,
   "valid": true,
-  "latency_ms": 169.0726331435144,
+  "latency_ms": 36.83474566787481,
   "error": null
  },
  {
@@ -1820,7 +1820,7 @@
   "predicted": "no",
   "correct": false,
   "valid": true,
-  "latency_ms": 161.85526130720973,
+  "latency_ms": 68.01819521933794,
   "error": null
  },
  {
@@ -1832,7 +1832,7 @@
   "predicted": "attended",
   "correct": true,
   "valid": true,
-  "latency_ms": 190.46150194481015,
+  "latency_ms": 38.83841121569276,
   "error": null
  },
  {
@@ -1844,7 +1844,7 @@
   "predicted": "upheld",
   "correct": true,
   "valid": true,
-  "latency_ms": 277.5619109161198,
+  "latency_ms": 61.1689961515367,
   "error": null
  },
  {
@@ -1856,7 +1856,7 @@
   "predicted": "escalate_to_engineering",
   "correct": true,
   "valid": true,
-  "latency_ms": 333.3221501670778,
+  "latency_ms": 60.26231497526169,
   "error": null
  },
  {
@@ -1868,7 +1868,7 @@
   "predicted": "order_b",
   "correct": true,
   "valid": true,
-  "latency_ms": 263.8699049130082,
+  "latency_ms": 55.403932929039,
   "error": null
  },
  {
@@ -1880,7 +1880,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 159.32941902428865,
+  "latency_ms": 44.228175189346075,
   "error": null
  },
  {
@@ -1892,7 +1892,7 @@
   "predicted": "p0_fix_24h",
   "correct": true,
   "valid": true,
-  "latency_ms": 295.8815242163837,
+  "latency_ms": 51.82586424052715,
   "error": null
  },
  {
@@ -1904,7 +1904,7 @@
   "predicted": "no",
   "correct": false,
   "valid": true,
-  "latency_ms": 155.6818038225174,
+  "latency_ms": 38.30176033079624,
   "error": null
  },
  {
@@ -1916,7 +1916,7 @@
   "predicted": "refund_now",
   "correct": true,
   "valid": true,
-  "latency_ms": 249.3842402473092,
+  "latency_ms": 46.64161382243037,
   "error": null
  },
  {
@@ -1928,7 +1928,7 @@
   "predicted": "erase_but_retain_transaction_records",
   "correct": true,
   "valid": true,
-  "latency_ms": 1292.9277368821204,
+  "latency_ms": 181.79047899320722,
   "error": null
  },
  {
@@ -1937,10 +1937,10 @@
   "type": "choice",
   "family": "long_policy",
   "expected": "eur_400",
-  "predicted": "eur_600",
+  "predicted": "eur_300",
   "correct": false,
   "valid": true,
-  "latency_ms": 1489.0164411626756,
+  "latency_ms": 186.46810902282596,
   "error": null
  },
  {
@@ -1952,7 +1952,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 299.41894207149744,
+  "latency_ms": 198.50955298170447,
   "error": null
  },
  {
@@ -1964,7 +1964,7 @@
   "predicted": "2",
   "correct": false,
   "valid": true,
-  "latency_ms": 957.402145024389,
+  "latency_ms": 168.35038689896464,
   "error": null
  },
  {
@@ -1976,7 +1976,7 @@
   "predicted": "2",
   "correct": false,
   "valid": true,
-  "latency_ms": 965.84452688694,
+  "latency_ms": 168.01008628681302,
   "error": null
  },
  {
@@ -1988,7 +1988,7 @@
   "predicted": "credit_minus_restocking_fee",
   "correct": true,
   "valid": true,
-  "latency_ms": 1073.0843809433281,
+  "latency_ms": 184.16088121011853,
   "error": null
  },
  {
@@ -2000,7 +2000,7 @@
   "predicted": "yes",
   "correct": false,
   "valid": true,
-  "latency_ms": 307.9543481580913,
+  "latency_ms": 207.84726506099105,
   "error": null
  },
  {
@@ -2012,7 +2012,7 @@
   "predicted": "kuznets_technik",
   "correct": true,
   "valid": true,
-  "latency_ms": 174.38980797305703,
+  "latency_ms": 39.39426876604557,
   "error": null
  },
  {
@@ -2024,7 +2024,7 @@
   "predicted": "no",
   "correct": false,
   "valid": true,
-  "latency_ms": 155.12572322040796,
+  "latency_ms": 54.85743470489979,
   "error": null
  },
  {
@@ -2036,7 +2036,7 @@
   "predicted": "eur_693_90",
   "correct": false,
   "valid": true,
-  "latency_ms": 331.47841319441795,
+  "latency_ms": 62.803625129163265,
   "error": null
  },
  {
@@ -2048,7 +2048,7 @@
   "predicted": "usd_2303_33",
   "correct": false,
   "valid": true,
-  "latency_ms": 289.73675332963467,
+  "latency_ms": 53.70820267125964,
   "error": null
  },
  {
@@ -2060,7 +2060,7 @@
   "predicted": "none_declined",
   "correct": false,
   "valid": true,
-  "latency_ms": 417.4849330447614,
+  "latency_ms": 66.13483186811209,
   "error": null
  },
  {
@@ -2072,7 +2072,7 @@
   "predicted": "eur_498_81",
   "correct": true,
   "valid": true,
-  "latency_ms": 364.1143939457834,
+  "latency_ms": 70.68548398092389,
   "error": null
  },
  {
@@ -2084,7 +2084,7 @@
   "predicted": "expired_24_month_term",
   "correct": false,
   "valid": true,
-  "latency_ms": 239.0038683079183,
+  "latency_ms": 50.085920840501785,
   "error": null
  },
  {
@@ -2096,7 +2096,7 @@
   "predicted": "deny_missing_approval",
   "correct": true,
   "valid": true,
-  "latency_ms": 158.83280290290713,
+  "latency_ms": 26.548430789262056,
   "error": null
  },
  {
@@ -2108,7 +2108,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 151.70350903645158,
+  "latency_ms": 19.362709019333124,
   "error": null
  },
  {
@@ -2120,7 +2120,7 @@
   "predicted": "retain_until_2031",
   "correct": true,
   "valid": true,
-  "latency_ms": 155.8297029696405,
+  "latency_ms": 25.4204161465168,
   "error": null
  },
  {
@@ -2132,7 +2132,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 152.78035309165716,
+  "latency_ms": 18.070437014102936,
   "error": null
  },
  {
@@ -2144,7 +2144,7 @@
   "predicted": "2",
   "correct": true,
   "valid": true,
-  "latency_ms": 154.85298400744796,
+  "latency_ms": 22.07959769293666,
   "error": null
  },
  {
@@ -2156,7 +2156,7 @@
   "predicted": "standard_research",
   "correct": true,
   "valid": true,
-  "latency_ms": 156.22506197541952,
+  "latency_ms": 24.586596991866827,
   "error": null
  },
  {
@@ -2168,7 +2168,7 @@
   "predicted": "accept_s2_dusk",
   "correct": true,
   "valid": true,
-  "latency_ms": 704.123955219984,
+  "latency_ms": 119.63020265102386,
   "error": null
  },
  {
@@ -2180,7 +2180,7 @@
   "predicted": "security_primary",
   "correct": true,
   "valid": true,
-  "latency_ms": 703.7093448452652,
+  "latency_ms": 124.12326410412788,
   "error": null
  },
  {
@@ -2192,7 +2192,7 @@
   "predicted": "require_director",
   "correct": true,
   "valid": true,
-  "latency_ms": 677.1223079413176,
+  "latency_ms": 122.45117500424385,
   "error": null
  },
  {
@@ -2204,7 +2204,7 @@
   "predicted": "admit",
   "correct": true,
   "valid": true,
-  "latency_ms": 679.1881918907166,
+  "latency_ms": 123.95786307752132,
   "error": null
  },
  {
@@ -2216,7 +2216,7 @@
   "predicted": "central_engineering",
   "correct": true,
   "valid": true,
-  "latency_ms": 679.548867046833,
+  "latency_ms": 121.15212995558977,
   "error": null
  },
  {
@@ -2228,7 +2228,7 @@
   "predicted": "reject_capacity",
   "correct": false,
   "valid": true,
-  "latency_ms": 678.5918087698519,
+  "latency_ms": 123.256865888834,
   "error": null
  },
  {
@@ -2240,7 +2240,7 @@
   "predicted": "approve_45_days",
   "correct": true,
   "valid": true,
-  "latency_ms": 690.0131632573903,
+  "latency_ms": 119.46449615061283,
   "error": null
  },
  {
@@ -2252,7 +2252,7 @@
   "predicted": "needs_authentication",
   "correct": true,
   "valid": true,
-  "latency_ms": 680.8507991954684,
+  "latency_ms": 120.22090377286077,
   "error": null
  },
  {
@@ -2264,7 +2264,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 153.36852986365557,
+  "latency_ms": 23.655193392187357,
   "error": null
  },
  {
@@ -2276,7 +2276,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 152.05938694998622,
+  "latency_ms": 18.820140976458788,
   "error": null
  },
  {
@@ -2288,7 +2288,7 @@
   "predicted": "0",
   "correct": true,
   "valid": true,
-  "latency_ms": 165.72422767058015,
+  "latency_ms": 29.641178902238607,
   "error": null
  },
  {
@@ -2300,7 +2300,7 @@
   "predicted": "keep_open_unresolved",
   "correct": true,
   "valid": true,
-  "latency_ms": 158.0713870935142,
+  "latency_ms": 28.774913866072893,
   "error": null
  },
  {
@@ -2312,7 +2312,7 @@
   "predicted": "late",
   "correct": true,
   "valid": true,
-  "latency_ms": 158.27319771051407,
+  "latency_ms": 24.253665003925562,
   "error": null
  },
  {
@@ -2324,7 +2324,7 @@
   "predicted": "blocked_second_review",
   "correct": true,
   "valid": true,
-  "latency_ms": 158.18940894678235,
+  "latency_ms": 21.283789072185755,
   "error": null
  },
  {
@@ -2336,7 +2336,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 152.54556480795145,
+  "latency_ms": 17.856013029813766,
   "error": null
  },
  {
@@ -2348,7 +2348,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 156.45355870947242,
+  "latency_ms": 21.51921298354864,
   "error": null
  },
  {
@@ -2360,7 +2360,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.06577083840966,
+  "latency_ms": 20.376607310026884,
   "error": null
  },
  {
@@ -2372,7 +2372,7 @@
   "predicted": "yes",
   "correct": false,
   "valid": true,
-  "latency_ms": 154.04953388497233,
+  "latency_ms": 17.44181616231799,
   "error": null
  },
  {
@@ -2384,7 +2384,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 152.63057919219136,
+  "latency_ms": 18.909339793026447,
   "error": null
  },
  {
@@ -2396,7 +2396,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.4186799712479,
+  "latency_ms": 17.906168941408396,
   "error": null
  },
  {
@@ -2408,7 +2408,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 153.78510486334562,
+  "latency_ms": 27.502113953232765,
   "error": null
  },
  {
@@ -2420,7 +2420,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 151.19664277881384,
+  "latency_ms": 18.53162096813321,
   "error": null
  },
  {
@@ -2432,7 +2432,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.48298705369234,
+  "latency_ms": 17.473785672336817,
   "error": null
  },
  {
@@ -2444,7 +2444,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 151.55984880402684,
+  "latency_ms": 16.44890196621418,
   "error": null
  },
  {
@@ -2456,7 +2456,7 @@
   "predicted": "reject_entire_claim",
   "correct": true,
   "valid": true,
-  "latency_ms": 802.3264440707862,
+  "latency_ms": 138.34523921832442,
   "error": null
  },
  {
@@ -2468,7 +2468,7 @@
   "predicted": "deny_current_export",
   "correct": true,
   "valid": true,
-  "latency_ms": 757.482951041311,
+  "latency_ms": 134.1979200951755,
   "error": null
  },
  {
@@ -2480,7 +2480,7 @@
   "predicted": "delete_profile_omar_april_and_table",
   "correct": true,
   "valid": true,
-  "latency_ms": 748.481860384345,
+  "latency_ms": 131.75876112654805,
   "error": null
  },
  {
@@ -2492,7 +2492,7 @@
   "predicted": "river_arts",
   "correct": false,
   "valid": true,
-  "latency_ms": 769.6100487373769,
+  "latency_ms": 135.15163399279118,
   "error": null
  },
  {
@@ -2504,7 +2504,7 @@
   "predicted": "office_file_repair",
   "correct": true,
   "valid": true,
-  "latency_ms": 165.15137907117605,
+  "latency_ms": 28.473213780671358,
   "error": null
  },
  {
@@ -2516,7 +2516,7 @@
   "predicted": "ledger_reconciliation",
   "correct": true,
   "valid": true,
-  "latency_ms": 158.84336782619357,
+  "latency_ms": 27.271118946373463,
   "error": null
  },
  {
@@ -2528,7 +2528,7 @@
   "predicted": "network_dns",
   "correct": true,
   "valid": true,
-  "latency_ms": 155.37147875875235,
+  "latency_ms": 26.482511777430773,
   "error": null
  },
  {
@@ -2540,7 +2540,7 @@
   "predicted": "release_notarization",
   "correct": true,
   "valid": true,
-  "latency_ms": 157.56796766072512,
+  "latency_ms": 25.38982080295682,
   "error": null
  },
  {
@@ -2552,7 +2552,7 @@
   "predicted": "source_access",
   "correct": true,
   "valid": true,
-  "latency_ms": 155.7181291282177,
+  "latency_ms": 25.801392272114754,
   "error": null
  },
  {
@@ -2564,7 +2564,7 @@
   "predicted": "within_window",
   "correct": false,
   "valid": true,
-  "latency_ms": 152.84194611012936,
+  "latency_ms": 24.63519899174571,
   "error": null
  },
  {
@@ -2576,7 +2576,7 @@
   "predicted": "at_least_100gb_below",
   "correct": false,
   "valid": true,
-  "latency_ms": 148.41795479878783,
+  "latency_ms": 24.701799266040325,
   "error": null
  },
  {
@@ -2588,7 +2588,7 @@
   "predicted": "15_credits",
   "correct": false,
   "valid": true,
-  "latency_ms": 150.0136572867632,
+  "latency_ms": 23.218826856464148,
   "error": null
  },
  {
@@ -2600,7 +2600,7 @@
   "predicted": "clear_fail",
   "correct": false,
   "valid": true,
-  "latency_ms": 155.8022340759635,
+  "latency_ms": 20.517006050795317,
   "error": null
  },
  {
@@ -2612,7 +2612,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 155.20620811730623,
+  "latency_ms": 26.213531848043203,
   "error": null
  },
  {
@@ -2624,7 +2624,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 148.68363877758384,
+  "latency_ms": 23.195662070065737,
   "error": null
  },
  {
@@ -2636,7 +2636,7 @@
   "predicted": "yes",
   "correct": false,
   "valid": true,
-  "latency_ms": 148.4097009524703,
+  "latency_ms": 22.732616867870092,
   "error": null
  },
  {
@@ -2648,7 +2648,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 151.8983356654644,
+  "latency_ms": 20.888856146484613,
   "error": null
  },
  {
@@ -2660,7 +2660,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 150.8960030041635,
+  "latency_ms": 23.397323209792376,
   "error": null
  },
  {
@@ -2672,7 +2672,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 153.7515101954341,
+  "latency_ms": 24.42884398624301,
   "error": null
  },
  {
@@ -2684,7 +2684,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 146.32848277688026,
+  "latency_ms": 23.465820122510195,
   "error": null
  },
  {
@@ -2696,7 +2696,7 @@
   "predicted": "no",
   "correct": true,
   "valid": true,
-  "latency_ms": 151.3819769024849,
+  "latency_ms": 23.124810308218002,
   "error": null
  },
  {
@@ -2708,7 +2708,7 @@
   "predicted": "yes",
   "correct": true,
   "valid": true,
-  "latency_ms": 145.52160119637847,
+  "latency_ms": 21.462499164044857,
   "error": null
  },
  {
@@ -2720,7 +2720,7 @@
   "predicted": "programme_review",
   "correct": true,
   "valid": true,
-  "latency_ms": 714.2177619971335,
+  "latency_ms": 125.76720071956515,
   "error": null
  },
  {
@@ -2732,7 +2732,7 @@
   "predicted": "bus_substitution",
   "correct": true,
   "valid": true,
-  "latency_ms": 750.742370262742,
+  "latency_ms": 131.9517749361694,
   "error": null
  },
  {
@@ -2744,7 +2744,7 @@
   "predicted": "coverage_excluded",
   "correct": true,
   "valid": true,
-  "latency_ms": 789.5668838173151,
+  "latency_ms": 133.24962835758924,
   "error": null
  },
  {
@@ -2756,7 +2756,7 @@
   "predicted": "conservation_hold",
   "correct": true,
   "valid": true,
-  "latency_ms": 202.67189107835293,
+  "latency_ms": 44.60416501387954,
   "error": null
  },
  {
@@ -2768,7 +2768,7 @@
   "predicted": "normal_release",
   "correct": true,
   "valid": true,
-  "latency_ms": 730.3926371969283,
+  "latency_ms": 130.24788023903966,
   "error": null
  }
 ]

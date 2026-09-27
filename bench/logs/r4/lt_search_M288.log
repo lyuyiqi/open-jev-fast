@@ -1,0 +1,47 @@
+SHAPE gate_up K=5120 N=34816 today (S=1) 78.5 us  weights 4.54 TB/s
+  plan S=1 f32=0 wl=0: 636 candidates, 636 valid
+  BEST   78.5 us (4.54 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   85.9 us (4.15 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   86.7 us (4.11 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   93.2 us (3.82 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   96.7 us (3.69 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST  102.7 us (3.47 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+SHAPE lin_in K=5120 N=16480 today (S=1) 37.8 us  weights 4.47 TB/s
+  plan S=1 f32=0 wl=0: 953 candidates, 953 valid
+  BEST   37.8 us (4.47 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   39.7 us (4.25 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   43.5 us (3.88 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   45.7 us (3.69 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   48.6 us (3.47 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   52.7 us (3.20 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+SHAPE full_in K=5120 N=14336 today (S=1) 34.7 us  weights 4.23 TB/s
+  plan S=1 f32=0 wl=0: 1109 candidates, 1109 valid
+  BEST   34.8 us (4.22 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   40.1 us (3.66 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   44.3 us (3.31 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   46.8 us (3.14 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   53.6 us (2.74 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   55.7 us (2.64 TB/s) S=1 f32=0 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+SHAPE lin_out K=6144 N=5120 today (S=2) 16.5 us  weights 3.81 TB/s
+  plan S=2 f32=1 wl=1: 90 candidates, 90 valid
+  plan S=1 f32=1 wl=0: 1260 candidates, 1260 valid
+  plan S=3 f32=1 wl=1: 90 candidates, 90 valid
+  plan S=4 f32=1 wl=1: 87 candidates, 87 valid
+  BEST   14.9 us (4.23 TB/s) S=3 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   15.9 us (3.97 TB/s) S=3 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   16.3 us (3.86 TB/s) S=2 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   17.2 us (3.65 TB/s) S=4 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   17.4 us (3.61 TB/s) S=3 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   18.5 us (3.39 TB/s) S=1 f32=1 wl=0 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+SHAPE down K=17408 N=5120 today (S=4) 48.2 us  weights 3.70 TB/s
+  plan S=4 f32=1 wl=1: 90 candidates, 90 valid
+  plan S=2 f32=1 wl=1: 90 candidates, 90 valid
+  plan S=1 f32=1 wl=0: 1257 candidates, 1257 valid
+  plan S=8 f32=1 wl=1: 90 candidates, 90 valid
+  BEST   42.7 us (4.17 TB/s) S=2 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   48.8 us (3.66 TB/s) S=8 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   52.0 us (3.43 TB/s) S=8 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   56.0 us (3.18 TB/s) S=8 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   56.2 us (3.17 TB/s) S=8 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+  BEST   57.4 us (3.11 TB/s) S=4 f32=1 wl=1 cfg(id,tile,stages,splitk,red,swz,custom,cluster)=[0, 0, 0, 0, 0, 0, 0, 0]
+=== LT SEARCH DONE ===

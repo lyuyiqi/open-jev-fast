@@ -1,0 +1,7 @@
+SHAPE gate_up  K= 5120 N=34816  torch   78.1  cuBLASLt-best   78.3  DeepGEMM   79.1 us (1.30 PF)  max|diff| vs torch 0.00e+00
+SHAPE lin_in   K= 5120 N=16480  torch   41.4  cuBLASLt-best   45.3  DeepGEMM   39.0 us (1.25 PF)  max|diff| vs torch 0.00e+00
+SHAPE full_in  K= 5120 N=14336  torch   36.7  cuBLASLt-best   41.5  DeepGEMM   36.7 us (1.15 PF)  max|diff| vs torch 0.00e+00
+SHAPE lin_out  K= 6144 N= 5120  torch   18.0  cuBLASLt-best   18.3  DeepGEMM   17.3 us (1.04 PF)  max|diff| vs torch 0.00e+00
+SHAPE full_out K= 6144 N= 5120  torch   17.3  cuBLASLt-best   17.5  DeepGEMM   17.3 us (1.05 PF)  max|diff| vs torch 0.00e+00
+SHAPE down     K=17408 N= 5120  torch   52.3  cuBLASLt-best   53.6  DeepGEMM   52.4 us (0.98 PF)  max|diff| vs torch 0.00e+00
+TOTAL per forward (ms): torch 12.06  lt 12.44  dg 11.99

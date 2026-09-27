@@ -28,7 +28,7 @@ def _load(cls, *a, **k):
     print(f"GRAPH SERVER v3 ready (row bucket {NB}, path bucket {PB}, graphs={USE_GRAPH})", flush=True)
     return m
 jm.DecisionModel.load = classmethod(_load)
-LAYF = ("pos", "amask", "rowmask", "src", "inv", "lastidx")
+LAYF = ("pos", "amask", "rowmask", "src", "inv", "lastidx", "rep_ptr", "rep_pos", "hist", "amask_add", "canon", "vbits")
 class Entry:
     def __init__(self, mdl, ids, lay):
         f = mdl._fast
@@ -69,15 +69,28 @@ class EntryState:
         self.g.replay()
         return self.out
 ceil_ = lambda x, b: ((x + b - 1) // b) * b
+_TPL = {}
+def _prompt_ids(tok, prompts):
+    # chat template = fixed prefix + prompt + fixed suffix (one user message, generation prompt, thinking off): cached once,
+    # then one batched call to the Rust tokenizer. Identical ids to apply_chat_template + tokenizer per prompt on every
+    # JevBench request and the example (bench/tok_check.py); ~2x less host time.
+    tp = _TPL.get(id(tok))
+    if tp is None:
+        m = "\x00OJ\x00"
+        t = tok.apply_chat_template([{"role": "user", "content": m}], tokenize=False, add_generation_prompt=True, enable_thinking=False)
+        tp = _TPL[id(tok)] = tuple(t.split(m)) if t.count(m) == 1 else ()
+    if not tp:
+        return [tok(tok.apply_chat_template([{"role": "user", "content": p}], tokenize=False, add_generation_prompt=True,
+                                            enable_thinking=False))["input_ids"] for p in prompts]
+    return [e.ids for e in tok.backend_tokenizer.encode_batch([tp[0] + p + tp[1] for p in prompts], add_special_tokens=True)]
 def _forward(self, records):
     t_start = time.perf_counter()
     tok = self.tokenizer; f = self._fast
     seqs, groups, counts = [], [], []
+    prompts = []
     for ri, r in enumerate(records):
-        e = candidate_prompts(r); counts.append(len(e))
-        for p in e:
-            seqs.append(tok(tok.apply_chat_template([{"role": "user", "content": p}], tokenize=False, add_generation_prompt=True,
-                                                    enable_thinking=False))["input_ids"]); groups.append(ri)
+        e = candidate_prompts(r); counts.append(len(e)); prompts += e; groups += [ri] * len(e)
+    seqs = _prompt_ids(tok, prompts)
     self.last_input_tokens = sum(map(len, seqs))
     t_tok = time.perf_counter()
     dev = torch.device("cuda")

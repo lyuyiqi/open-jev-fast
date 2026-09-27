@@ -73,7 +73,7 @@ with torch.inference_mode():
             return seqs, groups
         seqs, groups = prep(records)
         ids0, lay = FastQwen35.gtree_build(seqs, groups, tok.pad_token_id)
-        LAYF = ("pos", "amask", "rowmask", "src", "inv", "lastidx")
+        LAYF = ("pos", "amask", "rowmask", "src", "inv", "lastidx", "rep_ptr", "rep_pos", "hist", "amask_add", "canon", "vbits")
         s_ids = ids0.clone()
         body = lambda: model.head(fast.forward_gtree(s_ids, lay).float()).squeeze(-1)
         st = torch.cuda.Stream(); st.wait_stream(torch.cuda.current_stream())

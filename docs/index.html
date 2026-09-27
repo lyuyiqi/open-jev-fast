@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenJev-Fast: 5× Faster Open-Jev-27B Inference with Specialized CUDA Kernels</title>
-  <meta name="description" content="A faster inference backend for Open-Jev-27B: 257.0 → 20.1 ms per request, running locally on one NVIDIA B300, bf16.">
-  <meta property="og:title" content="OpenJev-Fast: 5× Faster Open-Jev-27B Inference with Specialized CUDA Kernels">
+  <title>OpenJev-Fast: 6× Faster Open-Jev-27B Inference with Specialized CUDA Kernels</title>
+  <meta name="description" content="A faster inference backend for Open-Jev-27B: 256.0 → 17.3 ms per request, running locally on one NVIDIA B300, bf16.">
+  <meta property="og:title" content="OpenJev-Fast: 6× Faster Open-Jev-27B Inference with Specialized CUDA Kernels">
   <meta property="og:description" content="Hand-written fused CUDA kernels, a two-level prefix tree and CUDA Graphs for Open-Jev-27B. Runs locally, bf16.">
   <meta property="og:type" content="article">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
   <div class="hero-body">
     <div class="container is-max-desktop has-text-centered">
       <h1 class="title is-1 publication-title">OpenJev-Fast</h1>
-      <h2 class="subtitle publication-subtitle">5× Faster Open&#8209;Jev&#8209;27B Inference with Specialized CUDA Kernels</h2>
+      <h2 class="subtitle publication-subtitle">6× Faster Open&#8209;Jev&#8209;27B Inference with Specialized CUDA Kernels</h2>
       <p class="tagline">Fused CUDA kernels, shared-prefix execution, tuned GEMMs, and CUDA Graphs on a single NVIDIA B300.</p>
       <div class="is-size-5 publication-authors">Yiqi Lyu</div>
       <div class="is-size-6 publication-authors"><span class="aff">Northwestern University</span></div>
@@ -85,9 +85,12 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="figure-card">
-      <img src="ladder.svg?v=a9d0702" alt="Latency of one inference as optimizations are added">
+      <video autoplay muted loop playsinline poster="race_final.png?v=r4" style="width:100%;height:auto;display:block;border-radius:8px">
+        <source src="race.webm?v=r4" type="video/webm">
+        <source src="race.mp4?v=r4" type="video/mp4">
+      </video>
     </div>
-    <p class="caption">Example request: 3 questions, 7 candidates, 539 tokens. Median latency of the forward pass plus scoring head.</p>
+    <p class="caption">The same request on the same GPU, measured latencies replayed 40× slower.</p>
   </div>
 </section>
 
@@ -96,9 +99,9 @@
     <h2 class="title is-3 has-text-centered">TL;DR</h2>
     <p class="lead has-text-centered">An inference backend for <a href="https://github.com/Zefan-Cai/Open-Jev">Open-Jev</a><sup><a href="#refs">[1]</a></sup>. It runs locally, keeps the model and the request format of Open-Jev's local server, and replaces the forward pass with fused CUDA kernels, a prefix tree that computes shared prompt text once, and CUDA Graphs.</p>
     <div class="columns is-multiline mt-5">
-      <div class="column is-3"><div class="stat"><div class="num">12.8×</div><div class="from">257.0 → 20.1 ms</div><div class="what">vs. default PyTorch path</div></div></div>
-      <div class="column is-3"><div class="stat"><div class="num">5.1×</div><div class="from">102.9 → 20.1 ms</div><div class="what">vs. PyTorch + FLA kernels</div></div></div>
-      <div class="column is-3"><div class="stat"><div class="num">13.7×</div><div class="from">703 → 51 ms</div><div class="what">JevBench mean latency, HTTP</div></div></div>
+      <div class="column is-3"><div class="stat"><div class="num">14.8×</div><div class="from">256.0 → 17.3 ms</div><div class="what">vs. default PyTorch path</div></div></div>
+      <div class="column is-3"><div class="stat"><div class="num">6.0×</div><div class="from">103.7 → 17.3 ms</div><div class="what">vs. PyTorch + FLA kernels</div></div></div>
+      <div class="column is-3"><div class="stat"><div class="num">6.1×</div><div class="from">258 → 42 ms</div><div class="what">JevBench mean latency, HTTP</div></div></div>
       <div class="column is-3"><div class="stat"><div class="num">197 / 231</div><div class="from">original: 198 / 231</div><div class="what">JevBench accuracy; one near-tie prediction changed</div></div></div>
     </div>
   </div>
@@ -106,48 +109,59 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">How it works</h2>
-    <div class="columns">
-      <div class="column"><div class="step"><span class="k">1</span><h4>Fused CUDA kernels</h4><p>Six hand-written kernels replace every non-matmul op in a layer. Kernels per request drop from ~5000 to 945, and the CPU launch bottleneck goes away.</p></div></div>
-      <div class="column"><div class="step"><span class="k">2</span><h4>Two-level prefix tree</h4><p>The shared context is computed once, each question once, and each candidate only its tail, all in one packed forward pass.</p></div></div>
-      <div class="column"><div class="step"><span class="k">3</span><h4>Tuned GEMMs + CUDA Graphs</h4><p>Merged weights, split-K with fp32 partial sums, per-shape cuBLASLt algorithms, and one CUDA Graph per request shape.</p></div></div>
+    <h2 class="title is-3 has-text-centered">Step by step</h2>
+    <div class="figure-card">
+      <img src="ladder.svg?v=r4" alt="Latency of one inference as optimizations are added">
     </div>
-    <div class="figure-card mt-5">
-      <img src="prefix_tree.svg?v=a9d0702" alt="Two-level prefix tree for the example request">
-    </div>
-    <p class="caption">Prefix tree for the example request. Linear-attention layers still run each candidate over its full path, so results match the original; full-attention layers use an ancestor mask.</p>
+    <p class="caption">Example request: 3 questions, 7 candidates, 539 tokens. Median latency of the forward pass plus scoring head.</p>
   </div>
 </section>
 
 <section class="section hero is-light">
   <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">How it works</h2>
+    <div class="columns is-multiline">
+      <div class="column is-6"><div class="step"><span class="k">1</span><h4>Fused CUDA kernels</h4><p>Hand-written kernels replace every non-matmul op in a layer. Kernels per request drop from ~5000 to 642, and the CPU launch bottleneck goes away.</p></div></div>
+      <div class="column is-6"><div class="step"><span class="k">2</span><h4>Two-level prefix tree</h4><p>The shared context is computed once, each question once, and each candidate only its tail, all in one packed forward pass.</p></div></div>
+      <div class="column is-6"><div class="step"><span class="k">3</span><h4>Gated DeltaNet and attention kernels</h4><p>The linear-attention recurrence and the tree-masked attention run in our own kernels (<code>mma.sync</code>, <code>ldmatrix</code>, <code>cp.async</code> in inline PTX): 74 → 36.5 µs and 21.4 → 12.7 µs per layer.</p></div></div>
+      <div class="column is-6"><div class="step"><span class="k">4</span><h4>Tuned GEMMs + CUDA Graphs</h4><p>Merged weights, split-K with fp32 partial sums, per-shape cuBLASLt algorithms, and one CUDA Graph per request shape.</p></div></div>
+    </div>
+    <div class="figure-card mt-5">
+      <img src="prefix_tree.svg?v=r4" alt="Two-level prefix tree for the example request">
+    </div>
+    <p class="caption">Prefix tree for the example request. Linear-attention layers still run each candidate over its full path, so results match the original; full-attention layers use an ancestor mask.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">JevBench</h2>
     <div class="figure-card">
-      <img src="jevbench_cdf.svg?v=a9d0702" alt="Per-task latency distribution on JevBench">
+      <img src="jevbench_cdf.svg?v=r4" alt="Per-task latency distribution on JevBench">
     </div>
-    <p class="caption">Cumulative share of the 231 public JevBench<sup><a href="#refs">[11]</a></sup> tasks finished within a given latency, sent over HTTP to the local server, one request at a time.</p>
+    <p class="caption">Cumulative share of the 231 public JevBench<sup><a href="#refs">[11]</a></sup> tasks finished within a given latency, sent over HTTP to the local server, one request at a time, from the same machine. Both servers warmed up (second pass).</p>
     <div class="table-container mt-5">
       <table class="table res is-fullwidth">
         <thead><tr><th></th><th>Original jev.server (with FLA)</th><th class="hl">open-jev-fast</th></tr></thead>
         <tbody>
           <tr><td>Accuracy</td><td>198 / 231</td><td class="hl">197 / 231</td></tr>
-          <tr><td>Mean latency</td><td>703 ms</td><td class="hl">51.3 ms</td></tr>
-          <tr><td>P50 / P95</td><td>171 / 1272 ms</td><td class="hl">24.2 / 148 ms</td></tr>
-          <tr><td>Slowest task</td><td>16.0 s</td><td class="hl">0.58 s</td></tr>
+          <tr><td>Mean latency</td><td>258 ms</td><td class="hl">42.0 ms</td></tr>
+          <tr><td>P50 / P95</td><td>150 / 802 ms</td><td class="hl">17.4 / 137 ms</td></tr>
+          <tr><td>Slowest task</td><td>1.5 s</td><td class="hl">0.21 s</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns">
       <div class="column">
         <h2 class="title is-4">Correctness</h2>
         <ul class="tight">
-          <li>98–100% of kernel output elements are bit-identical to the PyTorch/FLA reference.</li>
-          <li>Probabilities differ from the original (with FLA) by at most 0.0034 on the example request and 0.035 on a 10,722-token request; decisions are unchanged.</li>
+          <li>98–100% of the element-wise kernels' outputs are bit-identical to the PyTorch/FLA reference; the Gated DeltaNet and attention kernels match FLA and cuDNN within bf16 rounding (relative L2 about 10⁻³).</li>
+          <li>On the example request, probabilities differ from the original by at most 0.0082 (the two original paths, with and without FLA, differ by 0.0087 from each other); on a 10,722-token request by 0.019. Decisions are unchanged.</li>
           <li>On JevBench, accuracy changes by one task: one near-tie prediction changed (original: 0.504 vs 0.496).</li>
         </ul>
       </div>
@@ -155,7 +169,7 @@
         <h2 class="title is-4">Setup and limits</h2>
         <ul class="tight">
           <li>Latency is the forward pass plus scoring head for the example request, with prompts tokenized beforehand. All three numbers use the same script: median of 30 runs after 5 warm-ups.</li>
-          <li>Tested only on an NVIDIA B300. Needs about 96 GiB of GPU memory.</li>
+          <li>Tested only on an NVIDIA B300. Needs about 98 GiB of GPU memory.</li>
           <li>bf16 only; one request at a time; a new request shape adds 1–3 s once, for graph capture.</li>
         </ul>
       </div>
@@ -164,7 +178,7 @@
   </div>
 </section>
 
-<section class="section hero is-light" id="refs">
+<section class="section" id="refs">
   <div class="container is-max-desktop">
     <details class="refs">
       <summary>References</summary>
@@ -185,6 +199,9 @@
         <li>X. Miao et al. <i>SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification.</i> ASPLOS 2024. <a href="https://arxiv.org/abs/2305.09781">arXiv:2305.09781</a>.</li>
         <li>T. Cai et al. <i>Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads.</i> ICML 2024. <a href="https://arxiv.org/abs/2401.10774">arXiv:2401.10774</a>.</li>
         <li>NVIDIA. <i>cuBLAS/cuBLASLt</i> (<a href="https://docs.nvidia.com/cuda/cublas/">docs</a>); <i>CUTLASS</i> (<a href="https://github.com/NVIDIA/cutlass">github.com/NVIDIA/cutlass</a>).</li>
+        <li>T. Dao. <i>FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning.</i> ICLR 2024. <a href="https://arxiv.org/abs/2307.08691">arXiv:2307.08691</a>.</li>
+        <li>NVIDIA. <i>Parallel Thread Execution ISA.</i> <a href="https://docs.nvidia.com/cuda/parallel-thread-execution/">docs.nvidia.com/cuda/parallel-thread-execution</a>.</li>
+        <li>NVIDIA. <i>KDA: Kernel Development Agent.</i> <a href="https://github.com/NVlabs/kda">github.com/NVlabs/kda</a>.</li>
       </ol>
     </details>
   </div>

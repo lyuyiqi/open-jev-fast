@@ -1,0 +1,28 @@
+# tests/test_r4_gdn.py and bench/gdn_len.py, job 124522 (workers-33, 1x B300), 2026-09-27.
+# Real layer-0..2 inputs of the example request (7 paths x 96 slots, 48 value heads). GPU time per call from CUDA Graph replay.
+# Recorded from the terminal output of the runs.
+GDN3 layer 0: v3 vs FLA max|diff| 3.125e-02 rel-L2 1.995e-03 bitexact 90.2%  fused3 65.3 us
+GDN layer 0: (FLA chunk_gated_delta_rule reference) FLA 73.4 us
+GDN3 layer 1: v3 vs FLA max|diff| 1.221e-04 rel-L2 1.090e-03 bitexact 93.8%  fused3 65.0 us
+GDN3 layer 2: v3 vs FLA max|diff| 1.221e-04 rel-L2 1.371e-03 bitexact 94.3%  fused3 65.3 us
+GDN4 layer 0..2: v4 == v3 True  fused4 62.5 us
+GDN5 layer 0: v5 (gated RMSNorm fused) vs v3+norm max|diff| 4.883e-04 rel-L2 6.734e-06  v4+norm 67.6 us  v5 71.9 us   (rejected)
+GDN6 layer 0: v6 == v4 True (max|diff| 0.000e+00)  fused6 36.5 us  fused4 60.6 us
+GDN6 layer 1: v6 == v4 True (max|diff| 0.000e+00)  fused6 36.5 us  fused4 60.7 us
+GDN6 layer 2: v6 == v4 True (max|diff| 0.000e+00)  fused6 36.5 us  fused4 60.6 us
+MODEL probs v3 vs fla: max diff 1.656e-03  argmax same True
+MODEL probs v4 vs v3: max diff 0.000e+00  argmax same True
+MODEL probs v6 vs v4: max diff 0.000e+00  argmax same True
+# kernel time vs path length T (7 paths unless noted): the cost is per 64-row chunk, not per row
+GDNLEN T=  16: v4   30.1 us
+GDNLEN T=  64: v4   32.2 us
+GDNLEN T=  80: v4   62.1 us
+GDNLEN T=  96: v4   62.5 us   (v6: 36.5 us)
+GDNLEN T= 128: v4   64.0 us
+GDNLEN T= 192: v4   95.9 us
+# v6 per-block phase times (globaltimer stamps, bench/gdn_phases.py), mean over 336 blocks, final version:
+PHASE block total mean 12.00 us; kernel span 37.12 us
+PHASE load+cumsum 1.74 | kkt 1.46 | solve || scale + output attention 3.98 | u/w MMA 1.05 | stores 0.50 | o0 + h1 1.87 | pp, qh 0.98 | o1 0.43 us
+# two-kernel variant (gdnL_k + gdnD_k, identical output), not used:
+GDNLEN T= 576 B=4: v4 186.2 us  v9 197.6 us (local 100.2 + state 98.1)
+GDNLEN T=2048 B=1: v4 331.2 us  v9 265.8 us (local 89.9 + state 174.6)
