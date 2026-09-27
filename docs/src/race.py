@@ -1,5 +1,5 @@
 """Animated race: one inference of the example request in three implementations, measured latencies replayed slower.
-Writes race.mp4 / race.webm (web page) and race.gif (README). Usage: python race.py <e2e_latency.json> <font> <outdir>"""
+Writes race.gif (web page and README). Usage: python race.py <e2e_latency.json> <font> <outdir>"""
 import json, subprocess, sys, io
 import numpy as np, matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -54,9 +54,6 @@ def encode(args, out):
     p = subprocess.Popen([ff, "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", *args, out], stdin=subprocess.PIPE)
     for f in frames: p.stdin.write(f.tobytes())
     p.stdin.close(); p.wait()
-encode(["-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20", "-preset", "slow", "-movflags", "+faststart"], f"{OUT}/race.mp4")
-encode(["-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "34", "-row-mt", "1"], f"{OUT}/race.webm")
-encode(["-vf", "fps=15,scale=800:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=64[p];[b][p]paletteuse=dither=none"], f"{OUT}/race.gif")
-from PIL import Image
-Image.fromarray(frames[-1]).save(f"{OUT}/race_final.png")
+# a GIF plays everywhere (autoplaying <video> is blocked by some browsers and in-app viewers)
+encode(["-vf", "fps=20,scale=1024:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=none:diff_mode=rectangle"], f"{OUT}/race.gif")
 print("race ok", n, "frames")
