@@ -1,0 +1,7 @@
+# output on 1x NVIDIA B300 (sm_103), bf16; shell prompts and host lines removed
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+GTREE example                        key (288, 7, 96)  rows 288 (real rows 277) (real tokens 539)  prob maxdiff vs original 2.61e-03  argmax same True
+GTREE-GRAPH example                        replay p50 20.14 ms (49.7 req/s)  prob maxdiff vs original 2.61e-03
+GTREE hard-sol-b-long_policy-01      key (2816, 4, 2688)  rows 2816 (real rows 2793) (real tokens 10722)  prob maxdiff vs original 3.54e-02  argmax same True
+GTREE-GRAPH hard-sol-b-long_policy-01      replay p50 160.12 ms (6.2 req/s)  prob maxdiff vs original 3.54e-02
+=== GTREE DONE ===

@@ -1,0 +1,5 @@
+# stdout of the benchmark on 1x NVIDIA B300 (sm_103), bf16; printed to the terminal only and preserved verbatim
+GDN B=7 T=82: chunk    315.1 us  recurrent    171.1 us  | chunk-vs-recurrent maxabs 7.324e-04 mean 1.40e-05 (|o| max 0.09)
+GDN B=7 T=96: chunk    317.9 us  recurrent    199.5 us  | chunk-vs-recurrent maxabs 7.324e-04 mean 1.39e-05 (|o| max 0.10)
+GDN B=5 T=3782: chunk   1343.8 us  recurrent   7057.9 us  | chunk-vs-recurrent maxabs 9.766e-04 mean 1.44e-05 (|o| max 0.11)
+GDN B=1 T=364: chunk    321.1 us  recurrent    190.0 us  | chunk-vs-recurrent maxabs 4.883e-04 mean 1.43e-05 (|o| max 0.09)

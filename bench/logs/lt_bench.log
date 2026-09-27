@@ -1,0 +1,8 @@
+# stdout of the benchmark on 1x NVIDIA B300 (sm_103), bf16; printed to the terminal only and preserved verbatim
+LT lin_in   algos  8  torch   44.6 us  best-lt   42.8 us (idx 1)  gain   4.0%
+LT lin_out  algos  8  torch   22.1 us  best-lt   20.8 us (idx 1)  gain   6.0%
+LT full_in  algos  8  torch   53.4 us  best-lt   41.1 us (idx 2)  gain  23.0%
+LT full_out algos  8  torch   21.6 us  best-lt   20.8 us (idx 1)  gain   3.8%
+LT gate_up  algos  8  torch  100.4 us  best-lt   96.4 us (idx 1)  gain   4.0%
+LT down     algos  8  torch   64.7 us  best-lt   61.9 us (idx 0)  gain   4.3%
+LT TOTAL per forward (M=364): torch 14.97 ms -> autotuned 14.17 ms

@@ -1,0 +1,57 @@
+{
+ "jevbench_original.json": {
+  "description": "Original Open-Jev jev.server (python -m jev.server), bf16",
+  "correct": 198,
+  "total": 231,
+  "latency_ms": {
+   "mean": 703.0,
+   "p50": 171.2,
+   "p95": 1271.9,
+   "max": 16017.5
+  },
+  "predictions_changed_vs_original": []
+ },
+ "jevbench_phase1_pytorch.json": {
+  "description": "Phase-1 PyTorch-optimized server (eager, merged LoRA + fused RMSNorm + sync patches + causal-conv1d)",
+  "correct": 198,
+  "total": 231,
+  "latency_ms": {
+   "mean": 259.2,
+   "p50": 145.6,
+   "p95": 701.2,
+   "max": 3559.6
+  },
+  "predictions_changed_vs_original": [
+   "hard-opus-c-long_policy-03"
+  ]
+ },
+ "jevbench_service_v1.json": {
+  "description": "Service v1: custom kernels + 1-level prefix tree + CUDA graphs (second pass)",
+  "correct": 198,
+  "total": 231,
+  "latency_ms": {
+   "mean": 52.1,
+   "p50": 28.6,
+   "p95": 145.2,
+   "max": 492.1
+  },
+  "predictions_changed_vs_original": [
+   "hard-opus-c-long_policy-03"
+  ]
+ },
+ "jevbench_service_v3.json": {
+  "description": "Service v3 (this repo, src/server.py): 2-level prefix tree + split-K + cuBLASLt tuning (second pass)",
+  "correct": 197,
+  "total": 231,
+  "latency_ms": {
+   "mean": 51.3,
+   "p50": 24.2,
+   "p95": 148.2,
+   "max": 582.9
+  },
+  "predictions_changed_vs_original": [
+   "hard-opus-a-temporal_numeric-09",
+   "hard-opus-c-long_policy-03"
+  ]
+ }
+}

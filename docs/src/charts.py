@@ -1,0 +1,39 @@
+import json, matplotlib; matplotlib.use("Agg"); matplotlib.rcParams["svg.hashsalt"] = "open-jev-fast"
+import matplotlib.pyplot as plt, numpy as np
+from matplotlib import font_manager as fm
+fm.fontManager.addfont("../NotoSansSC-Regular.ttf"); plt.rcParams["font.family"] = fm.FontProperties(fname="../NotoSansSC-Regular.ttf").get_name()
+INK, INK2, GRID, BLUE, BLUE_L, ORANGE = "#0b0b0b", "#52514e", "#e6e5e1", "#2a78d6", "#a9c8ee", "#eb6834"
+# ---- chart 1: latency ladder ----
+steps = [("Original (HF + FLA)", 109.9, "a"), ("Merge LoRA + fused RMSNorm + remove CPU syncs", 78.6, "a"), ("Whole-model CUDA Graph (exact length)", 42.5, "a"),
+         ("+ causal-conv1d", 36.5, "a"), ("+ torch.compile (end of PyTorch path)", 32.4, "a"),
+         ("Hand-written fused CUDA kernels (new path)", 31.0, "b"), ("+ Shared prefix computed once (1-level)", 24.4, "b"),
+         ("+ split-K / cuBLASLt tuning / no copies", 22.8, "b"), ("+ Two-level prefix tree", 20.1, "b")]
+fig, ax = plt.subplots(figsize=(7.8, 4.0), dpi=200)
+y = list(range(len(steps)))[::-1]
+cols = [BLUE_L if s[2] == "a" else BLUE for s in steps]
+ax.barh(y, [s[1] for s in steps], height=0.62, color=cols, edgecolor="white", linewidth=1.5)
+for yi, s in zip(y, steps): ax.text(s[1] + 1.5, yi, f"{s[1]:.1f} ms", va="center", fontsize=8.3, color=INK)
+ax.set_yticks(y); ax.set_yticklabels([s[0] for s in steps], fontsize=8.2, color=INK)
+ax.set_xlim(0, 125); ax.set_xlabel("Latency P50, ms (example request; CUDA Graph replay; excl. HTTP)", fontsize=8.2, color=INK2)
+ax.xaxis.grid(True, color=GRID, linewidth=0.8); ax.set_axisbelow(True)
+for sp in ("top", "right", "left"): ax.spines[sp].set_visible(False)
+ax.spines["bottom"].set_color(GRID); ax.tick_params(axis="x", colors=INK2, labelsize=8); ax.tick_params(axis="y", length=0)
+from matplotlib.patches import Patch
+ax.legend(handles=[Patch(color=BLUE_L, label="Phase 1: PyTorch-level optimization"), Patch(color=BLUE, label="Phase 2: hand-written CUDA kernels + prefix tree")],
+          loc="lower right", fontsize=7.8, frameon=False)
+fig.tight_layout(); fig.savefig("ladder.png", facecolor="white"); fig.savefig("ladder.svg", facecolor="white")
+# ---- chart 2: JevBench per-task latency CDF ----
+o = [r["latency_ms"] for r in json.load(open("../../results/jevbench_original.json"))]
+v = [r["latency_ms"] for r in json.load(open("../../results/jevbench_service_v3.json"))]
+fig, ax = plt.subplots(figsize=(7.2, 3.4), dpi=200)
+for data, c, lab in ((o, ORANGE, "Original jev.server"), (v, BLUE, "Optimized service v3")):
+    xs = np.sort(data); ys = np.arange(1, len(xs) + 1) / len(xs) * 100
+    ax.step(xs, ys, where="post", color=c, linewidth=2, label=lab)
+    ax.text(np.median(xs) * 1.08, 52, f"P50 {np.median(xs):.0f} ms", color=INK, fontsize=8)
+ax.set_xscale("log"); ax.set_xlabel("Per-task latency (ms, log scale, incl. HTTP)", fontsize=8.2, color=INK2); ax.set_ylabel("Cumulative %", fontsize=8.2, color=INK2)
+ax.grid(True, color=GRID, linewidth=0.8); ax.set_axisbelow(True)
+for sp in ("top", "right"): ax.spines[sp].set_visible(False)
+for sp in ("left", "bottom"): ax.spines[sp].set_color(GRID)
+ax.tick_params(colors=INK2, labelsize=8); ax.legend(fontsize=8, frameon=False, loc="lower right")
+fig.tight_layout(); fig.savefig("jevbench_cdf.png", facecolor="white"); fig.savefig("jevbench_cdf.svg", facecolor="white")
+print("charts ok")

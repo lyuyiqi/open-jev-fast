@@ -1,0 +1,4 @@
+# stdout of the benchmark on 1x NVIDIA B300 (sm_103), bf16; printed to the terminal only and preserved verbatim
+SK2 lin_out  S=4: base   22.0  bmm-contig   18.4  bmm-view   18.2  bmm-view-fp32out   22.0  | err vs fp32: base 1.001e+00 splitk-bf16 9.120e-01 splitk-fp32 1.465e-03
+SK2 full_out S=2: base   22.5  bmm-contig   16.9  bmm-view   17.2  bmm-view-fp32out   18.4  | err vs fp32: base 1.001e+00 splitk-bf16 1.052e+00 splitk-fp32 2.380e-03
+SK2 down     S=4: base   60.0  bmm-contig   46.4  bmm-view   46.5  bmm-view-fp32out   49.9  | err vs fp32: base 2.003e+00 splitk-bf16 1.452e+00 splitk-fp32 5.066e-03

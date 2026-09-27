@@ -1,0 +1,25 @@
+# stdout of the benchmark on 1x NVIDIA B300 (sm_103), bf16; printed to the terminal only and preserved verbatim
+TREE GPU kernel time per request: 23.21 ms  kernels/req 1375
+CATEGORIES {'GEMM': 14.45, 'FLA': 3.96, 'mine': 3.11, 'sdpa': 0.52, 'other': 1.16}
+KERN nvjet_sm103_tst_256x128_64x5_2x1_2cta_v_bz_TNT                                     5.85 ms n=64
+KERN nvjet_sm103_tst_128x128_64x6_4x1_v_bz_TNT                                          3.98 ms n=64
+KERN nvjet_sm103_tst_128x192_64x7_2x2_2cta_h_bz_TNT                                     2.10 ms n=48
+KERN nvjet_sm103_tst_112x128_64x7_2x1_v_bz_TNN                                          1.75 ms n=64
+KERN chunk_gated_delta_rule_fwd_kkt_solve_kernel                                        1.30 ms n=96
+KERN chunk_gated_delta_rule_fwd_kernel_h_blockdim64                                     1.10 ms n=96
+KERN void linattn_prep_tree_k<4>(__nv_bfloat16 const*, __nv_bfloat16 const*, __nv_bfl   1.04 ms n=48
+KERN add_rmsnorm_k(__nv_bfloat16 const*, __nv_bfloat16 const*, float const*, int cons   0.78 ms n=129
+KERN nvjet_sm103_tst_168x128_64x5_4x1_v_bz_TNN                                          0.77 ms n=16
+KERN chunk_fwd_kernel_o                                                                 0.76 ms n=96
+KERN silu_mul_k(__nv_bfloat16 const*, __nv_bfloat16*, int, long)                        0.65 ms n=64
+KERN void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<a   0.63 ms n=50
+KERN recompute_w_u_fwd_kernel                                                           0.63 ms n=96
+KERN cudnn_generated_fort_native_sdpa_sm100_flash_fprop_f16_knob_2_128x128x256_1x4x1_   0.52 ms n=16
+KERN gated_rmsnorm_k(__nv_bfloat16 const*, __nv_bfloat16 const*, __nv_bfloat16 const*   0.41 ms n=48
+KERN void at::native::vectorized_elementwise_kernel<8, at::native::FillFunctor<c10::B   0.20 ms n=128
+KERN chunk_local_cumsum_scalar_kernel                                                   0.18 ms n=96
+KERN void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized<at::nativ   0.16 ms n=48
+KERN fullattn_prep2_k(__nv_bfloat16 const*, float const*, float const*, __nv_bfloat16   0.15 ms n=16
+KERN void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>   0.08 ms n=48
+KERN gate_mul2_k(__nv_bfloat16 const*, __nv_bfloat16 const*, __nv_bfloat16*, int, int   0.08 ms n=16
+KERN void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<a   0.07 ms n=16

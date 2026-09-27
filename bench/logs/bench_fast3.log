@@ -1,0 +1,37 @@
+# output on 1x NVIDIA B300 (sm_103), bf16; shell prompts and host lines removed
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+V2CHECK prep2 q vs l2norm_fwd(prep1 q) maxabs 6.104e-05  bitexact 100.00%
+V2CHECK prep2 k vs l2norm_fwd(prep1 k) maxabs 0.000e+00  bitexact 100.00%
+V2CHECK prep2 v                      maxabs 0.000e+00  bitexact 100.00%
+V2CHECK prep2 g                      maxabs 0.000e+00  bitexact 100.00%
+V2CHECK prep2 beta                   maxabs 0.000e+00  bitexact 100.00%
+V2CHECK fprep2 q                     maxabs 3.906e-03  bitexact 100.00%
+V2CHECK fprep2 k                     maxabs 0.000e+00  bitexact 100.00%
+V2CHECK fprep2 v                     maxabs 0.000e+00  bitexact 100.00%
+V2CHECK fprep2 gate                  maxabs 0.000e+00  bitexact 100.00%
+V2CHECK gate_mul2                    maxabs 0.000e+00  bitexact 100.00%
+EAGER fast vs original model: prob maxdiff 1.96e-03
+EAGER fast forward p50 32.07 ms
+GRAPH fast single  p50   32.68 ms incl. tokenize |   30.95 ms replay-only ( 32.31 req/s)  prob maxdiff vs original 1.96e-03
+GRAPH fast batch n= 4 p50  101.96 ms   39.23 req/s  maxdiff 1.96e-03  mem_GB 85.5
+GRAPH fast batch n=16 p50  389.01 ms   41.13 req/s  maxdiff 1.96e-03  mem_GB 87.8
+USDT:2026-09-26 21:36:19 3130496:3130496 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-26 21:36:19 3130496:3130496 SyncActivityProfilerHandler.cpp:46] profiler_stop
+GPU kernel time per request: 27.56 ms  (kernels/req 945)
+KERN nvjet_sm103_tst_128x192_64x5_4x1_v_bz_TNT                                 10.35 ms  n=176
+KERN nvjet_sm103_tst_128x192_64x7_2x1_2cta_v_bz_TNT                             7.71 ms  n=64
+KERN void linattn_prep2_k<4>(__nv_bfloat16 const*, __nv_bfloat16 const*, __nv   1.34 ms  n=48
+KERN chunk_gated_delta_rule_fwd_kernel_h_blockdim64                             1.21 ms  n=48
+KERN add_rmsnorm_k(__nv_bfloat16 const*, __nv_bfloat16 const*, float const*,    1.17 ms  n=129
+KERN chunk_gated_delta_rule_fwd_kkt_solve_kernel                                0.98 ms  n=48
+KERN silu_mul_k(__nv_bfloat16 const*, __nv_bfloat16*, int, long)                0.91 ms  n=64
+KERN nvjet_sm103_tst_320x192_64x4_2x1_2cta_v_bz_TNT                             0.83 ms  n=16
+KERN chunk_fwd_kernel_o                                                         0.82 ms  n=48
+KERN recompute_w_u_fwd_kernel                                                   0.59 ms  n=48
+KERN gated_rmsnorm_k(__nv_bfloat16 const*, __nv_bfloat16 const*, __nv_bfloat1   0.56 ms  n=48
+KERN cudnn_generated_fort_native_sdpa_sm80_flash_fprop_wmma_f16_knob_1_64x64x   0.41 ms  n=16
+KERN fullattn_prep2_k(__nv_bfloat16 const*, float const*, float const*, __nv_   0.21 ms  n=16
+KERN void at::native::vectorized_elementwise_kernel<8, at::native::FillFuncto   0.15 ms  n=80
+KERN gate_mul2_k(__nv_bfloat16 const*, __nv_bfloat16 const*, __nv_bfloat16*,    0.11 ms  n=16
+KERN chunk_local_cumsum_scalar_kernel                                           0.10 ms  n=48
+=== BENCH FAST DONE ===

@@ -1,0 +1,35 @@
+# output on 1x NVIDIA B300 (sm_103), bf16; shell prompts and host lines removed
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+CMP K1 rmsnorm(+mask) layer0           maxabs 1.953e-03  rel 3.89e-05  mean 2.46e-08  bitexact 100.0%
+CMP K1 add(residual)                   maxabs 0.000e+00  rel 0.00e+00  mean 0.00e+00  bitexact 100.0%
+CMP K1 add+rmsnorm                     maxabs 3.906e-03  rel 9.40e-04  mean 2.74e-09  bitexact 100.0%
+CMP merged gate+up GEMM (vs 2 GEMMs)   maxabs 0.000e+00  rel 0.00e+00  mean 0.00e+00  bitexact 100.0%
+CMP K2 silu_mul                        maxabs 0.000e+00  rel 0.00e+00  mean 0.00e+00  bitexact 100.0%
+CMP K3 conv+silu -> q (expanded)       maxabs 2.441e-04  rel 2.26e-05  mean 1.66e-09  bitexact 100.0%
+CMP K3 k                               maxabs 4.883e-04  rel 1.66e-05  mean 2.95e-09  bitexact 100.0%
+CMP K3 v                               maxabs 4.883e-04  rel 1.19e-05  mean 1.48e-09  bitexact 100.0%
+CMP K3 beta                            maxabs 0.000e+00  rel 0.00e+00  mean 0.00e+00  bitexact 100.0%
+CMP K3 g (fp32)                        maxabs 3.928e-04  rel 4.70e-05  mean 8.64e-08  bitexact 99.9%
+CMP K4 gated_rmsnorm                   maxabs 2.441e-04  rel 9.41e-05  mean 2.71e-10  bitexact 100.0%
+CMP whole linear-attn block layer0     maxabs 1.953e-03  rel 6.88e-05  mean 5.77e-07  bitexact 98.1%
+CMP K5 q (norm+rope)                   maxabs 3.906e-03  rel 6.31e-04  mean 1.16e-08  bitexact 100.0%
+CMP K5 k (norm+rope)                   maxabs 0.000e+00  rel 0.00e+00  mean 0.00e+00  bitexact 100.0%
+CMP K5 v                               maxabs 0.000e+00  rel 0.00e+00  mean 0.00e+00  bitexact 100.0%
+CMP K5 gate                            maxabs 0.000e+00  rel 0.00e+00  mean 0.00e+00  bitexact 100.0%
+CMP K5+SDPA+K6 whole full-attn block L3 maxabs 7.812e-03  rel 1.80e-04  mean 1.12e-06  bitexact 99.9%
+LAYER  0 (line) maxabs 6.250e-02 rel 1.64e-03
+LAYER  1 (line) maxabs 1.250e-01 rel 2.33e-03
+LAYER  2 (line) maxabs 2.500e-01 rel 3.29e-03
+LAYER  3 (full) maxabs 2.500e-01 rel 2.99e-03
+LAYER  7 (full) maxabs 2.500e-01 rel 2.40e-03
+LAYER 15 (full) maxabs 5.000e-01 rel 2.70e-03
+LAYER 31 (full) maxabs 1.062e+00 rel 3.74e-03
+LAYER 47 (full) maxabs 1.500e+00 rel 6.38e-03
+LAYER 63 (full) maxabs 9.400e+01 rel 4.29e-02
+LAYER worst relative diff over 64 layers: 4.29e-02
+CMP FINAL last_hidden_state (real tokens) maxabs 8.500e+00  rel 1.75e-01  mean 2.16e-02  bitexact 11.8%
+CMP FINAL last-token hidden (what the head reads) maxabs 9.375e-02  rel 1.93e-03  mean 4.55e-03  bitexact 16.0%
+PROBS ref  [[0.7608, 0.0965, 0.1428], [0.2744, 0.7256], [0.8032, 0.1069, 0.0899]]
+PROBS fast [[0.761, 0.0959, 0.1431], [0.2689, 0.7311], [0.8024, 0.1075, 0.0902]]
+PROB maxdiff 5.44e-03
+=== CORRECT DONE ===

@@ -1,0 +1,9 @@
+# stdout of the benchmark on 1x NVIDIA B300 (sm_103), bf16; printed to the terminal only and preserved verbatim
+PEAK bf16 8192^3: 1762 TFLOPS
+SHAPE lin_in    bf16   44.7 us  fp8   23.4 us
+SHAPE lin_out   bf16   20.8 us  fp8   15.6 us
+SHAPE full_in   bf16   53.2 us  fp8   24.9 us
+SHAPE full_out  bf16   21.3 us  fp8   13.4 us
+SHAPE gate_up   bf16   99.6 us  fp8   53.4 us
+SHAPE down      bf16   61.0 us  fp8   30.0 us
+TOTAL M=384: bf16 14.61 ms  fp8 7.82 ms (GEMM only, excl. activation quantization)

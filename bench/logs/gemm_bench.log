@@ -1,0 +1,33 @@
+# stdout of the benchmark on 1x NVIDIA B300 (sm_103), bf16; printed to the terminal only and preserved verbatim
+--- M=364
+GEMM lin_in    K= 5120 N=16480  F.linear    44.4 us (  1382 TF)  swapped   219.6 us (   280 TF)  x48
+GEMM lin_out   K= 6144 N= 5120  F.linear    22.4 us (  1021 TF)  swapped   104.9 us (   218 TF)  x48
+GEMM full_in   K= 5120 N=14336  F.linear    53.4 us (  1001 TF)  swapped   217.6 us (   246 TF)  x16
+GEMM full_out  K= 6144 N= 5120  F.linear    22.5 us (  1019 TF)  swapped   105.0 us (   218 TF)  x16
+GEMM gate_up   K= 5120 N=34816  F.linear   101.0 us (  1284 TF)  swapped   432.2 us (   300 TF)  x64
+GEMM down      K=17408 N= 5120  F.linear    60.2 us (  1078 TF)  swapped   236.1 us (   275 TF)  x64
+TOTAL per forward M=364: F.linear 14.74 ms | best-of-two 14.74 ms
+--- M=384
+GEMM lin_in    K= 5120 N=16480  F.linear    45.0 us (  1441 TF)  swapped    47.4 us (  1368 TF)  x48
+GEMM lin_out   K= 6144 N= 5120  F.linear    20.5 us (  1177 TF)  swapped    21.5 us (  1124 TF)  x48
+GEMM full_in   K= 5120 N=14336  F.linear    53.7 us (  1049 TF)  swapped    44.0 us (  1280 TF)  x16
+GEMM full_out  K= 6144 N= 5120  F.linear    20.5 us (  1181 TF)  swapped    21.3 us (  1134 TF)  x16
+GEMM gate_up   K= 5120 N=34816  F.linear    99.9 us (  1370 TF)  swapped    90.3 us (  1517 TF)  x64
+GEMM down      K=17408 N= 5120  F.linear    60.3 us (  1136 TF)  swapped    60.9 us (  1123 TF)  x64
+TOTAL per forward M=384: F.linear 14.58 ms | best-of-two 13.81 ms
+--- M=574
+GEMM lin_in    K= 5120 N=16480  F.linear    73.3 us (  1322 TF)  swapped   379.2 us (   255 TF)  x48
+GEMM lin_out   K= 6144 N= 5120  F.linear    32.4 us (  1114 TF)  swapped   181.3 us (   199 TF)  x48
+GEMM full_in   K= 5120 N=14336  F.linear    65.0 us (  1296 TF)  swapped   318.1 us (   265 TF)  x16
+GEMM full_out  K= 6144 N= 5120  F.linear    27.7 us (  1304 TF)  swapped   155.7 us (   232 TF)  x16
+GEMM gate_up   K= 5120 N=34816  F.linear   133.0 us (  1539 TF)  swapped   722.5 us (   283 TF)  x64
+GEMM down      K=17408 N= 5120  F.linear    74.3 us (  1377 TF)  swapped   381.8 us (   268 TF)  x64
+TOTAL per forward M=574: F.linear 19.82 ms | best-of-two 19.82 ms
+--- M=640
+GEMM lin_in    K= 5120 N=16480  F.linear    73.4 us (  1471 TF)  swapped    71.7 us (  1506 TF)  x48
+GEMM lin_out   K= 6144 N= 5120  F.linear    27.3 us (  1474 TF)  swapped    30.4 us (  1324 TF)  x48
+GEMM full_in   K= 5120 N=14336  F.linear    63.9 us (  1470 TF)  swapped    67.0 us (  1402 TF)  x16
+GEMM full_out  K= 6144 N= 5120  F.linear    27.1 us (  1484 TF)  swapped    30.4 us (  1325 TF)  x16
+GEMM gate_up   K= 5120 N=34816  F.linear   152.0 us (  1501 TF)  swapped   155.7 us (  1466 TF)  x64
+GEMM down      K=17408 N= 5120  F.linear    88.3 us (  1292 TF)  swapped   104.4 us (  1093 TF)  x64
+TOTAL per forward M=640: F.linear 21.67 ms | best-of-two 21.59 ms

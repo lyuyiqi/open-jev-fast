@@ -1,0 +1,7 @@
+# stdout of the benchmark on 1x NVIDIA B300 (sm_103), bf16; printed to the terminal only and preserved verbatim
+SPLITK lin_out  K= 6144 N= 5120 x48: base   21.9  S2   18.5  S3   19.1  S4   18.2  S6   21.1  S8   22.2
+SPLITK full_out K= 6144 N= 5120 x16: base   22.4  S2   17.4  S3   19.3  S4   18.3  S6   22.0  S8   22.5
+SPLITK down     K=17408 N= 5120 x64: base   60.1  S2   48.1  S4   46.1  S8   48.5
+SPLITK lin_in   K= 5120 N=16480 x48: base   44.3  S2   46.2  S4   51.1  S8   61.5
+SPLITK full_in  K= 5120 N=14336 x16: base   57.0  S2   46.9  S4   48.1  S8   54.3
+SPLITK gate_up  K= 5120 N=34816 x64: base  103.8  S2  112.8  S4  106.7  S8  126.9

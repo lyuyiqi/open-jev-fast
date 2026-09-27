@@ -1,0 +1,2081 @@
+[
+{
+"id": "original-policy-01-0",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 55.1
+},
+{
+"id": "original-policy-01-1",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 20.6
+},
+{
+"id": "original-policy-02-0",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 41.7
+},
+{
+"id": "original-policy-02-1",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 41.1
+},
+{
+"id": "original-policy-03-0",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.5
+},
+{
+"id": "original-policy-03-1",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.2
+},
+{
+"id": "original-policy-04-0",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 42.4
+},
+{
+"id": "original-policy-04-1",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 41.1
+},
+{
+"id": "original-policy-05-0",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 42.9
+},
+{
+"id": "original-policy-05-1",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 42.4
+},
+{
+"id": "original-policy-06-0",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 42.5
+},
+{
+"id": "original-policy-06-1",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": false,
+"valid": true,
+"latency_ms": 40.2
+},
+{
+"id": "original-intent-01-0",
+"tier": "original",
+"type": "choice",
+"predicted": "refund",
+"correct": true,
+"valid": true,
+"latency_ms": 24.8
+},
+{
+"id": "original-intent-01-1",
+"tier": "original",
+"type": "choice",
+"predicted": "refund",
+"correct": true,
+"valid": true,
+"latency_ms": 46.9
+},
+{
+"id": "original-intent-02-0",
+"tier": "original",
+"type": "choice",
+"predicted": "other",
+"correct": false,
+"valid": true,
+"latency_ms": 24.8
+},
+{
+"id": "original-intent-02-1",
+"tier": "original",
+"type": "choice",
+"predicted": "status",
+"correct": true,
+"valid": true,
+"latency_ms": 24.2
+},
+{
+"id": "original-intent-03-0",
+"tier": "original",
+"type": "choice",
+"predicted": "change_address",
+"correct": true,
+"valid": true,
+"latency_ms": 24.4
+},
+{
+"id": "original-intent-03-1",
+"tier": "original",
+"type": "choice",
+"predicted": "change_address",
+"correct": true,
+"valid": true,
+"latency_ms": 44.7
+},
+{
+"id": "original-intent-04-0",
+"tier": "original",
+"type": "choice",
+"predicted": "cancel",
+"correct": true,
+"valid": true,
+"latency_ms": 23.9
+},
+{
+"id": "original-intent-04-1",
+"tier": "original",
+"type": "choice",
+"predicted": "cancel",
+"correct": true,
+"valid": true,
+"latency_ms": 23.7
+},
+{
+"id": "original-intent-05-0",
+"tier": "original",
+"type": "choice",
+"predicted": "other",
+"correct": true,
+"valid": true,
+"latency_ms": 24.5
+},
+{
+"id": "original-intent-05-1",
+"tier": "original",
+"type": "choice",
+"predicted": "other",
+"correct": true,
+"valid": true,
+"latency_ms": 24.0
+},
+{
+"id": "original-intent-06-0",
+"tier": "original",
+"type": "choice",
+"predicted": "status",
+"correct": true,
+"valid": true,
+"latency_ms": 24.5
+},
+{
+"id": "original-intent-06-1",
+"tier": "original",
+"type": "choice",
+"predicted": "status",
+"correct": true,
+"valid": true,
+"latency_ms": 45.0
+},
+{
+"id": "original-ordinal-01-0",
+"tier": "original",
+"type": "score",
+"predicted": "0",
+"correct": true,
+"valid": true,
+"latency_ms": 24.6
+},
+{
+"id": "original-ordinal-01-1",
+"tier": "original",
+"type": "score",
+"predicted": "0",
+"correct": true,
+"valid": true,
+"latency_ms": 25.1
+},
+{
+"id": "original-ordinal-02-0",
+"tier": "original",
+"type": "score",
+"predicted": "1",
+"correct": true,
+"valid": true,
+"latency_ms": 24.5
+},
+{
+"id": "original-ordinal-02-1",
+"tier": "original",
+"type": "score",
+"predicted": "1",
+"correct": true,
+"valid": true,
+"latency_ms": 47.1
+},
+{
+"id": "original-ordinal-03-0",
+"tier": "original",
+"type": "score",
+"predicted": "2",
+"correct": true,
+"valid": true,
+"latency_ms": 46.3
+},
+{
+"id": "original-ordinal-03-1",
+"tier": "original",
+"type": "score",
+"predicted": "2",
+"correct": true,
+"valid": true,
+"latency_ms": 24.1
+},
+{
+"id": "original-ordinal-04-0",
+"tier": "original",
+"type": "score",
+"predicted": "3",
+"correct": true,
+"valid": true,
+"latency_ms": 24.4
+},
+{
+"id": "original-ordinal-04-1",
+"tier": "original",
+"type": "score",
+"predicted": "3",
+"correct": true,
+"valid": true,
+"latency_ms": 24.1
+},
+{
+"id": "original-ordinal-05-0",
+"tier": "original",
+"type": "score",
+"predicted": "0",
+"correct": true,
+"valid": true,
+"latency_ms": 24.4
+},
+{
+"id": "original-ordinal-05-1",
+"tier": "original",
+"type": "score",
+"predicted": "0",
+"correct": true,
+"valid": true,
+"latency_ms": 46.9
+},
+{
+"id": "original-ordinal-06-0",
+"tier": "original",
+"type": "score",
+"predicted": "2",
+"correct": true,
+"valid": true,
+"latency_ms": 24.7
+},
+{
+"id": "original-ordinal-06-1",
+"tier": "original",
+"type": "score",
+"predicted": "2",
+"correct": true,
+"valid": true,
+"latency_ms": 24.1
+},
+{
+"id": "original-extraction-01-0",
+"tier": "original",
+"type": "choice",
+"predicted": "unknown",
+"correct": false,
+"valid": true,
+"latency_ms": 23.8
+},
+{
+"id": "original-extraction-01-1",
+"tier": "original",
+"type": "choice",
+"predicted": "pickup",
+"correct": true,
+"valid": true,
+"latency_ms": 25.0
+},
+{
+"id": "original-extraction-02-0",
+"tier": "original",
+"type": "choice",
+"predicted": "unknown",
+"correct": true,
+"valid": true,
+"latency_ms": 24.3
+},
+{
+"id": "original-extraction-02-1",
+"tier": "original",
+"type": "choice",
+"predicted": "unknown",
+"correct": true,
+"valid": true,
+"latency_ms": 23.9
+},
+{
+"id": "original-extraction-03-0",
+"tier": "original",
+"type": "choice",
+"predicted": "courier",
+"correct": true,
+"valid": true,
+"latency_ms": 24.0
+},
+{
+"id": "original-extraction-03-1",
+"tier": "original",
+"type": "choice",
+"predicted": "courier",
+"correct": true,
+"valid": true,
+"latency_ms": 492.1
+},
+{
+"id": "original-extraction-04-0",
+"tier": "original",
+"type": "choice",
+"predicted": "post",
+"correct": true,
+"valid": true,
+"latency_ms": 23.4
+},
+{
+"id": "original-extraction-04-1",
+"tier": "original",
+"type": "choice",
+"predicted": "post",
+"correct": true,
+"valid": true,
+"latency_ms": 24.3
+},
+{
+"id": "original-extraction-05-0",
+"tier": "original",
+"type": "choice",
+"predicted": "unknown",
+"correct": true,
+"valid": true,
+"latency_ms": 24.7
+},
+{
+"id": "original-extraction-05-1",
+"tier": "original",
+"type": "choice",
+"predicted": "unknown",
+"correct": true,
+"valid": true,
+"latency_ms": 23.7
+},
+{
+"id": "original-extraction-06-0",
+"tier": "original",
+"type": "choice",
+"predicted": "courier",
+"correct": true,
+"valid": true,
+"latency_ms": 24.1
+},
+{
+"id": "original-extraction-06-1",
+"tier": "original",
+"type": "choice",
+"predicted": "courier",
+"correct": true,
+"valid": true,
+"latency_ms": 24.5
+},
+{
+"id": "original-adequacy-01-0",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 19.4
+},
+{
+"id": "original-adequacy-01-1",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 19.6
+},
+{
+"id": "original-adequacy-02-0",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 42.9
+},
+{
+"id": "original-adequacy-02-1",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 19.6
+},
+{
+"id": "original-adequacy-03-0",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 41.8
+},
+{
+"id": "original-adequacy-03-1",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 20.3
+},
+{
+"id": "original-adequacy-04-0",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.3
+},
+{
+"id": "original-adequacy-04-1",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.2
+},
+{
+"id": "original-adequacy-05-0",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 42.3
+},
+{
+"id": "original-adequacy-05-1",
+"tier": "original",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 20.3
+},
+{
+"id": "original-adequacy-06-0",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 21.5
+},
+{
+"id": "original-adequacy-06-1",
+"tier": "original",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.2
+},
+{
+"id": "original-routing-01-0",
+"tier": "original",
+"type": "choice",
+"predicted": "math",
+"correct": true,
+"valid": true,
+"latency_ms": 24.5
+},
+{
+"id": "original-routing-01-1",
+"tier": "original",
+"type": "choice",
+"predicted": "math",
+"correct": true,
+"valid": true,
+"latency_ms": 45.7
+},
+{
+"id": "original-routing-02-0",
+"tier": "original",
+"type": "choice",
+"predicted": "coding",
+"correct": true,
+"valid": true,
+"latency_ms": 25.7
+},
+{
+"id": "original-routing-02-1",
+"tier": "original",
+"type": "choice",
+"predicted": "coding",
+"correct": true,
+"valid": true,
+"latency_ms": 24.4
+},
+{
+"id": "original-routing-03-0",
+"tier": "original",
+"type": "choice",
+"predicted": "coding_agent",
+"correct": true,
+"valid": true,
+"latency_ms": 25.3
+},
+{
+"id": "original-routing-03-1",
+"tier": "original",
+"type": "choice",
+"predicted": "coding_agent",
+"correct": true,
+"valid": true,
+"latency_ms": 25.5
+},
+{
+"id": "original-routing-04-0",
+"tier": "original",
+"type": "choice",
+"predicted": "document",
+"correct": true,
+"valid": true,
+"latency_ms": 24.3
+},
+{
+"id": "original-routing-04-1",
+"tier": "original",
+"type": "choice",
+"predicted": "document",
+"correct": true,
+"valid": true,
+"latency_ms": 45.9
+},
+{
+"id": "original-routing-05-0",
+"tier": "original",
+"type": "choice",
+"predicted": "tools",
+"correct": true,
+"valid": true,
+"latency_ms": 26.8
+},
+{
+"id": "original-routing-05-1",
+"tier": "original",
+"type": "choice",
+"predicted": "tools",
+"correct": true,
+"valid": true,
+"latency_ms": 25.7
+},
+{
+"id": "original-routing-06-0",
+"tier": "original",
+"type": "choice",
+"predicted": "general",
+"correct": true,
+"valid": true,
+"latency_ms": 24.7
+},
+{
+"id": "original-routing-06-1",
+"tier": "original",
+"type": "choice",
+"predicted": "general",
+"correct": true,
+"valid": true,
+"latency_ms": 25.2
+},
+{
+"id": "easy-intent-00",
+"tier": "easy",
+"type": "choice",
+"predicted": "track_order",
+"correct": true,
+"valid": true,
+"latency_ms": 28.1
+},
+{
+"id": "easy-intent-01",
+"tier": "easy",
+"type": "choice",
+"predicted": "cancel_order",
+"correct": true,
+"valid": true,
+"latency_ms": 28.5
+},
+{
+"id": "easy-intent-02",
+"tier": "easy",
+"type": "choice",
+"predicted": "change_address",
+"correct": true,
+"valid": true,
+"latency_ms": 29.1
+},
+{
+"id": "easy-intent-03",
+"tier": "easy",
+"type": "choice",
+"predicted": "report_damage",
+"correct": true,
+"valid": true,
+"latency_ms": 26.4
+},
+{
+"id": "easy-intent-04",
+"tier": "easy",
+"type": "choice",
+"predicted": "billing_question",
+"correct": true,
+"valid": true,
+"latency_ms": 28.0
+},
+{
+"id": "easy-intent-05",
+"tier": "easy",
+"type": "choice",
+"predicted": "track_order",
+"correct": true,
+"valid": true,
+"latency_ms": 28.9
+},
+{
+"id": "easy-intent-06",
+"tier": "easy",
+"type": "choice",
+"predicted": "set_alarm",
+"correct": true,
+"valid": true,
+"latency_ms": 27.4
+},
+{
+"id": "easy-intent-07",
+"tier": "easy",
+"type": "choice",
+"predicted": "play_music",
+"correct": true,
+"valid": true,
+"latency_ms": 26.6
+},
+{
+"id": "easy-intent-08",
+"tier": "easy",
+"type": "choice",
+"predicted": "weather",
+"correct": true,
+"valid": true,
+"latency_ms": 27.6
+},
+{
+"id": "easy-intent-09",
+"tier": "easy",
+"type": "choice",
+"predicted": "send_message",
+"correct": true,
+"valid": true,
+"latency_ms": 28.2
+},
+{
+"id": "easy-intent-10",
+"tier": "easy",
+"type": "choice",
+"predicted": "turn_off_lights",
+"correct": true,
+"valid": true,
+"latency_ms": 26.6
+},
+{
+"id": "easy-intent-11",
+"tier": "easy",
+"type": "choice",
+"predicted": "set_alarm",
+"correct": true,
+"valid": true,
+"latency_ms": 26.6
+},
+{
+"id": "easy-fact-00",
+"tier": "easy",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.0
+},
+{
+"id": "easy-fact-01",
+"tier": "easy",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 20.4
+},
+{
+"id": "easy-fact-02",
+"tier": "easy",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.0
+},
+{
+"id": "easy-fact-03",
+"tier": "easy",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 20.8
+},
+{
+"id": "easy-fact-04",
+"tier": "easy",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.1
+},
+{
+"id": "easy-fact-05",
+"tier": "easy",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 20.1
+},
+{
+"id": "easy-fact-06",
+"tier": "easy",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 20.9
+},
+{
+"id": "easy-fact-07",
+"tier": "easy",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 19.8
+},
+{
+"id": "easy-fact-08",
+"tier": "easy",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 19.9
+},
+{
+"id": "easy-fact-09",
+"tier": "easy",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 19.2
+},
+{
+"id": "easy-fact-10",
+"tier": "easy",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 19.3
+},
+{
+"id": "easy-fact-11",
+"tier": "easy",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 19.6
+},
+{
+"id": "easy-extraction-00",
+"tier": "easy",
+"type": "choice",
+"predicted": "paypal",
+"correct": true,
+"valid": true,
+"latency_ms": 22.6
+},
+{
+"id": "easy-extraction-01",
+"tier": "easy",
+"type": "choice",
+"predicted": "cash",
+"correct": true,
+"valid": true,
+"latency_ms": 22.3
+},
+{
+"id": "easy-extraction-02",
+"tier": "easy",
+"type": "choice",
+"predicted": "bank_transfer",
+"correct": true,
+"valid": true,
+"latency_ms": 21.9
+},
+{
+"id": "easy-extraction-03",
+"tier": "easy",
+"type": "choice",
+"predicted": "high",
+"correct": true,
+"valid": true,
+"latency_ms": 23.8
+},
+{
+"id": "easy-extraction-04",
+"tier": "easy",
+"type": "choice",
+"predicted": "low",
+"correct": true,
+"valid": true,
+"latency_ms": 24.2
+},
+{
+"id": "easy-extraction-05",
+"tier": "easy",
+"type": "choice",
+"predicted": "urgent",
+"correct": true,
+"valid": true,
+"latency_ms": 23.5
+},
+{
+"id": "easy-extraction-06",
+"tier": "easy",
+"type": "choice",
+"predicted": "M",
+"correct": true,
+"valid": true,
+"latency_ms": 24.5
+},
+{
+"id": "easy-extraction-07",
+"tier": "easy",
+"type": "choice",
+"predicted": "XL",
+"correct": true,
+"valid": true,
+"latency_ms": 23.6
+},
+{
+"id": "easy-extraction-08",
+"tier": "easy",
+"type": "choice",
+"predicted": "thursday",
+"correct": true,
+"valid": true,
+"latency_ms": 23.8
+},
+{
+"id": "easy-extraction-09",
+"tier": "easy",
+"type": "choice",
+"predicted": "monday",
+"correct": true,
+"valid": true,
+"latency_ms": 23.4
+},
+{
+"id": "easy-extraction-10",
+"tier": "easy",
+"type": "choice",
+"predicted": "friday",
+"correct": true,
+"valid": true,
+"latency_ms": 23.6
+},
+{
+"id": "easy-extraction-11",
+"tier": "easy",
+"type": "choice",
+"predicted": "credit_card",
+"correct": true,
+"valid": true,
+"latency_ms": 23.8
+},
+{
+"id": "easy-tool_selection-00",
+"tier": "easy",
+"type": "choice",
+"predicted": "get_weather",
+"correct": true,
+"valid": true,
+"latency_ms": 28.8
+},
+{
+"id": "easy-tool_selection-01",
+"tier": "easy",
+"type": "choice",
+"predicted": "send_email",
+"correct": true,
+"valid": true,
+"latency_ms": 28.0
+},
+{
+"id": "easy-tool_selection-02",
+"tier": "easy",
+"type": "choice",
+"predicted": "create_calendar_event",
+"correct": true,
+"valid": true,
+"latency_ms": 28.3
+},
+{
+"id": "easy-tool_selection-03",
+"tier": "easy",
+"type": "choice",
+"predicted": "convert_currency",
+"correct": true,
+"valid": true,
+"latency_ms": 27.5
+},
+{
+"id": "easy-tool_selection-04",
+"tier": "easy",
+"type": "choice",
+"predicted": "translate_text",
+"correct": true,
+"valid": true,
+"latency_ms": 28.3
+},
+{
+"id": "easy-tool_selection-05",
+"tier": "easy",
+"type": "choice",
+"predicted": "create_calendar_event",
+"correct": true,
+"valid": true,
+"latency_ms": 27.9
+},
+{
+"id": "easy-tool_selection-06",
+"tier": "easy",
+"type": "choice",
+"predicted": "search_flights",
+"correct": true,
+"valid": true,
+"latency_ms": 28.9
+},
+{
+"id": "easy-tool_selection-07",
+"tier": "easy",
+"type": "choice",
+"predicted": "book_restaurant",
+"correct": true,
+"valid": true,
+"latency_ms": 27.8
+},
+{
+"id": "easy-tool_selection-08",
+"tier": "easy",
+"type": "choice",
+"predicted": "set_reminder",
+"correct": true,
+"valid": true,
+"latency_ms": 28.1
+},
+{
+"id": "easy-tool_selection-09",
+"tier": "easy",
+"type": "choice",
+"predicted": "get_stock_price",
+"correct": true,
+"valid": true,
+"latency_ms": 27.9
+},
+{
+"id": "easy-tool_selection-10",
+"tier": "easy",
+"type": "choice",
+"predicted": "call_taxi",
+"correct": true,
+"valid": true,
+"latency_ms": 27.4
+},
+{
+"id": "easy-tool_selection-11",
+"tier": "easy",
+"type": "choice",
+"predicted": "set_reminder",
+"correct": true,
+"valid": true,
+"latency_ms": 27.8
+},
+{
+"id": "hard-opus-a-long_policy-01",
+"tier": "hard",
+"type": "choice",
+"predicted": "deny_repeated_seepage",
+"correct": false,
+"valid": true,
+"latency_ms": 214.8
+},
+{
+"id": "hard-opus-a-long_policy-04",
+"tier": "hard",
+"type": "choice",
+"predicted": "vp_and_finance_director",
+"correct": false,
+"valid": true,
+"latency_ms": 145.9
+},
+{
+"id": "hard-opus-a-long_policy-08",
+"tier": "hard",
+"type": "choice",
+"predicted": "parts_covered_labour_charged",
+"correct": true,
+"valid": true,
+"latency_ms": 130.0
+},
+{
+"id": "hard-opus-a-long_policy-09",
+"tier": "hard",
+"type": "choice",
+"predicted": "license_required",
+"correct": true,
+"valid": true,
+"latency_ms": 136.5
+},
+{
+"id": "hard-opus-a-long_policy-11",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 117.3
+},
+{
+"id": "hard-opus-a-long_policy-13",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": false,
+"valid": true,
+"latency_ms": 119.5
+},
+{
+"id": "hard-opus-a-long_policy-17",
+"tier": "hard",
+"type": "choice",
+"predicted": "database_oncall",
+"correct": true,
+"valid": true,
+"latency_ms": 130.3
+},
+{
+"id": "hard-opus-a-long_policy-19",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 117.0
+},
+{
+"id": "hard-opus-a-probability-03",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": false,
+"valid": true,
+"latency_ms": 34.4
+},
+{
+"id": "hard-opus-a-probability-04",
+"tier": "hard",
+"type": "choice",
+"predicted": "late",
+"correct": false,
+"valid": true,
+"latency_ms": 71.2
+},
+{
+"id": "hard-opus-a-probability-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "escalated",
+"correct": true,
+"valid": true,
+"latency_ms": 74.1
+},
+{
+"id": "hard-opus-a-probability-08",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 32.6
+},
+{
+"id": "hard-opus-a-temporal_numeric-03",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": false,
+"valid": true,
+"latency_ms": 35.6
+},
+{
+"id": "hard-opus-a-temporal_numeric-06",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 35.8
+},
+{
+"id": "hard-opus-a-temporal_numeric-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "sep_24",
+"correct": false,
+"valid": true,
+"latency_ms": 77.3
+},
+{
+"id": "hard-opus-a-temporal_numeric-09",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 38.7
+},
+{
+"id": "hard-opus-a-temporal_numeric-12",
+"tier": "hard",
+"type": "score",
+"predicted": "2",
+"correct": false,
+"valid": true,
+"latency_ms": 53.6
+},
+{
+"id": "hard-opus-b-ambiguous-02",
+"tier": "hard",
+"type": "choice",
+"predicted": "real_incident",
+"correct": true,
+"valid": true,
+"latency_ms": 42.1
+},
+{
+"id": "hard-opus-b-ambiguous-03",
+"tier": "hard",
+"type": "choice",
+"predicted": "within_limitation",
+"correct": false,
+"valid": true,
+"latency_ms": 41.7
+},
+{
+"id": "hard-opus-b-ambiguous-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "over_limit",
+"correct": false,
+"valid": true,
+"latency_ms": 43.3
+},
+{
+"id": "hard-opus-b-ambiguous-09",
+"tier": "hard",
+"type": "choice",
+"predicted": "legitimate",
+"correct": true,
+"valid": true,
+"latency_ms": 49.7
+},
+{
+"id": "hard-opus-b-ambiguous-10",
+"tier": "hard",
+"type": "choice",
+"predicted": "ask_user_which_alex",
+"correct": true,
+"valid": true,
+"latency_ms": 39.7
+},
+{
+"id": "hard-opus-b-ambiguous-11",
+"tier": "hard",
+"type": "choice",
+"predicted": "cannot_determine",
+"correct": true,
+"valid": true,
+"latency_ms": 37.7
+},
+{
+"id": "hard-opus-b-ambiguous-13",
+"tier": "hard",
+"type": "choice",
+"predicted": "cannot_determine",
+"correct": true,
+"valid": true,
+"latency_ms": 49.5
+},
+{
+"id": "hard-opus-b-multi_hop-03",
+"tier": "hard",
+"type": "choice",
+"predicted": "tier3_cfo",
+"correct": true,
+"valid": true,
+"latency_ms": 152.9
+},
+{
+"id": "hard-opus-b-multi_hop-04",
+"tier": "hard",
+"type": "choice",
+"predicted": "esra",
+"correct": false,
+"valid": true,
+"latency_ms": 133.2
+},
+{
+"id": "hard-opus-b-multi_hop-05",
+"tier": "hard",
+"type": "score",
+"predicted": "2",
+"correct": true,
+"valid": true,
+"latency_ms": 138.8
+},
+{
+"id": "hard-opus-b-multi_hop-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "credit_20_percent",
+"correct": true,
+"valid": true,
+"latency_ms": 145.7
+},
+{
+"id": "hard-opus-b-multi_hop-08",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 115.5
+},
+{
+"id": "hard-opus-b-probability-01",
+"tier": "hard",
+"type": "choice",
+"predicted": "merchant_wins",
+"correct": true,
+"valid": true,
+"latency_ms": 112.4
+},
+{
+"id": "hard-opus-b-probability-02",
+"tier": "hard",
+"type": "choice",
+"predicted": "upstream_provider",
+"correct": true,
+"valid": true,
+"latency_ms": 44.6
+},
+{
+"id": "hard-opus-b-probability-03",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": false,
+"valid": true,
+"latency_ms": 64.3
+},
+{
+"id": "hard-opus-b-probability-04",
+"tier": "hard",
+"type": "choice",
+"predicted": "attended",
+"correct": true,
+"valid": true,
+"latency_ms": 49.4
+},
+{
+"id": "hard-opus-b-probability-06",
+"tier": "hard",
+"type": "choice",
+"predicted": "upheld",
+"correct": true,
+"valid": true,
+"latency_ms": 69.1
+},
+{
+"id": "hard-opus-b-tradeoff-01",
+"tier": "hard",
+"type": "choice",
+"predicted": "escalate_to_engineering",
+"correct": true,
+"valid": true,
+"latency_ms": 67.9
+},
+{
+"id": "hard-opus-b-tradeoff-03",
+"tier": "hard",
+"type": "choice",
+"predicted": "order_b",
+"correct": true,
+"valid": true,
+"latency_ms": 57.8
+},
+{
+"id": "hard-opus-b-tradeoff-06",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 45.3
+},
+{
+"id": "hard-opus-b-tradeoff-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "p0_fix_24h",
+"correct": true,
+"valid": true,
+"latency_ms": 65.1
+},
+{
+"id": "hard-opus-b-tradeoff-08",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": false,
+"valid": true,
+"latency_ms": 40.7
+},
+{
+"id": "hard-opus-b-tradeoff-12",
+"tier": "hard",
+"type": "choice",
+"predicted": "refund_now",
+"correct": true,
+"valid": true,
+"latency_ms": 53.9
+},
+{
+"id": "hard-opus-c-long_policy-02",
+"tier": "hard",
+"type": "choice",
+"predicted": "erase_but_retain_transaction_records",
+"correct": true,
+"valid": true,
+"latency_ms": 190.0
+},
+{
+"id": "hard-opus-c-long_policy-03",
+"tier": "hard",
+"type": "choice",
+"predicted": "eur_300",
+"correct": false,
+"valid": true,
+"latency_ms": 201.6
+},
+{
+"id": "hard-opus-c-long_policy-04",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 162.3
+},
+{
+"id": "hard-opus-c-long_policy-05",
+"tier": "hard",
+"type": "score",
+"predicted": "2",
+"correct": false,
+"valid": true,
+"latency_ms": 174.6
+},
+{
+"id": "hard-opus-c-long_policy-08",
+"tier": "hard",
+"type": "score",
+"predicted": "2",
+"correct": false,
+"valid": true,
+"latency_ms": 169.3
+},
+{
+"id": "hard-opus-c-long_policy-10",
+"tier": "hard",
+"type": "choice",
+"predicted": "credit_minus_restocking_fee",
+"correct": true,
+"valid": true,
+"latency_ms": 192.5
+},
+{
+"id": "hard-opus-c-long_policy-11",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": false,
+"valid": true,
+"latency_ms": 166.1
+},
+{
+"id": "hard-opus-c-probability-03",
+"tier": "hard",
+"type": "choice",
+"predicted": "kuznets_technik",
+"correct": true,
+"valid": true,
+"latency_ms": 46.7
+},
+{
+"id": "hard-opus-c-temporal_numeric-02",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": false,
+"valid": true,
+"latency_ms": 54.6
+},
+{
+"id": "hard-opus-c-temporal_numeric-03",
+"tier": "hard",
+"type": "choice",
+"predicted": "eur_693_90",
+"correct": false,
+"valid": true,
+"latency_ms": 71.0
+},
+{
+"id": "hard-opus-c-temporal_numeric-04",
+"tier": "hard",
+"type": "choice",
+"predicted": "usd_2303_33",
+"correct": false,
+"valid": true,
+"latency_ms": 64.0
+},
+{
+"id": "hard-opus-c-temporal_numeric-06",
+"tier": "hard",
+"type": "choice",
+"predicted": "none_declined",
+"correct": false,
+"valid": true,
+"latency_ms": 82.2
+},
+{
+"id": "hard-opus-c-temporal_numeric-08",
+"tier": "hard",
+"type": "choice",
+"predicted": "eur_498_81",
+"correct": true,
+"valid": true,
+"latency_ms": 73.7
+},
+{
+"id": "hard-opus-c-temporal_numeric-12",
+"tier": "hard",
+"type": "choice",
+"predicted": "expired_24_month_term",
+"correct": false,
+"valid": true,
+"latency_ms": 59.0
+},
+{
+"id": "hard-sol-a-adversarial-01",
+"tier": "hard",
+"type": "choice",
+"predicted": "deny_missing_approval",
+"correct": true,
+"valid": true,
+"latency_ms": 34.0
+},
+{
+"id": "hard-sol-a-adversarial-06",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 25.8
+},
+{
+"id": "hard-sol-a-adversarial-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "retain_until_2031",
+"correct": true,
+"valid": true,
+"latency_ms": 33.3
+},
+{
+"id": "hard-sol-a-adversarial-08",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 23.8
+},
+{
+"id": "hard-sol-a-adversarial-09",
+"tier": "hard",
+"type": "score",
+"predicted": "2",
+"correct": true,
+"valid": true,
+"latency_ms": 29.5
+},
+{
+"id": "hard-sol-a-adversarial-11",
+"tier": "hard",
+"type": "choice",
+"predicted": "standard_research",
+"correct": true,
+"valid": true,
+"latency_ms": 32.7
+},
+{
+"id": "hard-sol-a-multi_hop-01",
+"tier": "hard",
+"type": "choice",
+"predicted": "accept_s2_dusk",
+"correct": true,
+"valid": true,
+"latency_ms": 126.1
+},
+{
+"id": "hard-sol-a-multi_hop-02",
+"tier": "hard",
+"type": "choice",
+"predicted": "security_primary",
+"correct": true,
+"valid": true,
+"latency_ms": 128.6
+},
+{
+"id": "hard-sol-a-multi_hop-05",
+"tier": "hard",
+"type": "choice",
+"predicted": "require_director",
+"correct": true,
+"valid": true,
+"latency_ms": 127.0
+},
+{
+"id": "hard-sol-a-multi_hop-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "admit",
+"correct": true,
+"valid": true,
+"latency_ms": 126.6
+},
+{
+"id": "hard-sol-a-multi_hop-08",
+"tier": "hard",
+"type": "choice",
+"predicted": "central_engineering",
+"correct": true,
+"valid": true,
+"latency_ms": 126.3
+},
+{
+"id": "hard-sol-a-multi_hop-09",
+"tier": "hard",
+"type": "choice",
+"predicted": "reject_capacity",
+"correct": false,
+"valid": true,
+"latency_ms": 124.6
+},
+{
+"id": "hard-sol-a-multi_hop-10",
+"tier": "hard",
+"type": "choice",
+"predicted": "approve_45_days",
+"correct": true,
+"valid": true,
+"latency_ms": 124.1
+},
+{
+"id": "hard-sol-a-multi_hop-12",
+"tier": "hard",
+"type": "choice",
+"predicted": "needs_authentication",
+"correct": true,
+"valid": true,
+"latency_ms": 125.4
+},
+{
+"id": "hard-sol-a-trap-02",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 28.9
+},
+{
+"id": "hard-sol-a-trap-04",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 23.9
+},
+{
+"id": "hard-sol-a-trap-05",
+"tier": "hard",
+"type": "score",
+"predicted": "0",
+"correct": true,
+"valid": true,
+"latency_ms": 34.6
+},
+{
+"id": "hard-sol-a-trap-06",
+"tier": "hard",
+"type": "choice",
+"predicted": "keep_open_unresolved",
+"correct": true,
+"valid": true,
+"latency_ms": 34.9
+},
+{
+"id": "hard-sol-a-trap-08",
+"tier": "hard",
+"type": "choice",
+"predicted": "late",
+"correct": true,
+"valid": true,
+"latency_ms": 34.3
+},
+{
+"id": "hard-sol-a-trap-10",
+"tier": "hard",
+"type": "choice",
+"predicted": "blocked_second_review",
+"correct": true,
+"valid": true,
+"latency_ms": 28.9
+},
+{
+"id": "hard-sol-a-trap-13",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 23.6
+},
+{
+"id": "hard-sol-a-trap-15",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 27.0
+},
+{
+"id": "hard-sol-b-judge_hard-01",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 26.2
+},
+{
+"id": "hard-sol-b-judge_hard-02",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": false,
+"valid": true,
+"latency_ms": 22.9
+},
+{
+"id": "hard-sol-b-judge_hard-05",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 26.4
+},
+{
+"id": "hard-sol-b-judge_hard-08",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 23.2
+},
+{
+"id": "hard-sol-b-judge_hard-10",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 25.6
+},
+{
+"id": "hard-sol-b-judge_hard-14",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 24.4
+},
+{
+"id": "hard-sol-b-judge_hard-15",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 22.7
+},
+{
+"id": "hard-sol-b-judge_hard-18",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 23.0
+},
+{
+"id": "hard-sol-b-long_policy-01",
+"tier": "hard",
+"type": "choice",
+"predicted": "reject_entire_claim",
+"correct": true,
+"valid": true,
+"latency_ms": 145.2
+},
+{
+"id": "hard-sol-b-long_policy-02",
+"tier": "hard",
+"type": "choice",
+"predicted": "deny_current_export",
+"correct": true,
+"valid": true,
+"latency_ms": 142.1
+},
+{
+"id": "hard-sol-b-long_policy-05",
+"tier": "hard",
+"type": "choice",
+"predicted": "delete_profile_omar_april_and_table",
+"correct": true,
+"valid": true,
+"latency_ms": 137.9
+},
+{
+"id": "hard-sol-b-long_policy-06",
+"tier": "hard",
+"type": "choice",
+"predicted": "river_arts",
+"correct": false,
+"valid": true,
+"latency_ms": 143.2
+},
+{
+"id": "hard-sol-b-routing_hard-01",
+"tier": "hard",
+"type": "choice",
+"predicted": "office_file_repair",
+"correct": true,
+"valid": true,
+"latency_ms": 39.9
+},
+{
+"id": "hard-sol-b-routing_hard-02",
+"tier": "hard",
+"type": "choice",
+"predicted": "ledger_reconciliation",
+"correct": true,
+"valid": true,
+"latency_ms": 37.0
+},
+{
+"id": "hard-sol-b-routing_hard-03",
+"tier": "hard",
+"type": "choice",
+"predicted": "network_dns",
+"correct": true,
+"valid": true,
+"latency_ms": 35.7
+},
+{
+"id": "hard-sol-b-routing_hard-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "release_notarization",
+"correct": true,
+"valid": true,
+"latency_ms": 34.4
+},
+{
+"id": "hard-sol-b-routing_hard-09",
+"tier": "hard",
+"type": "choice",
+"predicted": "source_access",
+"correct": true,
+"valid": true,
+"latency_ms": 34.1
+},
+{
+"id": "hard-sol-b-temporal_numeric-01",
+"tier": "hard",
+"type": "choice",
+"predicted": "within_window",
+"correct": false,
+"valid": true,
+"latency_ms": 32.8
+},
+{
+"id": "hard-sol-b-temporal_numeric-02",
+"tier": "hard",
+"type": "choice",
+"predicted": "at_least_100gb_below",
+"correct": false,
+"valid": true,
+"latency_ms": 33.3
+},
+{
+"id": "hard-sol-b-temporal_numeric-03",
+"tier": "hard",
+"type": "choice",
+"predicted": "15_credits",
+"correct": false,
+"valid": true,
+"latency_ms": 29.4
+},
+{
+"id": "hard-sol-b-temporal_numeric-04",
+"tier": "hard",
+"type": "choice",
+"predicted": "clear_fail",
+"correct": false,
+"valid": true,
+"latency_ms": 26.9
+},
+{
+"id": "hard-sol-c-judge_hard-03",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 30.9
+},
+{
+"id": "hard-sol-c-judge_hard-05",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 28.7
+},
+{
+"id": "hard-sol-c-judge_hard-07",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": false,
+"valid": true,
+"latency_ms": 26.4
+},
+{
+"id": "hard-sol-c-judge_hard-08",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 26.6
+},
+{
+"id": "hard-sol-c-judge_hard-09",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 28.6
+},
+{
+"id": "hard-sol-c-judge_hard-10",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 28.5
+},
+{
+"id": "hard-sol-c-judge_hard-11",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 28.2
+},
+{
+"id": "hard-sol-c-judge_hard-13",
+"tier": "hard",
+"type": "noul",
+"predicted": "no",
+"correct": true,
+"valid": true,
+"latency_ms": 26.8
+},
+{
+"id": "hard-sol-c-judge_hard-15",
+"tier": "hard",
+"type": "noul",
+"predicted": "yes",
+"correct": true,
+"valid": true,
+"latency_ms": 26.6
+},
+{
+"id": "hard-sol-c-multi_hop-07",
+"tier": "hard",
+"type": "choice",
+"predicted": "programme_review",
+"correct": true,
+"valid": true,
+"latency_ms": 132.4
+},
+{
+"id": "hard-sol-c-multi_hop-09",
+"tier": "hard",
+"type": "choice",
+"predicted": "bus_substitution",
+"correct": true,
+"valid": true,
+"latency_ms": 137.0
+},
+{
+"id": "hard-sol-c-multi_hop-11",
+"tier": "hard",
+"type": "choice",
+"predicted": "coverage_excluded",
+"correct": true,
+"valid": true,
+"latency_ms": 139.5
+},
+{
+"id": "hard-sol-c-multi_hop-12",
+"tier": "hard",
+"type": "choice",
+"predicted": "conservation_hold",
+"correct": true,
+"valid": true,
+"latency_ms": 52.1
+},
+{
+"id": "hard-sol-c-multi_hop-13",
+"tier": "hard",
+"type": "choice",
+"predicted": "normal_release",
+"correct": true,
+"valid": true,
+"latency_ms": 135.1
+}
+]

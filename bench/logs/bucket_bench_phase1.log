@@ -1,0 +1,26 @@
+# stdout of the benchmark on 1x NVIDIA B300 (sm_103), bf16; printed to the terminal only and preserved verbatim
+Lreal=82
+BUCKET L=  82 p50  42.54 ms   23.51 req/s  maxdiff 3.12e-03
+BUCKET L=  88 p50  46.76 ms   21.39 req/s  maxdiff 3.12e-03
+BUCKET L=  96 p50  47.54 ms   21.03 req/s  maxdiff 3.12e-03
+BUCKET L= 112 p50  51.25 ms   19.51 req/s  maxdiff 3.12e-03
+BUCKET L= 128 p50  58.19 ms   17.18 req/s  maxdiff 3.12e-03
+GPU kernel time per request (eager, L=82): 40.6 ms
+KERN nvjet_sm103_tst_128x192_64x7_2x1_2cta_v_bz_TNT                           9.80 ms  n=192
+KERN nvjet_sm103_tst_128x192_64x5_4x1_v_bz_TNT                                9.39 ms  n=176
+KERN void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_imp   3.79 ms  n=256
+KERN void at::native::(anonymous namespace)::conv_depthwise2d_forward_kerne   3.00 ms  n=48
+KERN void at::native::unrolled_elementwise_kernel<at::native::direct_copy_k   1.36 ms  n=241
+KERN void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<f   1.25 ms  n=161
+KERN chunk_gated_delta_rule_fwd_kernel_h_blockdim64                           1.20 ms  n=48
+KERN chunk_gated_delta_rule_fwd_kkt_solve_kernel                              0.97 ms  n=48
+KERN chunk_fwd_kernel_o                                                       0.80 ms  n=48
+KERN nvjet_sm103_tst_64x8_64x16_1x2_h_bz_splitK_TNT                           0.76 ms  n=96
+KERN void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_imp   0.75 ms  n=48
+KERN void at::native::vectorized_elementwise_kernel<8, at::native::(anonymo   0.68 ms  n=64
+BATCH n=  1 graph p50   40.84 ms    24.49 req/s  maxdiff_first 3.12e-03  mem_GB 54.7
+BATCH n=  2 graph p50   70.96 ms    28.18 req/s  maxdiff_first 7.88e-03  mem_GB 54.7
+BATCH n=  4 graph p50  131.58 ms    30.40 req/s  maxdiff_first 7.88e-03  mem_GB 54.7
+BATCH n=  8 graph p50  259.54 ms    30.82 req/s  maxdiff_first 7.88e-03  mem_GB 54.7
+BATCH n= 16 graph p50  511.53 ms    31.28 req/s  maxdiff_first 7.88e-03  mem_GB 54.7
+=== OPT2 DONE ===
