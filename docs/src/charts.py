@@ -18,7 +18,8 @@ cols = [GRAY if s[2] == "base" else BLUE_L if s[2] == "a" else BLUE for s in ste
 ax.barh(y, [s[1] for s in steps], height=0.62, color=cols, edgecolor="white", linewidth=1.5)
 for yi, s in zip(y, steps): ax.text(s[1] + 3, yi, f"{s[1]:.1f} ms", va="center", fontsize=8.3, color=INK)
 ax.set_yticks(y); ax.set_yticklabels([s[0] for s in steps], fontsize=8.2, color=INK)
-ax.set_xlim(0, 300); ax.set_xlabel("Latency P50, ms (example request, one B300; forward pass + scoring head)", fontsize=8.2, color=INK2)
+ax.set_xlim(0, 300); ax.set_xlabel("ms", fontsize=8.2, color=INK2)
+ax.set_title("Latency of one inference, step by step", fontsize=10.5, color=INK, loc="center", fontweight="normal", pad=10)
 ax.xaxis.grid(True, color=GRID, linewidth=0.8); ax.set_axisbelow(True)
 for sp in ("top", "right", "left"): ax.spines[sp].set_visible(False)
 ax.spines["bottom"].set_color(GRID); ax.tick_params(axis="x", colors=INK2, labelsize=8); ax.tick_params(axis="y", length=0)
@@ -29,12 +30,13 @@ fig.tight_layout(); fig.savefig("ladder.png", facecolor="white"); fig.savefig("l
 # ---- chart 2: JevBench per-task latency CDF ----
 o = [r["latency_ms"] for r in json.load(open("../../results/jevbench_original.json"))]
 v = [r["latency_ms"] for r in json.load(open("../../results/jevbench_service_v3.json"))]
-fig, ax = plt.subplots(figsize=(7.2, 3.4), dpi=200)
+fig, ax = plt.subplots(figsize=(7.2, 3.6), dpi=200)
 for data, c, lab in ((o, ORANGE, "Original jev.server (with FLA)"), (v, BLUE, "open-jev-fast")):
     xs = np.sort(data); ys = np.arange(1, len(xs) + 1) / len(xs) * 100
     ax.step(xs, ys, where="post", color=c, linewidth=2, label=lab)
     ax.text(np.median(xs) * 1.08, 52, f"P50 {np.median(xs):.0f} ms", color=INK, fontsize=8)
-ax.set_xscale("log"); ax.set_xlabel("Per-task latency (ms, log scale, incl. HTTP)", fontsize=8.2, color=INK2); ax.set_ylabel("Cumulative %", fontsize=8.2, color=INK2)
+ax.set_xscale("log"); ax.set_xlabel("ms (log scale)", fontsize=8.2, color=INK2); ax.set_ylabel("% of tasks", fontsize=8.2, color=INK2)
+ax.set_title("JevBench per-task latency (231 tasks)", fontsize=10.5, color=INK, loc="center", fontweight="normal", pad=10)
 ax.grid(True, color=GRID, linewidth=0.8); ax.set_axisbelow(True)
 for sp in ("top", "right"): ax.spines[sp].set_visible(False)
 for sp in ("left", "bottom"): ax.spines[sp].set_color(GRID)

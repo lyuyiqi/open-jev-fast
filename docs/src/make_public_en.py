@@ -39,10 +39,11 @@ s.append(Paragraph("An inference backend for <b>Open-Jev</b> [1] (Open-Jev contr
 s.append(Paragraph("<b>Summary:</b> for the example request (3 questions / 7 candidates / 539 tokens), one inference takes <b>20.1 ms</b>, vs <b>257.0 ms</b> on Open-Jev's default PyTorch path (<b>12.8×</b>) and <b>102.9 ms</b> with FLA kernels (<b>5.1×</b>). "
                    "On the 231 JevBench tasks, mean latency went from <b>703 ms to 51 ms (13.7×)</b>, P50 171 → 24 ms, slowest task 16.0 s → 0.58 s. "
                    "Accuracy 198/231 → 197/231; the one task that changed is a coin flip whose original probabilities are 0.504 vs 0.496 (numerical noise). "
-                   "It runs as an HTTP service with the same API as the original.", KEY))
+                   "It runs locally as a drop-in replacement for Open-Jev's own local server (same request format).", KEY))
 s.append(Image("ladder_en.png", width=172*mm, height=95*mm))
 s.append(Paragraph("Figure 1. Latency of one inference on the example request as optimizations are added. Phase 1 works at the PyTorch level; "
-                   "phase 2 replaces the phase-1 path with hand-written CUDA kernels plus a prefix tree. The first two bars and the last bar were measured together "
+                   "phase 2 replaces the phase-1 path with hand-written CUDA kernels plus a prefix tree. Each bar is the median latency (ms) of the forward pass plus scoring head "
+                   "on one B300. The first two bars and the last bar were measured together "
                    "with one script (bench/e2e_bench.py); the middle bars were measured during development.", NOTE))
 
 s.append(Paragraph("1. Test conditions", H2)); s.append((
@@ -122,7 +123,8 @@ s.append(sec("6. Correctness",
               "The model card reports 197/231 on public JevBench for this checkpoint; our run of the original server scored 198/231.", NOTE)))
 
 s.append(sec("7. JevBench measurements (HTTP, concurrency 1, warmed up)",
-    Image("cdf_en.png", width=168*mm, height=79*mm)))
+    Image("cdf_en.png", width=168*mm, height=84*mm),
+    Paragraph("Figure 2. Cumulative share of the 231 JevBench tasks finished within a given latency (ms, log scale), sent over HTTP to the local server, one request at a time.", NOTE)))
 s.append(KeepTogether([
     table([["", "Original jev.server (with FLA)", "Service v1", "Service v3 (current)"],
            ["Accuracy", "198/231", "198/231", "197/231"], ["Mean", "703 ms", "52.1 ms", "51.3 ms"], ["P50", "171 ms", "28.6 ms", "24.2 ms"],

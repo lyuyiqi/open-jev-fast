@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>open-jev-fast: 12.8× faster Open-Jev-27B inference</title>
-  <meta name="description" content="A faster inference backend for Open-Jev-27B: 257.0 → 20.1 ms per request on one NVIDIA B300, bf16, same API.">
+  <meta name="description" content="A faster inference backend for Open-Jev-27B: 257.0 → 20.1 ms per request, running locally on one NVIDIA B300, bf16.">
   <meta property="og:title" content="open-jev-fast: 12.8× faster Open-Jev-27B inference">
-  <meta property="og:description" content="Hand-written fused CUDA kernels, a two-level prefix tree and CUDA Graphs for Open-Jev-27B. bf16, same API.">
+  <meta property="og:description" content="Hand-written fused CUDA kernels, a two-level prefix tree and CUDA Graphs for Open-Jev-27B. Runs locally, bf16.">
   <meta property="og:type" content="article">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -49,7 +49,7 @@
   <div class="hero-body">
     <div class="container is-max-desktop has-text-centered">
       <h1 class="title is-1 publication-title">open-jev-fast</h1>
-      <p class="tagline">Open-Jev-27B inference in <b>20.1 ms</b> instead of <b>257.0 ms</b> on one NVIDIA B300. Same model, same API, bf16.</p>
+      <p class="tagline">Open-Jev-27B inference in <b>20.1 ms</b> instead of <b>257.0 ms</b> on one local NVIDIA B300. Same model, bf16, a drop-in replacement for Open-Jev's local server.</p>
       <div class="publication-links">
         <span class="link-block">
           <a href="https://github.com/lyuyiqi/open-jev-fast" class="external-link button is-normal is-rounded is-dark gh-btn">
@@ -67,14 +67,14 @@
     <div class="figure-card">
       <img src="ladder.svg" alt="Latency of one inference as optimizations are added">
     </div>
-    <p class="caption">Latency of one inference on the example request (3 questions, 7 candidates, 539 tokens) as optimizations are added. The first two bars and the last bar were measured together with one script; the middle bars were measured during development.</p>
+    <p class="caption">Example request (3 questions, 7 candidates, 539 tokens) on one NVIDIA B300. Each bar is the median latency of the forward pass plus scoring head. The first two bars and the last bar were measured together with one script; the middle bars were measured during development.</p>
   </div>
 </section>
 
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">TL;DR</h2>
-    <p class="lead has-text-centered">An inference backend for <a href="https://github.com/Zefan-Cai/Open-Jev">Open-Jev</a><sup><a href="#refs">[1]</a></sup>. It keeps the model and the HTTP API and replaces the forward pass with fused CUDA kernels, a prefix tree that computes shared prompt text once, and CUDA Graphs.</p>
+    <p class="lead has-text-centered">An inference backend for <a href="https://github.com/Zefan-Cai/Open-Jev">Open-Jev</a><sup><a href="#refs">[1]</a></sup>. It runs locally, keeps the model and the request format of Open-Jev's local server, and replaces the forward pass with fused CUDA kernels, a prefix tree that computes shared prompt text once, and CUDA Graphs.</p>
     <div class="columns is-multiline mt-5">
       <div class="column is-3"><div class="stat"><div class="num">12.8×</div><div class="from">257.0 → 20.1 ms</div><div class="what">vs. default PyTorch path</div></div></div>
       <div class="column is-3"><div class="stat"><div class="num">5.1×</div><div class="from">102.9 → 20.1 ms</div><div class="what">vs. PyTorch + FLA kernels</div></div></div>
@@ -105,7 +105,7 @@
     <div class="figure-card">
       <img src="jevbench_cdf.svg" alt="Per-task latency distribution on JevBench">
     </div>
-    <p class="caption">Per-task latency on the 231 public JevBench<sup><a href="#refs">[11]</a></sup> tasks, over HTTP, one request at a time.</p>
+    <p class="caption">Cumulative share of the 231 public JevBench<sup><a href="#refs">[11]</a></sup> tasks finished within a given latency, sent over HTTP to the local server, one request at a time.</p>
     <div class="table-container mt-5">
       <table class="table res is-fullwidth">
         <thead><tr><th></th><th>Original jev.server (with FLA)</th><th class="hl">open-jev-fast</th></tr></thead>

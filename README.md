@@ -2,7 +2,7 @@
 
 **Report:** [web page](https://yiqilyu.me/open-jev-fast/) · [PDF](docs/report.pdf)
 
-**A faster inference backend for [Open-Jev](https://github.com/Zefan-Cai/Open-Jev).** It serves the same HTTP API as Open-Jev's `jev.server`, with the same model ([Open-Jev-27B-v1.1](https://huggingface.co/ZefanCai/Open-Jev-27B-v1.1) on [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B)), in bf16 with no quantization. It replaces the model forward pass with hand-written fused CUDA kernels, a prefix tree that computes shared prompt text once, tuned matrix multiplies and CUDA Graphs.
+**A faster inference backend for [Open-Jev](https://github.com/Zefan-Cai/Open-Jev).** It runs locally as a drop-in replacement for Open-Jev's own local server (`python -m jev.server`, same request format), with the same model ([Open-Jev-27B-v1.1](https://huggingface.co/ZefanCai/Open-Jev-27B-v1.1) on [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B)), in bf16 with no quantization. It replaces the model forward pass with hand-written fused CUDA kernels, a prefix tree that computes shared prompt text once, tuned matrix multiplies and CUDA Graphs.
 
 Open-Jev is by the Open-Jev contributors; this repository runs on top of it and needs an Open-Jev installation and the model weights. **Built on:** Open-Jev [1], Open-Jev-27B-v1.1 / Qwen3.8-27B [2, 3], flash-linear-attention [4], Hugging Face Transformers [7], PEFT [8], PyTorch [9]; evaluated with JevBench [11]. What is used from each project is listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
@@ -19,7 +19,7 @@ Open-Jev's default install does not include flash-linear-attention (FLA) [4], so
 
 ![Latency ladder](docs/ladder.png)
 
-*The first two bars and the last bar were measured together with `bench/e2e_bench.py`. The middle bars were measured during development (see Test conditions).*
+*Example request on one B300; each bar is the median latency of the forward pass plus scoring head. The first two bars and the last bar were measured together with `bench/e2e_bench.py`; the middle bars were measured during development (see Test conditions).*
 
 The Open-Jev-27B-v1.1 model card reports 197/231 on public JevBench for this checkpoint; our local run of the original server scored 198/231.
 
@@ -118,7 +118,7 @@ hf download ZefanCai/Open-Jev-27B-v1.1 --local-dir ./open-jev-27b-v1.1   # Open-
 export OPEN_JEV_DIR=$PWD/Open-Jev OJ_CKPT=$PWD/open-jev-27b-v1.1/package/checkpoint
 export CUDA_HOME=/path/to/cuda-13   # needs bin/nvcc, include/, lib/libcublasLt.so
 
-./scripts/launch_server.sh          # same API as jev.server: POST http://localhost:18791/v1/systemone
+./scripts/launch_server.sh          # local server, same request format as jev.server: POST http://localhost:18791/v1/systemone
 ```
 
 Kernels are compiled on first import (`torch.utils.cpp_extension.load_inline`).
