@@ -1,245 +1,183 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>open-jev-fast: 5.5× faster Open-Jev-27B inference</title>
-<meta name="description" content="A faster inference backend for Open-Jev-27B on one NVIDIA B300: 109.9 → 20.1 ms per inference, JevBench mean latency 703 → 51 ms, bf16, same API.">
-<meta property="og:title" content="open-jev-fast: 5.5× faster Open-Jev-27B inference">
-<meta property="og:description" content="Hand-written fused CUDA kernels, a prefix tree and CUDA Graphs for Open-Jev-27B on an NVIDIA B300. bf16, same API.">
-<meta property="og:type" content="article">
-<style>
-  :root {
-    --ink: #0b0b0b; --ink2: #52514e; --rule: #d9d8d4; --fill: #f3f2ef; --callout: #e8f0fb;
-    --accent: #2a78d6; --accent-l: #a9c8ee; --bg: #ffffff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --ink: #ecebe8; --ink2: #a9a7a2; --rule: #3a3936; --fill: #1d1d1b; --callout: #16263a; --accent: #6aa6ee; --bg: #121211; }
-    figure img { background: #fff; border-radius: 6px; }
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body { margin: 0; background: var(--bg); color: var(--ink);
-         font: 16.5px/1.62 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-  main { max-width: 860px; margin: 0 auto; padding: 48px 22px 80px; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; text-align: center; }
-  .links { text-align: center; margin: 0 0 26px; }
-  .gh { display: inline-flex; align-items: center; gap: 7px; color: var(--ink2); font-weight: 600; font-size: 0.95rem; }
-  .gh:hover { color: var(--ink); text-decoration: none; }
-  h2 { font-size: 1.35rem; margin: 46px 0 12px; padding-top: 6px; border-top: 1px solid var(--rule); }
-  h3 { font-size: 1.05rem; margin: 26px 0 6px; }
-  p { margin: 0 0 14px; }
-  .lede { font-size: 1.08rem; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 26px 0 8px; }
-  .card { background: var(--fill); border-radius: 10px; padding: 14px 16px; }
-  .card .big { font-size: 1.75rem; font-weight: 700; line-height: 1.15; }
-  .card .from { color: var(--ink2); font-size: 0.9rem; }
-  .card .what { font-size: 0.92rem; margin-top: 4px; }
-  .callout { background: var(--callout); border-radius: 10px; padding: 14px 18px; margin: 18px 0; }
-  figure { margin: 26px 0; }
-  figure img { width: 100%; height: auto; display: block; }
-  figcaption { color: var(--ink2); font-size: 0.9rem; margin-top: 8px; }
-  .tw { overflow-x: auto; margin: 10px 0 16px; }
-  table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
-  th, td { text-align: left; vertical-align: top; padding: 7px 10px; border-bottom: 1px solid var(--rule); }
-  th { border-bottom: 1.5px solid var(--ink); white-space: nowrap; }
-  td.num, th.num { white-space: nowrap; }
-  tr.hl td { background: var(--fill); font-weight: 600; }
-  ul, ol { padding-left: 1.3em; margin: 0 0 14px; }
-  li { margin: 3px 0; }
-  code { font: 0.88em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--fill); padding: 1px 5px; border-radius: 4px; }
-  .note { color: var(--ink2); font-size: 0.92rem; }
-  sup.c a { font-size: 0.78em; }
-  .refs li { font-size: 0.9rem; margin: 5px 0; }
-  .refs { padding-left: 2.2em; }
-  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink2); font-size: 0.88rem; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>open-jev-fast: 12.8× faster Open-Jev-27B inference</title>
+  <meta name="description" content="A faster inference backend for Open-Jev-27B: 257.0 → 20.1 ms per request on one NVIDIA B300, bf16, same API.">
+  <meta property="og:title" content="open-jev-fast: 12.8× faster Open-Jev-27B inference">
+  <meta property="og:description" content="Hand-written fused CUDA kernels, a two-level prefix tree and CUDA Graphs for Open-Jev-27B. bf16, same API.">
+  <meta property="og:type" content="article">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <style>
+    :root { --primary-color: #2a78d6; --primary-hover: #1f5fae; }
+    .title.is-3::after { background: #2a78d6; }
+    .publication-title { margin-bottom: 1.2rem !important; }
+    .tagline { font-size: 1.2rem; color: #475569; max-width: 760px; margin: 0 auto 1.4rem; }
+    .gh-btn .icon svg { width: 1.15em; height: 1.15em; }
+    .figure-card { background: #fff; border: 1px solid var(--border-color); border-radius: 16px; padding: 1.2rem 1.2rem 0.8rem; box-shadow: var(--shadow-md); }
+    .figure-card img { width: 100%; height: auto; display: block; }
+    .caption { color: #64748b; font-size: 0.95rem; margin-top: 0.8rem; text-align: center; }
+    .stat { background: #fff; border: 1px solid var(--border-color); border-radius: 14px; padding: 1.1rem 1rem; height: 100%; text-align: center; }
+    .stat .num { font-size: 2rem; font-weight: 800; color: #0f172a; line-height: 1.15; }
+    .stat .from { color: #2a78d6; font-weight: 600; font-size: 0.95rem; }
+    .stat .what { color: #64748b; font-size: 0.9rem; margin-top: 0.3rem; }
+    .step { background: #fff; border: 1px solid var(--border-color); border-radius: 14px; padding: 1.2rem; height: 100%; }
+    .step .k { display: inline-block; background: #e8f0fb; color: #2a78d6; font-weight: 700; border-radius: 8px; padding: 0.1rem 0.55rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
+    .step h4 { font-weight: 700; font-size: 1.08rem; margin-bottom: 0.4rem; color: #0f172a; }
+    .step p { color: #475569; font-size: 0.95rem; line-height: 1.6; }
+    .lead { font-size: 1.08rem; color: #475569; line-height: 1.75; max-width: 780px; margin: 0 auto; }
+    table.res { width: 100%; font-size: 0.95rem; }
+    table.res th { color: #0f172a; }
+    table.res td.hl, table.res th.hl { background: #e8f0fb; font-weight: 700; }
+    ul.tight { list-style: disc; padding-left: 1.2em; }
+    ul.tight li { margin: 0.35rem 0; color: #475569; }
+    details.refs summary { cursor: pointer; font-weight: 700; font-size: 1.1rem; color: #0f172a; }
+    details.refs ol { margin-top: 1rem; font-size: 0.9rem; color: #475569; }
+    details.refs li { margin: 0.35rem 0; }
+    .footer .content p { font-size: 0.9rem; }
+    .hero-body { padding: 3rem 1.5rem; }
+    sup a { font-size: 0.75em; }
+    .teaser .container { padding: 0 1rem; }
+  </style>
 </head>
 <body>
-<main>
 
-<h1>open-jev-fast: 5.5× faster Open-Jev-27B inference</h1>
-<p class="links"><a class="gh" href="https://github.com/lyuyiqi/open-jev-fast" aria-label="Code on GitHub" title="Code on GitHub"><svg viewBox="0 0 16 16" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a></p>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">open-jev-fast</h1>
+      <p class="tagline">Open-Jev-27B inference in <b>20.1 ms</b> instead of <b>257.0 ms</b> on one NVIDIA B300. Same model, same API, bf16.</p>
+      <div class="publication-links">
+        <span class="link-block">
+          <a href="https://github.com/lyuyiqi/open-jev-fast" class="external-link button is-normal is-rounded is-dark gh-btn">
+            <span class="icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></span>
+            <span>Code</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p class="lede">open-jev-fast is an inference backend for <a href="https://github.com/Zefan-Cai/Open-Jev">Open-Jev</a> <sup class="c"><a href="#ref-1">[1]</a></sup>, built by the Open-Jev contributors. It serves the same HTTP API as Open-Jev's <code>jev.server</code> and runs the same model, Open-Jev-27B-v1.1 on Qwen3.8-27B <sup class="c"><a href="#ref-2">[2]</a>,<a href="#ref-3">[3]</a></sup>, in bf16 with no quantization. The model forward pass is replaced with hand-written fused CUDA kernels, a prefix tree that computes shared prompt text only once, tuned matrix multiplies and CUDA Graphs. All numbers are on one NVIDIA B300.</p>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="figure-card">
+      <img src="ladder.svg" alt="Latency of one inference as optimizations are added">
+    </div>
+    <p class="caption">Latency of one inference on the example request (3 questions, 7 candidates, 539 tokens) as optimizations are added. The first two bars and the last bar were measured together with one script; the middle bars were measured during development.</p>
+  </div>
+</section>
 
-<div class="cards">
-  <div class="card"><div class="big">20.1 ms</div><div class="from">from 109.9 ms (5.5×)</div><div class="what">one inference, example request</div></div>
-  <div class="card"><div class="big">51 ms</div><div class="from">from 703 ms (13.7×)</div><div class="what">JevBench mean latency, 231 tasks, HTTP</div></div>
-  <div class="card"><div class="big">0.58 s</div><div class="from">from 16.0 s</div><div class="what">slowest JevBench task</div></div>
-  <div class="card"><div class="big">197 / 231</div><div class="from">original: 198 / 231</div><div class="what">JevBench accuracy; the one change is a coin flip</div></div>
-</div>
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">TL;DR</h2>
+    <p class="lead has-text-centered">An inference backend for <a href="https://github.com/Zefan-Cai/Open-Jev">Open-Jev</a><sup><a href="#refs">[1]</a></sup>. It keeps the model and the HTTP API and replaces the forward pass with fused CUDA kernels, a prefix tree that computes shared prompt text once, and CUDA Graphs.</p>
+    <div class="columns is-multiline mt-5">
+      <div class="column is-3"><div class="stat"><div class="num">12.8×</div><div class="from">257.0 → 20.1 ms</div><div class="what">vs. default PyTorch path</div></div></div>
+      <div class="column is-3"><div class="stat"><div class="num">5.1×</div><div class="from">102.9 → 20.1 ms</div><div class="what">vs. PyTorch + FLA kernels</div></div></div>
+      <div class="column is-3"><div class="stat"><div class="num">13.7×</div><div class="from">703 → 51 ms</div><div class="what">JevBench mean latency, HTTP</div></div></div>
+      <div class="column is-3"><div class="stat"><div class="num">197 / 231</div><div class="from">original: 198 / 231</div><div class="what">JevBench accuracy; one coin flip</div></div></div>
+    </div>
+  </div>
+</section>
 
-<figure>
-  <img src="ladder.svg" alt="Bar chart: latency of one inference as optimizations are added, from 109.9 ms down to 20.1 ms">
-  <figcaption>Figure 1. Latency of one inference on the example request as optimizations are added. Phase 1 (light) works at the PyTorch level; phase 2 (dark) replaces the phase-1 path with hand-written CUDA kernels plus a prefix tree.</figcaption>
-</figure>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">How it works</h2>
+    <div class="columns">
+      <div class="column"><div class="step"><span class="k">1</span><h4>Fused CUDA kernels</h4><p>Six hand-written kernels replace every non-matmul op in a layer. Kernels per request drop from ~5000 to 945, and the CPU launch bottleneck goes away.</p></div></div>
+      <div class="column"><div class="step"><span class="k">2</span><h4>Two-level prefix tree</h4><p>The shared context is computed once, each question once, and each candidate only its tail, all in one packed forward pass.</p></div></div>
+      <div class="column"><div class="step"><span class="k">3</span><h4>Tuned GEMMs + CUDA Graphs</h4><p>Merged weights, split-K with fp32 partial sums, per-shape cuBLASLt algorithms, and one CUDA Graph per request shape.</p></div></div>
+    </div>
+    <div class="figure-card mt-5">
+      <img src="prefix_tree.svg" alt="Two-level prefix tree for the example request">
+    </div>
+    <p class="caption">Prefix tree for the example request. Linear-attention layers still run each candidate over its full path, so results match the original; full-attention layers use an ancestor mask.</p>
+  </div>
+</section>
 
-<h2 id="setup">1. Test conditions</h2>
-<div class="tw"><table>
-  <tr><th></th><th>Single inference (Figure 1, 20.1 ms)</th><th>JevBench (Section 7)</th></tr>
-  <tr><td>Request</td><td>Open-Jev's <code>configs/example-request.json</code>: a customer-service conversation plus 3 questions (routing, 1 of 3; refund review needed, yes/no; urgency, 3 levels). That is 7 candidate prompts and 539 tokens.</td><td>The 231 public JevBench <sup class="c"><a href="#ref-11">[11]</a></sup> tasks (upstream <code>f8ce713</code>). Each task has 1 question.</td></tr>
-  <tr><td>Model</td><td>Open-Jev-27B-v1.1, bf16, not quantized</td><td>Same</td></tr>
-  <tr><td>Hardware</td><td>One dedicated NVIDIA B300 (sm_103)</td><td>Same. Both the original and this server run with <code>--max-length 16384</code> so every task fits; the model card's saved limit is 4,096 tokens per candidate.</td></tr>
-  <tr><td>What is timed</td><td>One full forward pass plus the scoring head, all 64 layers. <b>Everything is recomputed on every request; nothing is reused across requests.</b> A shared prefix is computed once only within a request. Tokenization (about 1 ms) and HTTP are excluded.</td><td>Client-side: the per-task end-to-end latency recorded by JevBench's own TypeSafe adapter, including tokenization, HTTP and JSON. A new connection per task, concurrency 1.</td></tr>
-  <tr><td>Statistic</td><td>5 warm-up runs, then the median of repeated runs, with <code>cuda.synchronize</code> before and after each run. 20.1 ms is the median of 20 CUDA Graph replays. Every other step, including the original's 109.9 ms, is the median of 30 runs.</td><td>The service is already warmed up (second pass, with CUDA Graphs for the needed shapes already captured). The 231 tasks run once, in order.</td></tr>
-  <tr><td>Correctness</td><td>Per-candidate probabilities are within 0.003 of the original, and all three decisions are identical.</td><td>JevBench's <code>score_task</code>; predictions compared task by task with the original.</td></tr>
-</table></div>
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">JevBench</h2>
+    <div class="figure-card">
+      <img src="jevbench_cdf.svg" alt="Per-task latency distribution on JevBench">
+    </div>
+    <p class="caption">Per-task latency on the 231 public JevBench<sup><a href="#refs">[11]</a></sup> tasks, over HTTP, one request at a time.</p>
+    <div class="table-container mt-5">
+      <table class="table res is-fullwidth">
+        <thead><tr><th></th><th>Original jev.server (with FLA)</th><th class="hl">open-jev-fast</th></tr></thead>
+        <tbody>
+          <tr><td>Accuracy</td><td>198 / 231</td><td class="hl">197 / 231</td></tr>
+          <tr><td>Mean latency</td><td>703 ms</td><td class="hl">51.3 ms</td></tr>
+          <tr><td>P50 / P95</td><td>171 / 1272 ms</td><td class="hl">24.2 / 148 ms</td></tr>
+          <tr><td>Slowest task</td><td>16.0 s</td><td class="hl">0.58 s</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-<h2 id="bottleneck">2. Where the time went</h2>
-<p>The original takes about 106 ms per request. The moment the CPU finishes issuing all operations is the moment the GPU finishes computing. Each request launches about 5000 GPU kernels, but the GPU is busy for only about 51 ms, so the <b>CPU issuing small operations one by one is the bottleneck</b>. The three main sources:</p>
-<ul>
-  <li>The linear-attention operators (Triton) cost 65–150 µs of CPU time per launch, about 35 ms in total.</li>
-  <li>The LoRA adapter is not merged, so each of the 160 projection layers has an extra fp32 branch. That is 320 extra matrix multiplies, about 20 ms.</li>
-  <li>RMSNorm in Transformers is split into 7 small operations, about 12.5 ms in total.</li>
-</ul>
-<p>Also, most of the 7 candidate prompts is repeated text (context and question), and the original recomputes all of it for every candidate.</p>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title is-4">Correctness</h2>
+        <ul class="tight">
+          <li>Kernels match the PyTorch/FLA reference bit for bit on 98–100% of elements.</li>
+          <li>Probabilities differ from the original (with FLA) by at most 0.0034 on the example request and 0.035 on a 10,722-token request; decisions are unchanged.</li>
+          <li>On JevBench, accuracy changes by one task, a coin flip (original: 0.504 vs 0.496).</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h2 class="title is-4">Setup and limits</h2>
+        <ul class="tight">
+          <li>Latency is the forward pass plus scoring head for the example request, with prompts tokenized beforehand. All three numbers use the same script: median of 30 runs after 5 warm-ups.</li>
+          <li>Tested only on an NVIDIA B300. Needs about 96 GiB of GPU memory.</li>
+          <li>bf16 only; one request at a time; a new request shape adds 1–3 s once, for graph capture.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="has-text-centered mt-4" style="color:#64748b">Full details, the step-by-step breakdown and failed attempts are in the <a href="https://github.com/lyuyiqi/open-jev-fast#readme">README</a> and <a href="report.pdf">report (PDF)</a>.</p>
+  </div>
+</section>
 
-<h2 id="phase1">3. Phase 1: PyTorch level (110 → 32.4 ms)</h2>
-<div class="tw"><table>
-  <tr><th>Step</th><th class="num">Single P50</th><th>Notes</th></tr>
-  <tr><td>Original</td><td class="num">109.9 ms</td><td>HF Transformers <sup class="c"><a href="#ref-7">[7]</a></sup> + flash-linear-attention <sup class="c"><a href="#ref-4">[4]</a></sup></td></tr>
-  <tr><td>Merge LoRA <sup class="c"><a href="#ref-10">[10]</a></sup> via PEFT <sup class="c"><a href="#ref-8">[8]</a></sup>, fuse RMSNorm, remove 2 CPU syncs</td><td class="num">78.6 ms</td><td>Both syncs are in the Transformers mask code, a "skip the mask if there is no padding" shortcut. Removing them does not change the math.</td></tr>
-  <tr><td>Capture the whole model as one CUDA Graph</td><td class="num">58.0 → 42.5 ms</td><td>With the syncs gone, the whole model can be captured. Capturing at the real length 82 instead of padding to 128 gives the second number.</td></tr>
-  <tr><td>+ causal-conv1d kernel <sup class="c"><a href="#ref-6">[6]</a></sup></td><td class="num">36.5 ms</td><td>The short convolution moves from the generic PyTorch implementation to the dedicated kernel.</td></tr>
-  <tr><td>+ torch.compile <sup class="c"><a href="#ref-9">[9]</a></sup> fusion, then capture</td><td class="num">32.4 ms</td><td>Batched throughput goes from 27 to 40.7 requests/s.</td></tr>
-</table></div>
-<p class="note">JevBench with the phase-1 numerics: 198/231, identical to the original.</p>
+<section class="section hero is-light" id="refs">
+  <div class="container is-max-desktop">
+    <details class="refs">
+      <summary>References</summary>
+      <ol>
+        <li>Open-Jev contributors. <i>Open-Jev.</i> <a href="https://github.com/Zefan-Cai/Open-Jev">github.com/Zefan-Cai/Open-Jev</a>, 2026.</li>
+        <li><i>Open-Jev-27B-v1.1.</i> <a href="https://huggingface.co/ZefanCai/Open-Jev-27B-v1.1">huggingface.co/ZefanCai/Open-Jev-27B-v1.1</a>.</li>
+        <li>Qwen Team. <i>Qwen3.8-27B.</i> <a href="https://huggingface.co/Qwen/Qwen3.8-27B">huggingface.co/Qwen/Qwen3.8-27B</a>.</li>
+        <li>S. Yang and Y. Zhang. <i>FLA: A Triton-Based Library for Hardware-Efficient Implementations of Linear Attention Mechanism.</i> <a href="https://github.com/fla-org/flash-linear-attention">github.com/fla-org/flash-linear-attention</a>, 2024.</li>
+        <li>S. Yang, J. Kautz and A. Hatamizadeh. <i>Gated Delta Networks: Improving Mamba2 with Delta Rule.</i> ICLR 2025. <a href="https://arxiv.org/abs/2412.06464">arXiv:2412.06464</a>. S. Yang et al. <i>Parallelizing Linear Transformers with the Delta Rule over Sequence Length.</i> NeurIPS 2024. <a href="https://arxiv.org/abs/2406.06484">arXiv:2406.06484</a>.</li>
+        <li>T. Dao. <i>causal-conv1d.</i> <a href="https://github.com/Dao-AILab/causal-conv1d">github.com/Dao-AILab/causal-conv1d</a>.</li>
+        <li>T. Wolf et al. <i>Transformers: State-of-the-Art Natural Language Processing.</i> EMNLP 2020 Demos. <a href="https://aclanthology.org/2020.emnlp-demos.6">aclanthology.org/2020.emnlp-demos.6</a>.</li>
+        <li>S. Mangrulkar et al. <i>PEFT.</i> <a href="https://github.com/huggingface/peft">github.com/huggingface/peft</a>, 2022.</li>
+        <li>J. Ansel et al. <i>PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation.</i> ASPLOS 2024.</li>
+        <li>E. J. Hu et al. <i>LoRA: Low-Rank Adaptation of Large Language Models.</i> ICLR 2022. <a href="https://arxiv.org/abs/2106.09685">arXiv:2106.09685</a>.</li>
+        <li>F. Standhartinger and contributors. <i>JevBench.</i> <a href="https://github.com/fstandhartinger/jevbench">github.com/fstandhartinger/jevbench</a>, 2026.</li>
+        <li>J. Juravsky et al. <i>Hydragen: High-Throughput LLM Inference with Shared Prefixes.</i> 2024. <a href="https://arxiv.org/abs/2402.05099">arXiv:2402.05099</a>.</li>
+        <li>L. Zheng et al. <i>SGLang: Efficient Execution of Structured Language Model Programs.</i> NeurIPS 2024. <a href="https://arxiv.org/abs/2312.07104">arXiv:2312.07104</a>.</li>
+        <li>X. Miao et al. <i>SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification.</i> ASPLOS 2024. <a href="https://arxiv.org/abs/2305.09781">arXiv:2305.09781</a>.</li>
+        <li>T. Cai et al. <i>Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads.</i> ICML 2024. <a href="https://arxiv.org/abs/2401.10774">arXiv:2401.10774</a>.</li>
+        <li>NVIDIA. <i>cuBLAS/cuBLASLt</i> (<a href="https://docs.nvidia.com/cuda/cublas/">docs</a>); <i>CUTLASS</i> (<a href="https://github.com/NVIDIA/cutlass">github.com/NVIDIA/cutlass</a>).</li>
+      </ol>
+    </details>
+  </div>
+</section>
 
-<h2 id="phase2">4. Phase 2: hand-written CUDA kernels and a prefix tree (32.4 → 20.1 ms)</h2>
-<h3>4.1 Hand-written fused kernels (31.0 ms)</h3>
-<p>All non-matmul operations in each layer are replaced by six CUDA kernels:</p>
-<ul>
-  <li>residual add + RMSNorm</li>
-  <li>SiLU·mul</li>
-  <li>linear-attention prep: causal convolution, SiLU, q/k/v split, head expansion, L2 normalization and the gate parameters</li>
-  <li>gated RMSNorm</li>
-  <li>full-attention prep: QK normalization, partial RoPE and the layout change</li>
-  <li>sigmoid-gate multiply</li>
-</ul>
-<p>Matrix multiplies are merged from 9 to 4 per layer. GPU kernels per request drop from about 5000 to 945.</p>
-<p>Each kernel reproduces where the Transformers <sup class="c"><a href="#ref-7">[7]</a></sup> and FLA <sup class="c"><a href="#ref-4">[4]</a></sup> references round in bf16. On real activations they match bit for bit on 98–100% of elements. The Gated DeltaNet core <sup class="c"><a href="#ref-5">[5]</a></sup> is still FLA's <code>chunk_gated_delta_rule</code>, and full attention uses PyTorch SDPA.</p>
-<h3>4.2 Shared prefix computed once (24.4 ms)</h3>
-<p>The prefix shared by all candidates and each candidate's tail go through one forward pass, so the weights are read once. Computed rows drop from 574 to 364.</p>
-<ul>
-  <li>In the linear-attention layers, each candidate runs its recurrence over its own complete sequence, so the convolution window and recurrent state match the original.</li>
-  <li>The full-attention layers use a tree mask. Related work: shared-prefix attention <sup class="c"><a href="#ref-12">[12]</a>,<a href="#ref-13">[13]</a></sup> and tree attention <sup class="c"><a href="#ref-14">[14]</a>,<a href="#ref-15">[15]</a></sup>.</li>
-</ul>
-<p>Long-context tasks benefit most. One task with a 3724-token shared context and 5 options went from 846 ms to 193 ms.</p>
-<h3>4.3 Matrix multiplies and data movement (22.8 ms)</h3>
-<ul>
-  <li>Split-K for <code>down</code> and <code>o_proj</code>, with fp32 partial sums reduced inside the RMSNorm kernel. This is more precise than a single bf16 matmul.</li>
-  <li>Every cuBLASLt heuristic algorithm is timed per exact shape, and the fastest is kept. The full-attention input shape got 23% faster.</li>
-  <li>The gather/cat copies used to replicate the prefix are removed.</li>
-</ul>
-<h3>4.4 Two-level prefix tree (20.1 ms)</h3>
-<p>The context is computed once, each question's text once, and each candidate computes only its own tail. For the example request, computed rows drop from 364 to 277. Nodes are not padded to each other and all structure lives in index tensors, so requests of the same size reuse the same CUDA Graph.</p>
-
-<h2 id="floor">5. Why bf16 is hard to push further</h2>
-<div class="tw"><table>
-  <tr><th>Part (example request)</th><th class="num">GPU time</th><th>Notes</th></tr>
-  <tr><td>Matrix multiplies</td><td class="num">about 13 ms</td><td>The 27B model cannot avoid this compute. This card's measured bf16 peak is 1.76 PFLOPS, and we already reach 70–80% of it.</td></tr>
-  <tr><td>Linear-attention core (FLA)</td><td class="num">about 3.7 ms</td><td>FLA's token-by-token version is slower on the GPU (171 vs 77 µs per layer).</td></tr>
-  <tr><td>Own kernels, attention, gaps</td><td class="num">about 3–4 ms</td><td>Another 1–2 ms could be fused away, but it is a lot of work.</td></tr>
-  <tr><td>FP8 matrix multiplies (measured, not used)</td><td class="num">13 → about 7 ms</td><td>This would bring one inference to an estimated 12–13 ms, but it changes the numerics, so accuracy would have to be re-validated.</td></tr>
-</table></div>
-
-<h2 id="correctness">6. Correctness</h2>
-<p>We checked at three levels:</p>
-<ol>
-  <li>Each kernel is compared element by element with the PyTorch reference on real activations.</li>
-  <li>Hidden states are compared layer by layer across all 64 layers. The last-token hidden state read by the scoring head differs by 0.19% relative.</li>
-  <li>All 231 JevBench tasks run end to end with JevBench's TypeSafe adapter and scoring code, and predictions are compared task by task.</li>
-</ol>
-<div class="tw"><table>
-  <tr><th>Version</th><th class="num">Accuracy</th><th>Tasks that changed vs. the original</th></tr>
-  <tr><td>Original</td><td class="num">198/231</td><td>—</td></tr>
-  <tr><td>PyTorch-optimized (phase 1)</td><td class="num">198/231</td><td>1 task, wrong before and after</td></tr>
-  <tr><td>Service v1 (1-level prefix tree + graphs)</td><td class="num">198/231</td><td>1 task, wrong before and after</td></tr>
-  <tr class="hl"><td>Service v3 (this repository)</td><td class="num">197/231</td><td>2 tasks: 1 wrong before and after, 1 coin flip</td></tr>
-</table></div>
-<p>The coin-flip task is <code>hard-opus-a-temporal_numeric-09</code>:</p>
-<ul>
-  <li>Original: no/yes = 0.504/0.496.</li>
-  <li>With LoRA merged: 0.503/0.497.</li>
-  <li>Hand-written kernels without the prefix tree: 0.496/0.504.</li>
-</ul>
-<p>Any rounding difference under 0.01 flips it, so the flip is unrelated to the prefix tree.</p>
-<p>Probability differences grow with input length, because bf16 rounding-order differences accumulate through 64 layers and the recurrent state. They are at most 0.0026 on the example request, and up to 0.035 on the longest request tested (10,722 tokens), where the decision stays the same.</p>
-<p class="note">The model card reports 197/231 on public JevBench for this checkpoint. Our run of the original server scored 198/231.</p>
-
-<h2 id="jevbench">7. JevBench latency (HTTP, concurrency 1, warmed up)</h2>
-<figure>
-  <img src="jevbench_cdf.svg" alt="Cumulative distribution of per-task latency: original P50 171 ms, optimized P50 24 ms">
-  <figcaption>Figure 2. Cumulative distribution of per-task latency over the 231 JevBench tasks, log scale, including HTTP.</figcaption>
-</figure>
-<div class="tw"><table>
-  <tr><th></th><th class="num">Original jev.server</th><th class="num">Service v1</th><th class="num">Service v3 (this repository)</th></tr>
-  <tr><td>Accuracy</td><td class="num">198/231</td><td class="num">198/231</td><td class="num">197/231</td></tr>
-  <tr><td>Mean</td><td class="num">703 ms</td><td class="num">52.1 ms</td><td class="num">51.3 ms</td></tr>
-  <tr><td>P50</td><td class="num">171 ms</td><td class="num">28.6 ms</td><td class="num">24.2 ms</td></tr>
-  <tr><td>P95</td><td class="num">1272 ms</td><td class="num">145 ms</td><td class="num">148 ms</td></tr>
-  <tr><td>Max</td><td class="num">16018 ms</td><td class="num">492 ms</td><td class="num">583 ms</td></tr>
-  <tr><td>Total for 231 tasks</td><td class="num">162 s</td><td class="num">12 s</td><td class="num">about 12 s</td></tr>
-</table></div>
-<ul class="note">
-  <li>The server-side inference itself has a P50 of 18.6 ms; the rest is HTTP.</li>
-  <li>The JevBench client opens a new connection per task, which adds about 25 ms. With a reused connection (keep-alive), HTTP adds about 4 ms.</li>
-  <li>Each JevBench task has only one question, so the two-level prefix tree does not help here. It mainly speeds up multi-question requests.</li>
-</ul>
-
-<h2 id="failed">8. Failed or abandoned attempts</h2>
-<div class="tw"><table>
-  <tr><th>Attempt</th><th>Result</th></tr>
-  <tr><td>The repo's built-in prefix cache <code>score_cached</code></td><td>1205 ms, 10× slower: it splits into 10 calls, which is too much CPU overhead</td></tr>
-  <tr><td>torch.compile default mode; CUDA Graph mode before the syncs were removed</td><td>No gain / only 10% faster, because the graph gets broken</td></tr>
-  <tr><td>FLA's token-by-token version instead of the chunked one</td><td>Slower on the GPU (171 vs 77 µs per layer)</td></tr>
-  <tr><td>Split-K with bf16 partial sums</td><td>Faster but noisier; switched to fp32</td></tr>
-  <tr><td>Swapped matmul layout; padding rows to a multiple of 128</td><td>Gain ≤ 0.2 ms; dropped</td></tr>
-  <tr><td>Replicated layout on long prefixes too</td><td>Long tasks 30–60% slower; switched to a hybrid strategy</td></tr>
-  <tr><td>Writing the access log to the network disk on every request</td><td>+9 ms per request; switched to an in-memory buffer flushed every 5 s</td></tr>
-</table></div>
-
-<h2 id="scope">9. Scope, limitations and usage</h2>
-<ul>
-  <li>Specialized for one model (Open-Jev-27B-v1.1 / Qwen3.8-27B shapes).</li>
-  <li><b>Tested only on an NVIDIA B300.</b> The kernels are plain CUDA C++ compiled for sm_103 by default. For another GPU with enough memory, change the <code>-gencode</code> flag in <code>src/ext.py</code>. That path is untested, and the speedups will differ.</li>
-  <li>bf16 only. FP8 matrix multiplies were measured but not used, because they change the numerics.</li>
-  <li><b>GPU memory: about 96 GiB</b> (98,280 MiB in <code>nvidia-smi</code> after the full JevBench run), so an 80 GB GPU is not enough as is. This covers the weights, the merged and split weight copies, the CUDA Graph pool and activations. The original weights are kept next to the merged copies, so a large part is duplicated; freeing them is not implemented.</li>
-  <li>Requests are processed one at a time.</li>
-  <li>The first request of a new shape captures a CUDA Graph, which adds 1–3 s to that request. Clients should reuse connections (keep-alive).</li>
-</ul>
-<p>Setup, correctness tests and benchmark scripts are in the <a href="https://github.com/lyuyiqi/open-jev-fast#quick-start">repository README</a>. What is used from each project is listed in <a href="https://github.com/lyuyiqi/open-jev-fast/blob/main/THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a>.</p>
-
-<h2 id="references">10. References</h2>
-<ol class="refs">
-  <li id="ref-1">Open-Jev contributors. <i>Open-Jev.</i> <a href="https://github.com/Zefan-Cai/Open-Jev">github.com/Zefan-Cai/Open-Jev</a> (commit 3308a15), 2026. MIT.</li>
-  <li id="ref-2"><i>Open-Jev-27B-v1.1.</i> <a href="https://huggingface.co/ZefanCai/Open-Jev-27B-v1.1">huggingface.co/ZefanCai/Open-Jev-27B-v1.1</a>. Apache-2.0.</li>
-  <li id="ref-3">Qwen Team, Alibaba Cloud. <i>Qwen3.8-27B.</i> <a href="https://huggingface.co/Qwen/Qwen3.8-27B">huggingface.co/Qwen/Qwen3.8-27B</a> (revision 1d4bf0f). Apache-2.0.</li>
-  <li id="ref-4">S. Yang and Y. Zhang. <i>FLA: A Triton-Based Library for Hardware-Efficient Implementations of Linear Attention Mechanism.</i> <a href="https://github.com/fla-org/flash-linear-attention">github.com/fla-org/flash-linear-attention</a>, 2024.</li>
-  <li id="ref-5">S. Yang, J. Kautz and A. Hatamizadeh. <i>Gated Delta Networks: Improving Mamba2 with Delta Rule.</i> ICLR 2025. <a href="https://arxiv.org/abs/2412.06464">arXiv:2412.06464</a>. S. Yang et al. <i>Parallelizing Linear Transformers with the Delta Rule over Sequence Length.</i> NeurIPS 2024. <a href="https://arxiv.org/abs/2406.06484">arXiv:2406.06484</a>.</li>
-  <li id="ref-6">T. Dao. <i>causal-conv1d.</i> <a href="https://github.com/Dao-AILab/causal-conv1d">github.com/Dao-AILab/causal-conv1d</a>. BSD-3-Clause.</li>
-  <li id="ref-7">T. Wolf et al. <i>Transformers: State-of-the-Art Natural Language Processing.</i> EMNLP 2020 System Demonstrations. <a href="https://aclanthology.org/2020.emnlp-demos.6">aclanthology.org/2020.emnlp-demos.6</a>.</li>
-  <li id="ref-8">S. Mangrulkar et al. <i>PEFT: State-of-the-art Parameter-Efficient Fine-Tuning methods.</i> <a href="https://github.com/huggingface/peft">github.com/huggingface/peft</a>, 2022.</li>
-  <li id="ref-9">J. Ansel et al. <i>PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation.</i> ASPLOS 2024.</li>
-  <li id="ref-10">E. J. Hu et al. <i>LoRA: Low-Rank Adaptation of Large Language Models.</i> ICLR 2022. <a href="https://arxiv.org/abs/2106.09685">arXiv:2106.09685</a>.</li>
-  <li id="ref-11">F. Standhartinger and contributors. <i>JevBench.</i> <a href="https://github.com/fstandhartinger/jevbench">github.com/fstandhartinger/jevbench</a> (commit f8ce713), 2026. MIT.</li>
-  <li id="ref-12">J. Juravsky et al. <i>Hydragen: High-Throughput LLM Inference with Shared Prefixes.</i> 2024. <a href="https://arxiv.org/abs/2402.05099">arXiv:2402.05099</a>.</li>
-  <li id="ref-13">L. Zheng et al. <i>SGLang: Efficient Execution of Structured Language Model Programs.</i> NeurIPS 2024. <a href="https://arxiv.org/abs/2312.07104">arXiv:2312.07104</a>.</li>
-  <li id="ref-14">X. Miao et al. <i>SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification.</i> ASPLOS 2024. <a href="https://arxiv.org/abs/2305.09781">arXiv:2305.09781</a>.</li>
-  <li id="ref-15">T. Cai et al. <i>Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads.</i> ICML 2024. <a href="https://arxiv.org/abs/2401.10774">arXiv:2401.10774</a>.</li>
-  <li id="ref-16">B. Zhang and R. Sennrich. <i>Root Mean Square Layer Normalization.</i> NeurIPS 2019. <a href="https://arxiv.org/abs/1910.07467">arXiv:1910.07467</a>.</li>
-  <li id="ref-17">J. Su et al. <i>RoFormer: Enhanced Transformer with Rotary Position Embedding.</i> 2021. <a href="https://arxiv.org/abs/2104.09864">arXiv:2104.09864</a>.</li>
-  <li id="ref-18">NVIDIA. <i>cuBLAS / cuBLASLt documentation</i> (<a href="https://docs.nvidia.com/cuda/cublas/">docs.nvidia.com/cuda/cublas</a>); <i>CUTLASS</i> (split-K GEMM), <a href="https://github.com/NVIDIA/cutlass">github.com/NVIDIA/cutlass</a>.</li>
-</ol>
-
-<footer>
-  Yiqi Lyu · Advisor: Zhaoran Wang · September 2026<br>
-  Code is MIT-licensed. Models, datasets and third-party libraries keep their own licenses.
+<footer class="footer">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <p>Yiqi Lyu · Advisor: Zhaoran Wang · 2026</p>
+      <p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io">Nerfies</a> project page, and is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    </div>
+  </div>
 </footer>
 
-</main>
 </body>
 </html>

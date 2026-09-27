@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-27T04:32:50.588902</dc:date>
+    <dc:date>2026-09-27T05:14:28.348379</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -2102,16 +2102,16 @@ z
    </g>
    <g id="legend_1">
     <g id="line2d_46">
-     <path d="M 401.0325 180.5915 
-L 409.0325 180.5915 
-L 409.0325 180.5915 
-L 417.0325 180.5915 
-L 417.0325 180.5915 
+     <path d="M 371.63125 180.48775 
+L 379.63125 180.48775 
+L 379.63125 180.48775 
+L 387.63125 180.48775 
+L 387.63125 180.48775 
 " style="fill: none; stroke: #eb6834; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_14">
-     <!-- Original jev.server -->
-     <g transform="translate(423.4325 183.3915) scale(0.08 -0.08)">
+     <!-- Original jev.server (with FLA) -->
+     <g transform="translate(394.03125 183.28775) scale(0.08 -0.08)">
       <defs>
        <path id="NotoSansSC-Regular-30" d="M 2374 -83 
 Q 1786 -83 1334 214 
@@ -2168,6 +2168,100 @@ Q 1274 4403 1162 4297
 Q 1050 4192 883 4192 
 z
 " transform="scale(0.015625)"/>
+       <path id="NotoSansSC-Regular-58" d="M 1139 0 
+L 173 3475 
+L 768 3475 
+L 1286 1466 
+Q 1344 1216 1392 979 
+Q 1440 742 1491 499 
+L 1523 499 
+Q 1581 742 1635 979 
+Q 1690 1216 1754 1466 
+L 2298 3475 
+L 2867 3475 
+L 3411 1466 
+Q 3475 1216 3536 979 
+Q 3597 742 3654 499 
+L 3686 499 
+Q 3738 742 3789 979 
+Q 3840 1216 3898 1466 
+L 4403 3475 
+L 4966 3475 
+L 4026 0 
+L 3315 0 
+L 2816 1875 
+Q 2752 2118 2694 2364 
+Q 2637 2611 2579 2874 
+L 2547 2874 
+Q 2490 2611 2435 2361 
+Q 2381 2112 2310 1862 
+L 1818 0 
+L 1139 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="NotoSansSC-Regular-49" d="M 589 0 
+L 589 5094 
+L 1178 5094 
+L 1178 3699 
+L 1152 2982 
+Q 1395 3226 1670 3395 
+Q 1946 3565 2304 3565 
+Q 2854 3565 3110 3216 
+Q 3366 2867 3366 2202 
+L 3366 0 
+L 2784 0 
+L 2784 2125 
+Q 2784 2618 2627 2835 
+Q 2470 3053 2125 3053 
+Q 1856 3053 1645 2918 
+Q 1434 2784 1178 2522 
+L 1178 0 
+L 589 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="NotoSansSC-Regular-27" d="M 646 0 
+L 646 4691 
+L 3347 4691 
+L 3347 4192 
+L 1235 4192 
+L 1235 2605 
+L 3027 2605 
+L 3027 2106 
+L 1235 2106 
+L 1235 0 
+L 646 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="NotoSansSC-Regular-2d" d="M 646 0 
+L 646 4691 
+L 1235 4691 
+L 1235 506 
+L 3290 506 
+L 3290 0 
+L 646 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="NotoSansSC-Regular-22" d="M 26 0 
+L 1613 4691 
+L 2272 4691 
+L 3866 0 
+L 3238 0 
+L 2419 2624 
+Q 2291 3027 2176 3414 
+Q 2061 3802 1946 4211 
+L 1920 4211 
+Q 1811 3802 1692 3414 
+Q 1574 3027 1453 2624 
+L 621 0 
+L 26 0 
+z
+M 851 1434 
+L 851 1901 
+L 3014 1901 
+L 3014 1434 
+L 851 1434 
+z
+" transform="scale(0.015625)"/>
       </defs>
       <use xlink:href="#NotoSansSC-Regular-30"/>
       <use xlink:href="#NotoSansSC-Regular-53" transform="translate(74.203125 0)"/>
@@ -2188,19 +2282,30 @@ z
       <use xlink:href="#NotoSansSC-Regular-57" transform="translate(695.203125 0)"/>
       <use xlink:href="#NotoSansSC-Regular-46" transform="translate(746.59375 0)"/>
       <use xlink:href="#NotoSansSC-Regular-53" transform="translate(802 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-1" transform="translate(840.796875 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-9" transform="translate(863.203125 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-58" transform="translate(897 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-4a" transform="translate(977.203125 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-55" transform="translate(1004.703125 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-49" transform="translate(1042.40625 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-1" transform="translate(1103.109375 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-27" transform="translate(1125.515625 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-2d" transform="translate(1180.71875 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-22" transform="translate(1235.015625 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-a" transform="translate(1295.8125 0)"/>
      </g>
     </g>
     <g id="line2d_47">
-     <path d="M 401.0325 193.6315 
-L 409.0325 193.6315 
-L 409.0325 193.6315 
-L 417.0325 193.6315 
-L 417.0325 193.6315 
+     <path d="M 371.63125 193.52775 
+L 379.63125 193.52775 
+L 379.63125 193.52775 
+L 387.63125 193.52775 
+L 387.63125 193.52775 
 " style="fill: none; stroke: #2a78d6; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_15">
-     <!-- Optimized service v3 -->
-     <g transform="translate(423.4325 196.4315) scale(0.08 -0.08)">
+     <!-- open-jev-fast -->
+     <g transform="translate(394.03125 196.32775) scale(0.08 -0.08)">
       <defs>
        <path id="NotoSansSC-Regular-51" d="M 589 -1466 
 L 589 3475 
@@ -2235,111 +2340,42 @@ Q 1408 570 1632 490
 Q 1856 410 2022 410 
 z
 " transform="scale(0.015625)"/>
-       <path id="NotoSansSC-Regular-5b" d="M 224 0 
-L 224 314 
-L 2054 3002 
-L 422 3002 
-L 422 3475 
-L 2797 3475 
-L 2797 3162 
-L 960 474 
-L 2854 474 
-L 2854 0 
-L 224 0 
+       <path id="NotoSansSC-Regular-47" d="M 685 0 
+L 685 4032 
+Q 685 4384 793 4640 
+Q 902 4896 1126 5037 
+Q 1350 5178 1696 5178 
+Q 1856 5178 2006 5146 
+Q 2157 5114 2278 5069 
+L 2150 4614 
+Q 1958 4710 1760 4710 
+Q 1510 4710 1388 4537 
+Q 1267 4365 1267 4026 
+L 1267 0 
+L 685 0 
 z
-" transform="scale(0.015625)"/>
-       <path id="NotoSansSC-Regular-45" d="M 1773 -83 
-Q 1338 -83 1014 128 
-Q 691 339 515 745 
-Q 339 1152 339 1734 
-Q 339 2298 550 2707 
-Q 762 3117 1104 3341 
-Q 1446 3565 1843 3565 
-Q 2150 3565 2371 3459 
-Q 2592 3354 2822 3162 
-L 2790 3757 
-L 2790 5094 
-L 3379 5094 
-L 3379 0 
-L 2899 0 
-L 2848 410 
-L 2829 410 
-Q 2624 205 2355 61 
-Q 2086 -83 1773 -83 
-z
-M 1901 410 
-Q 2144 410 2361 528 
-Q 2579 646 2790 883 
-L 2790 2707 
-Q 2573 2906 2368 2989 
-Q 2163 3072 1946 3072 
-Q 1670 3072 1443 2902 
-Q 1216 2733 1078 2435 
-Q 941 2138 941 1741 
-Q 941 1325 1056 1024 
-Q 1171 723 1385 566 
-Q 1600 410 1901 410 
-z
-" transform="scale(0.015625)"/>
-       <path id="NotoSansSC-Regular-7762" d="M 1683 -83 
-Q 1318 -83 1040 6 
-Q 762 96 550 243 
-Q 339 390 186 563 
-L 486 941 
-Q 691 730 969 566 
-Q 1248 403 1645 403 
-Q 1926 403 2140 505 
-Q 2355 608 2476 797 
-Q 2598 986 2598 1242 
-Q 2598 1517 2460 1718 
-Q 2323 1920 2003 2032 
-Q 1683 2144 1139 2144 
-L 1139 2598 
-Q 1626 2598 1907 2710 
-Q 2189 2822 2313 3017 
-Q 2438 3213 2438 3450 
-Q 2438 3782 2227 3977 
-Q 2016 4173 1645 4173 
-Q 1363 4173 1116 4041 
-Q 870 3910 672 3706 
-L 358 4077 
-Q 627 4320 944 4483 
-Q 1261 4646 1664 4646 
-Q 2061 4646 2371 4512 
-Q 2682 4378 2858 4118 
-Q 3034 3859 3034 3494 
-Q 3034 3078 2803 2809 
-Q 2573 2541 2202 2406 
-L 2202 2381 
-Q 2477 2310 2701 2156 
-Q 2925 2003 3059 1769 
-Q 3194 1536 3194 1216 
-Q 3194 806 2989 518 
-Q 2784 230 2445 73 
-Q 2106 -83 1683 -83 
+M 211 3002 
+L 211 3443 
+L 710 3475 
+L 2003 3475 
+L 2003 3002 
+L 211 3002 
 z
 " transform="scale(0.015625)"/>
       </defs>
-      <use xlink:href="#NotoSansSC-Regular-30"/>
-      <use xlink:href="#NotoSansSC-Regular-51" transform="translate(74.203125 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-55" transform="translate(134 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-4a" transform="translate(171.703125 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-4e" transform="translate(199.203125 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-4a" transform="translate(291.796875 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-5b" transform="translate(319.296875 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-46" transform="translate(365.390625 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-45" transform="translate(420.796875 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-1" transform="translate(482.796875 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-54" transform="translate(505.203125 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-46" transform="translate(552 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-53" transform="translate(607.40625 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-57" transform="translate(648.796875 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-4a" transform="translate(700.890625 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-44" transform="translate(728.390625 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-46" transform="translate(776.6875 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-1" transform="translate(832.09375 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-57" transform="translate(854.5 0)"/>
-      <use xlink:href="#NotoSansSC-Regular-7762" transform="translate(906.59375 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-50"/>
+      <use xlink:href="#NotoSansSC-Regular-51" transform="translate(60.59375 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-46" transform="translate(122.59375 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-4f" transform="translate(178 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-e" transform="translate(239 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-4b" transform="translate(273.703125 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-46" transform="translate(301.203125 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-57" transform="translate(356.90625 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-e" transform="translate(407.90625 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-47" transform="translate(442.609375 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-42" transform="translate(472.609375 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-54" transform="translate(528.90625 0)"/>
+      <use xlink:href="#NotoSansSC-Regular-55" transform="translate(573.203125 0)"/>
      </g>
     </g>
    </g>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Inter, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" role="img" aria-label="Two-level prefix tree for the example request: the shared context is computed once, each question once, and each of the 7 candidates only computes its own tail">
+  <style>
+    .edge { fill: none; stroke: #b9b8b3; stroke-width: 1.6; }
+    .ctx { fill: #2a78d6; }
+    .q { fill: #a9c8ee; }
+    .t { fill: #f3f2ef; stroke: #d9d8d4; stroke-width: 1; }
+    .lw { fill: #ffffff; font-size: 14px; font-weight: 600; }
+    .lws { fill: #ffffff; font-size: 12px; font-weight: 400; }
+    .lq { fill: #0b0b0b; font-size: 13px; font-weight: 600; }
+    .lqs { fill: #0b0b0b; font-size: 11.5px; }
+    .lt { fill: #0b0b0b; font-size: 12.5px; }
+    .cap { fill: #52514e; font-size: 12.5px; font-weight: 600; }
+    .caps { fill: #52514e; font-size: 11.5px; }
+  </style>
+  <!-- edges: context -> questions -->
+  <path class="edge" d="M220 163 C 250 163, 250 79, 280 79"/>
+  <path class="edge" d="M220 163 C 250 163, 250 163, 280 163"/>
+  <path class="edge" d="M220 163 C 250 163, 250 247, 280 247"/>
+  <!-- edges: questions -> candidate tails -->
+  <path class="edge" d="M450 79 C 485 79, 485 43, 520 43"/>
+  <path class="edge" d="M450 79 C 485 79, 485 79, 520 79"/>
+  <path class="edge" d="M450 79 C 485 79, 485 115, 520 115"/>
+  <path class="edge" d="M450 163 C 485 163, 485 163, 520 163"/>
+  <path class="edge" d="M450 247 C 485 247, 485 211, 520 211"/>
+  <path class="edge" d="M450 247 C 485 247, 485 247, 520 247"/>
+  <path class="edge" d="M450 247 C 485 247, 485 283, 520 283"/>
+  <!-- shared context -->
+  <rect class="ctx" x="20" y="123" width="200" height="80" rx="10"/>
+  <text class="lw" x="120" y="158" text-anchor="middle">Shared context</text>
+  <text class="lws" x="120" y="180" text-anchor="middle">conversation + instructions</text>
+  <!-- questions -->
+  <rect class="q" x="280" y="57" width="170" height="44" rx="9"/>
+  <text class="lq" x="365" y="76" text-anchor="middle">Q1 · route</text>
+  <text class="lqs" x="365" y="92" text-anchor="middle">choice, 3 options</text>
+  <rect class="q" x="280" y="141" width="170" height="44" rx="9"/>
+  <text class="lq" x="365" y="160" text-anchor="middle">Q2 · refund review</text>
+  <text class="lqs" x="365" y="176" text-anchor="middle">yes / no</text>
+  <rect class="q" x="280" y="225" width="170" height="44" rx="9"/>
+  <text class="lq" x="365" y="244" text-anchor="middle">Q3 · urgency</text>
+  <text class="lqs" x="365" y="260" text-anchor="middle">score, 3 levels</text>
+  <!-- candidate tails -->
+  <rect class="t" x="520" y="30" width="200" height="26" rx="6"/><text class="lt" x="532" y="48">billing</text>
+  <rect class="t" x="520" y="66" width="200" height="26" rx="6"/><text class="lt" x="532" y="84">security</text>
+  <rect class="t" x="520" y="102" width="200" height="26" rx="6"/><text class="lt" x="532" y="120">technical</text>
+  <rect class="t" x="520" y="150" width="200" height="26" rx="6"/><text class="lt" x="532" y="168">duplicate charge?</text>
+  <rect class="t" x="520" y="198" width="200" height="26" rx="6"/><text class="lt" x="532" y="216">routine</text>
+  <rect class="t" x="520" y="234" width="200" height="26" rx="6"/><text class="lt" x="532" y="252">urgent</text>
+  <rect class="t" x="520" y="270" width="200" height="26" rx="6"/><text class="lt" x="532" y="288">critical</text>
+  <!-- captions -->
+  <text class="cap" x="120" y="326" text-anchor="middle">computed once</text>
+  <text class="cap" x="365" y="326" text-anchor="middle">once per question</text>
+  <text class="cap" x="620" y="326" text-anchor="middle">once per candidate</text>
+  <text class="caps" x="380" y="350" text-anchor="middle">One packed forward pass reads the weights once: 574 → 277 rows for the example request</text>
+</svg>

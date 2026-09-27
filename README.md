@@ -8,14 +8,18 @@ Open-Jev is by the Open-Jev contributors; this repository runs on top of it and 
 
 ## Results (1× NVIDIA B300, bf16)
 
-| | Original Open-Jev | open-jev-fast | Speedup |
+| | Open-Jev, default PyTorch path | Open-Jev + FLA kernels | open-jev-fast |
 |---|---|---|---|
-| Example request, one inference (3 questions, 7 candidates, 539 tokens; no HTTP) | 109.9 ms | **20.1 ms** | 5.5× |
-| JevBench, mean per-task latency (231 tasks, HTTP, concurrency 1) | 703 ms | **51.3 ms** | 13.7× |
-| JevBench P50 / P95 / max | 171 / 1272 / 16018 ms | **24.2 / 148 / 583 ms** | |
-| JevBench accuracy (our runs) | 198/231 | 197/231 | one coin-flip task changed, see below |
+| Example request, one inference (3 questions, 7 candidates, 539 tokens; forward pass + scoring head) | 257.0 ms | 102.9 ms | **20.1 ms** (12.8× / 5.1×) |
+| JevBench, mean per-task latency (231 tasks, HTTP, concurrency 1) | — | 703 ms | **51.3 ms** (13.7×) |
+| JevBench P50 / P95 / max | — | 171 / 1272 / 16018 ms | **24.2 / 148 / 583 ms** |
+| JevBench accuracy (our runs) | — | 198/231 | 197/231 (one coin-flip task, see below) |
+
+Open-Jev's default install does not include flash-linear-attention (FLA) [4], so Transformers runs the linear-attention layers as plain PyTorch ops: that is the first column. The second column is Open-Jev with FLA installed, which is also what our JevBench baseline server used.
 
 ![Latency ladder](docs/ladder.png)
+
+*The first two bars and the last bar were measured together with `bench/e2e_bench.py`. The middle bars were measured during development (see Test conditions).*
 
 The Open-Jev-27B-v1.1 model card reports 197/231 on public JevBench for this checkpoint; our local run of the original server scored 198/231.
 
@@ -23,8 +27,11 @@ The Open-Jev-27B-v1.1 model card reports 197/231 on public JevBench for this che
 
 **Single inference (example request).**
 - Request: Open-Jev's `configs/example-request.json`, a customer-service conversation with 3 questions (routing, 1 of 3; refund review, yes/no; urgency, 3 levels). That is 7 candidate prompts and 539 tokens.
-- Timed: one full forward pass plus the scoring head over all 64 layers. Nothing is reused across requests; shared prefixes are computed once only within a request. Excludes tokenization (about 1 ms) and HTTP.
-- Statistic: 5 warm-up runs, then the median over repeated runs, with `torch.cuda.synchronize()` before and after each. 20.1 ms is the median of 20 CUDA Graph replays (`tests/test_gtree.py`); every other step, including the original's 109.9 ms, is the median of 30 runs.
+- The three headline numbers (257.0 / 102.9 / 20.1 ms) come from one script, `bench/e2e_bench.py`, run one after another on the same GPU.
+  - Each call times the forward pass over all 64 layers plus the scoring head. The prompts are built, tokenized and copied to the GPU once beforehand. For open-jev-fast, the call is the CUDA Graph replay. HTTP is not included.
+  - Nothing is reused across requests. Shared prefixes are computed once only within a request.
+  - 5 warm-up calls, then the median of 30, with `torch.cuda.synchronize()` before and after each ([`bench/logs/e2e_bench.log`](bench/logs/e2e_bench.log)).
+- The intermediate steps in the chart were measured during development. The 78.6 ms and 42.5 ms steps include prompt building and tokenization (about 1–2 ms); the others do not.
 
 **JevBench.**
 - The 231 public tasks at upstream `f8ce713`, run once in order at concurrency 1.
@@ -37,9 +44,9 @@ Per-task results for every version are in [`results/`](results/) (task ID, predi
 
 ## How it works
 
-The original is **CPU-bound**: each request launches about 5000 small GPU kernels, and the GPU is busy for only about 51 of the 106 ms. The seven candidate prompts also repeat most of their text.
+Without FLA, the Gated DeltaNet layers run as many small PyTorch ops (263 ms). With FLA, the original is **CPU-bound**: each request launches about 5000 small GPU kernels, and the GPU is busy for only about 51 of its ~103 ms. The seven candidate prompts also repeat most of their text.
 
-**Phase 1, PyTorch level (110 → 32.4 ms).**
+**Phase 1, PyTorch level (103 → 32.4 ms).**
 - Merge the LoRA adapter into the base weights.
 - Fuse RMSNorm.
 - Remove two CPU synchronizations in the Transformers mask code (`src/graph_patches.py`; both are "skip the mask if there is no padding" shortcuts, so the math is unchanged).
@@ -81,7 +88,7 @@ We checked at three levels:
 3. **JevBench** runs end to end, with predictions compared task by task.
 
 Probability differences from the original grow with input length, because bf16 rounding-order differences accumulate through 64 layers and the recurrent state:
-- **Example request:** at most **0.0026**.
+- **Example request:** at most **0.0034** from Open-Jev + FLA, and 0.0052 from the default PyTorch path. The two original paths themselves differ by 0.0087. All three give the same decisions.
 - **Longest request tested** (10,722 tokens): up to **0.035**, with the decision unchanged ([`bench/logs/gtree2.log`](bench/logs/gtree2.log)).
 
 On JevBench, two tasks changed prediction versus the original:
@@ -121,7 +128,8 @@ Correctness and benchmarks (each loads the original model as the reference):
 ```bash
 export JEVBENCH_DIR=/path/to/jevbench   # https://github.com/fstandhartinger/jevbench @ f8ce713 (long test inputs + runner)
 python tests/test_correct.py        # kernel-by-kernel, 64-layer and probability comparison
-python tests/test_gtree.py          # two-level prefix tree vs original + CUDA Graph timing (the 20.1 ms number)
+python tests/test_gtree.py          # two-level prefix tree vs original + CUDA Graph timing
+for m in torch fla fast; do E2E_MODE=$m python bench/e2e_bench.py; done   # the headline numbers (257.0 / 102.9 / 20.1 ms)
 python bench/run_jevbench.py http://localhost:18791 open-jev out.json
 ```
 
@@ -135,7 +143,7 @@ python bench/run_jevbench.py http://localhost:18791 open-jev out.json
 | `phase1/` | Phase-1 PyTorch-level scripts (LoRA merge, sync removal, CUDA Graph, torch.compile) |
 | `patches/` | causal-conv1d build patch for sm_103 (phase 1 only) and its license |
 | `results/` | JevBench per-task results for the original and each optimized version |
-| `docs/` | Report web page (`index.html`, served by GitHub Pages at https://yiqilyu.me/open-jev-fast/), PDF report, figures, and the scripts that generate them |
+| `docs/` | Report web page (`index.html` + `static/`, served by GitHub Pages at https://yiqilyu.me/open-jev-fast/), PDF report, figures, and the scripts that generate them |
 
 ## References
 
@@ -160,4 +168,4 @@ python bench/run_jevbench.py http://localhost:18791 open-jev out.json
 
 ## License
 
-MIT for the code in this repository ([LICENSE](LICENSE)). Models, datasets and third-party libraries keep their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+MIT for the code in this repository ([LICENSE](LICENSE)). The report web page (`docs/index.html`, `docs/static/css/index.css`) is adapted from the Academic Project Page Template and is under CC BY-SA 4.0. Models, datasets and third-party libraries keep their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

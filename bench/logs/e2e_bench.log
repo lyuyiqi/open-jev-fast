@@ -1,0 +1,12 @@
+# bench/e2e_bench.py on 1x NVIDIA B300 (sm_103), bf16, 2026-09-27. First run: E2E_SCOPE=e2e (script default was e2e then); second run: E2E_SCOPE=forward
+MODE torch | fla False | causal_conv1d False
+E2E {"mode": "torch", "p50_ms": 263.14, "min_ms": 257.78, "max_ms": 293.04, "replay_only_p50_ms": null, "probs": [[0.763036981319851, 0.09579570450687608, 0.1411673141732729], [0.27496514720635146, 0.7250348527936485], [0.804356412271195, 0.10592935661807337, 0.08971423111073165]], "max_memory_allocated_gib": 51.0, "gpu": "NVIDIA B300 SXM6 PC"}
+MODE fla | fla True | causal_conv1d False
+E2E {"mode": "fla", "p50_ms": 104.89, "min_ms": 103.97, "max_ms": 119.91, "replay_only_p50_ms": null, "probs": [[0.7603469045664055, 0.09700564852361364, 0.14264744690998088], [0.26630721763613824, 0.7336927823638617], [0.8029638421593698, 0.10743151468649702, 0.08960464315413325]], "max_memory_allocated_gib": 51.0, "gpu": "NVIDIA B300 SXM6 PC"}
+E2E {"mode": "fast", "p50_ms": 21.85, "min_ms": 21.74, "max_ms": 22.26, "replay_only_p50_ms": 20.14, "probs": [[0.7603883252658636, 0.09700956408530477, 0.1426021106488316], [0.2697534176417569, 0.7302465823582431], [0.8041255636230143, 0.10665276940574413, 0.08922166697124144]], "max_memory_allocated_gib": 90.6, "gpu": "NVIDIA B300 SXM6 PC"}
+# second run, E2E_SCOPE=forward (prompts tokenized and copied to the GPU once beforehand)
+MODE torch | fla False | causal_conv1d False
+E2E {"mode": "torch", "scope": "forward", "p50_ms": 256.96, "min_ms": 255.93, "max_ms": 258.51, "replay_only_p50_ms": null, "probs": [[0.763036981319851, 0.09579570450687608, 0.1411673141732729], [0.27496514720635146, 0.7250348527936485], [0.804356412271195, 0.10592935661807337, 0.08971423111073165]], "max_memory_allocated_gib": 51.0, "gpu": "NVIDIA B300 SXM6 PC"}
+MODE fla | fla True | causal_conv1d False
+E2E {"mode": "fla", "scope": "forward", "p50_ms": 102.94, "min_ms": 102.45, "max_ms": 104.25, "replay_only_p50_ms": null, "probs": [[0.7603469045664055, 0.09700564852361364, 0.14264744690998088], [0.26630721763613824, 0.7336927823638617], [0.8029638421593698, 0.10743151468649702, 0.08960464315413325]], "max_memory_allocated_gib": 51.0, "gpu": "NVIDIA B300 SXM6 PC"}
+E2E {"mode": "fast", "scope": "forward", "p50_ms": 20.13, "min_ms": 20.1, "max_ms": 20.18, "replay_only_p50_ms": 20.13, "probs": [[0.7603883252658636, 0.09700956408530477, 0.1426021106488316], [0.2697534176417569, 0.7302465823582431], [0.8041255636230143, 0.10665276940574413, 0.08922166697124144]], "max_memory_allocated_gib": 90.6, "gpu": "NVIDIA B300 SXM6 PC"}

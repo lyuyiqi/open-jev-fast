@@ -16,6 +16,8 @@ The MIT license in `LICENSE` covers only the original code in this repository. N
 | [causal-conv1d](https://github.com/Dao-AILab/causal-conv1d) 1.7.0, Tri Dao | BSD-3-Clause | Used in phase 1 only. `patches/causal_conv1d-sm103.patch` changes its `setup.py` to build only for sm_103; the license is reproduced in `patches/LICENSE.causal-conv1d`. |
 | NVIDIA cuBLAS / cuBLASLt (CUDA 13) | NVIDIA CUDA EULA | `src/lt.cpp` calls the public cuBLASLt API (heuristic algorithm query and matmul). Linked at build time, not redistributed. |
 | [JevBench](https://github.com/fstandhartinger/jevbench) (Florian Standhartinger and contributors), commit `f8ce713` | MIT (harness and original decisions; see its THIRD-PARTY.md for imported tasks) | Accuracy and latency evaluation. `bench/run_jevbench.py` calls its `TypeSafeAdapter` and `score_task` unchanged. `results/` stores only task IDs, predictions, correctness and latency, not task text. |
+| [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template) (Eliahu Horwitz), adapted from the [Nerfies](https://nerfies.github.io) project page | CC BY-SA 4.0 | Layout of the report web page `docs/index.html` and its stylesheet `docs/static/css/index.css`. The page footer credits the template as it requests, and the page is under CC BY-SA 4.0. |
+| [Bulma](https://bulma.io) 0.9.1 | MIT | CSS framework used by the web page (`docs/static/css/bulma.min.css`, unmodified). |
 | TypeSafe typed-decision HTTP API ([docs](https://docs.typesafe.ai/api)) | — | The request format (`state`, `questions`, `noul`/`choice`/`score`) served by Open-Jev and therefore by this server. This project, like Open-Jev and JevBench, is not affiliated with or endorsed by TypeSafe AI. |
 
 ## Methods and related work

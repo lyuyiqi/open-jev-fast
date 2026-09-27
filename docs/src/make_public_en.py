@@ -36,13 +36,14 @@ s.append(Paragraph("Open-Jev-27B Inference Speedup Report", H1))
 s.append(Paragraph("An inference backend for <b>Open-Jev</b> [1] (Open-Jev contributors). Model: Open-Jev-27B-v1.1 [2] on Qwen3.8-27B [3], bf16, not quantized. "
                    "Hardware: one NVIDIA B300. Code, per-task results and logs: <link href='https://github.com/lyuyiqi/open-jev-fast' color='#2a78d6'>github.com/lyuyiqi/open-jev-fast</link> (MIT). "
                    "Author: Yiqi Lyu. Advisor: Zhaoran Wang. 2026-09-27.", SUB))
-s.append(Paragraph("<b>Summary:</b> for the example request (3 questions / 7 candidates / 539 tokens), one inference went from <b>110 ms to 20.1 ms (5.5×)</b>. "
+s.append(Paragraph("<b>Summary:</b> for the example request (3 questions / 7 candidates / 539 tokens), one inference takes <b>20.1 ms</b>, vs <b>257.0 ms</b> on Open-Jev's default PyTorch path (<b>12.8×</b>) and <b>102.9 ms</b> with FLA kernels (<b>5.1×</b>). "
                    "On the 231 JevBench tasks, mean latency went from <b>703 ms to 51 ms (13.7×)</b>, P50 171 → 24 ms, slowest task 16.0 s → 0.58 s. "
                    "Accuracy 198/231 → 197/231; the one task that changed is a coin flip whose original probabilities are 0.504 vs 0.496 (numerical noise). "
                    "It runs as an HTTP service with the same API as the original.", KEY))
-s.append(Image("ladder_en.png", width=172*mm, height=88*mm))
+s.append(Image("ladder_en.png", width=172*mm, height=95*mm))
 s.append(Paragraph("Figure 1. Latency of one inference on the example request as optimizations are added. Phase 1 works at the PyTorch level; "
-                   "phase 2 replaces the phase-1 path with hand-written CUDA kernels plus a prefix tree.", NOTE))
+                   "phase 2 replaces the phase-1 path with hand-written CUDA kernels plus a prefix tree. The first two bars and the last bar were measured together "
+                   "with one script (bench/e2e_bench.py); the middle bars were measured during development.", NOTE))
 
 s.append(Paragraph("1. Test conditions", H2)); s.append((
     table([["Item", "Single inference (Figure 1, 20.1 ms, etc.)", "JevBench (Section 7)"],
@@ -52,17 +53,19 @@ s.append(Paragraph("1. Test conditions", H2)); s.append((
            ["Model", "Open-Jev-27B-v1.1, bf16, not quantized", "Same"],
            ["Hardware", "One dedicated NVIDIA B300 (sm_103)", "Same; original and optimized both on a single B300. Both servers run with --max-length 16384 so every task fits (the model card's saved limit is 4,096 tokens per candidate)"],
            ["What is timed", "One full forward pass plus the scoring head, all 64 layers. <b>Everything is recomputed every time; nothing is reused across requests.</b> "
-                             "A shared prefix is computed once only within the same request. <b>Excludes</b> tokenization (about 1 ms) and HTTP",
+                             "A shared prefix is computed once only within the same request. <b>Excludes</b> prompt building and tokenization (done once beforehand) and HTTP",
             "Client-side: the per-task end-to-end latency recorded by the official TypeSafe adapter, including tokenization, HTTP and JSON. "
             "A new connection per task, concurrency 1"],
            ["Statistic", "5 warm-up runs, then the median of repeated runs, with cuda.synchronize before and after each run. "
-                         "20.1 ms: median of 20 CUDA Graph replays. All other steps, including the original 109.9 ms: 30 runs",
+                         "The three headline numbers (257.0 / 102.9 / 20.1 ms) come from one script, 30 runs each. The intermediate steps are development measurements; "
+                         "78.6 and 42.5 ms include tokenization (about 1–2 ms)",
             "Service already warmed up (second pass; CUDA Graphs for the needed shapes already captured). The 231 tasks run once, in order"],
-           ["Correctness", "Per-candidate probabilities within 0.003 of the original; all three decisions identical", "Official score_task scoring; predictions compared task by task with the original"]],
+           ["Correctness", "Per-candidate probabilities within 0.0034 of the original (with FLA); all three decisions identical", "Official score_task scoring; predictions compared task by task with the original"]],
           [22*mm, 84*mm, 68*mm])))
 
 s.append(sec("2. Where the time went",
-    Paragraph("The original took about 106 ms per request. Measured: <b>the moment the CPU finishes issuing all operations is the moment the GPU finishes computing.</b> "
+    Paragraph("Open-Jev's default install has no FLA kernels, so Transformers runs the Gated DeltaNet layers as plain PyTorch ops: 257 ms. "
+              "With FLA installed it takes about 103 ms. Measured there: <b>the moment the CPU finishes issuing all operations is the moment the GPU finishes computing.</b> "
               "Each request launches about 5000 GPU kernels, while the GPU is actually busy for only about 51 ms, so the bottleneck is the CPU issuing small operations one by one. "
               "The three main sources:", P),
     *bl(["the linear-attention operators (Triton) cost 65–150 µs of CPU time per launch, about 35 ms in total;",
@@ -70,9 +73,10 @@ s.append(sec("2. Where the time went",
          "RMSNorm in transformers is split into 7 small operations, about 12.5 ms in total."]),
     Paragraph("In addition, most of the content of the 7 candidate prompts is repeated (context and question text), and the original recomputes all of it for every candidate.", P)))
 
-s.append(sec("3. Phase 1: PyTorch level (110 → 32.4 ms)",
+s.append(sec("3. Phase 1: PyTorch level (103 → 32.4 ms)",
     table([["Step", "Single P50", "Notes"],
-           ["Original", "109.9 ms", "HF Transformers [7] + flash-linear-attention [4]"],
+           ["Default PyTorch path (Open-Jev default install)", "257.0 ms", "Pure-PyTorch implementation of the linear-attention layers in HF Transformers [7]"],
+           ["+ flash-linear-attention kernels", "102.9 ms", "FLA [4] Triton kernels for the Gated DeltaNet layers"],
            ["Merge LoRA [10] via PEFT [8], fuse RMSNorm, remove 2 CPU syncs", "78.6 ms", "Both syncs are in the transformers mask code, a \"skip if there is no padding\" shortcut; removing them does not change the math"],
            ["Capture the whole model as one CUDA Graph", "58.0 ms → 42.5 ms", "With the syncs gone the whole model can be captured; capturing at the real length 82 instead of padding to 128"],
            ["+ causal-conv1d kernel [6]", "36.5 ms", "Short convolution switched from the generic PyTorch implementation to the dedicated kernel"],
@@ -113,13 +117,14 @@ s.append(sec("6. Correctness",
     Paragraph("The coin-flip task is hard-opus-a-temporal_numeric-09: original no/yes = 0.504/0.496, merged LoRA 0.503/0.497, hand-written kernels (without the prefix tree) 0.496/0.504. "
               "Any rounding difference under 0.01 flips it; it is unrelated to the prefix tree. "
               "Probability differences grow with input length, because bf16 rounding-order differences accumulate through 64 layers and the recurrent state: "
-              "at most 0.0026 on the example request, and up to 0.035 on the longest request tested (10,722 tokens), with the decision unchanged. "
+              "at most 0.0034 on the example request (the two original paths, with and without FLA, differ from each other by 0.0087), "
+              "and up to 0.035 on the longest request tested (10,722 tokens), with the decision unchanged. "
               "The model card reports 197/231 on public JevBench for this checkpoint; our run of the original server scored 198/231.", NOTE)))
 
 s.append(sec("7. JevBench measurements (HTTP, concurrency 1, warmed up)",
     Image("cdf_en.png", width=168*mm, height=79*mm)))
 s.append(KeepTogether([
-    table([["", "Original jev.server", "Service v1", "Service v3 (current)"],
+    table([["", "Original jev.server (with FLA)", "Service v1", "Service v3 (current)"],
            ["Accuracy", "198/231", "198/231", "197/231"], ["Mean", "703 ms", "52.1 ms", "51.3 ms"], ["P50", "171 ms", "28.6 ms", "24.2 ms"],
            ["P95", "1272 ms", "145 ms", "148 ms"], ["Max", "16018 ms", "492 ms", "583 ms"], ["Total for 231 tasks", "162 s", "12 s", "about 12 s"]],
           [40*mm, 42*mm, 42*mm, 50*mm]),
