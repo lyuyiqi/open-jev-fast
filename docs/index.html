@@ -21,15 +21,16 @@
   html { -webkit-text-size-adjust: 100%; }
   body { margin: 0; background: var(--bg); color: var(--ink);
          font: 16.5px/1.62 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-  main { max-width: 860px; margin: 0 auto; padding: 48px 22px 80px; }
+  main { max-width: 860px; margin: 0 auto; padding: 48px 22px 80px; position: relative; }
+  .gh { position: absolute; top: 20px; right: 22px; color: var(--ink2); line-height: 0; }
+  .gh:hover { color: var(--ink); }
+  h1 { padding-right: 34px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 10px; letter-spacing: -0.01em; }
+  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 22px; letter-spacing: -0.01em; }
   h2 { font-size: 1.35rem; margin: 46px 0 12px; padding-top: 6px; border-top: 1px solid var(--rule); }
   h3 { font-size: 1.05rem; margin: 26px 0 6px; }
   p { margin: 0 0 14px; }
-  .byline { color: var(--ink2); margin: 0 0 22px; }
-  .byline a { margin-right: 14px; font-weight: 600; white-space: nowrap; display: inline-block; }
   .lede { font-size: 1.08rem; }
   .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 26px 0 8px; }
   .card { background: var(--fill); border-radius: 10px; padding: 14px 16px; }
@@ -58,9 +59,9 @@
 </head>
 <body>
 <main>
+<a class="gh" href="https://github.com/lyuyiqi/open-jev-fast" aria-label="Code on GitHub" title="Code on GitHub"><svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a>
 
 <h1>open-jev-fast: 5.5× faster Open-Jev-27B inference</h1>
-<p class="byline"><a href="https://github.com/lyuyiqi/open-jev-fast">Code (GitHub)</a><a href="report.pdf">PDF report</a><a href="#references">References</a></p>
 
 <p class="lede">open-jev-fast is an inference backend for <a href="https://github.com/Zefan-Cai/Open-Jev">Open-Jev</a> <sup class="c"><a href="#ref-1">[1]</a></sup>, built by the Open-Jev contributors. It serves the same HTTP API as Open-Jev's <code>jev.server</code> and runs the same model, Open-Jev-27B-v1.1 on Qwen3.8-27B <sup class="c"><a href="#ref-2">[2]</a>,<a href="#ref-3">[3]</a></sup>, in bf16 with no quantization. The model forward pass is replaced with hand-written fused CUDA kernels, a prefix tree that computes shared prompt text only once, tuned matrix multiplies and CUDA Graphs. All numbers are on one NVIDIA B300.</p>
 
