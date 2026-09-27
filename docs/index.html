@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>open-jev-fast: 12.8× faster Open-Jev-27B inference</title>
+  <title>OpenJev-Fast: Accelerating Open-Jev-27B Inference with Prefix Sharing and Fused CUDA Kernels</title>
   <meta name="description" content="A faster inference backend for Open-Jev-27B: 257.0 → 20.1 ms per request, running locally on one NVIDIA B300, bf16.">
-  <meta property="og:title" content="open-jev-fast: 12.8× faster Open-Jev-27B inference">
+  <meta property="og:title" content="OpenJev-Fast: Accelerating Open-Jev-27B Inference with Prefix Sharing and Fused CUDA Kernels">
   <meta property="og:description" content="Hand-written fused CUDA kernels, a two-level prefix tree and CUDA Graphs for Open-Jev-27B. Runs locally, bf16.">
   <meta property="og:type" content="article">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,9 @@
   <style>
     :root { --primary-color: #2a78d6; --primary-hover: #1f5fae; }
     .title.is-3::after { background: #2a78d6; }
-    .publication-title { margin-bottom: 1.2rem !important; }
+    .publication-title { margin-bottom: 1rem !important; line-height: 1.25; text-wrap: balance; }
+    .publication-authors { color: #0f172a; margin: 0 !important; }
+    .publication-authors .aff { color: #64748b; }
     .tagline { font-size: 1.2rem; color: #475569; max-width: 760px; margin: 0 auto 1.4rem; }
     .gh-btn .icon svg { width: 1.15em; height: 1.15em; }
     .figure-card { background: #fff; border: 1px solid var(--border-color); border-radius: 16px; padding: 1.2rem 1.2rem 0.8rem; box-shadow: var(--shadow-md); }
@@ -48,7 +50,9 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop has-text-centered">
-      <h1 class="title is-1 publication-title">open-jev-fast</h1>
+      <h1 class="title is-2 publication-title">OpenJev&#8209;Fast: Accelerating Open&#8209;Jev&#8209;27B Inference with Prefix Sharing and Fused CUDA Kernels</h1>
+      <div class="is-size-5 publication-authors">Yiqi Lyu&nbsp;&nbsp;·&nbsp;&nbsp;Advisor: Zhaoran Wang</div>
+      <div class="is-size-6 publication-authors" style="margin: 0.25rem 0 1.4rem !important;"><span class="aff">Northwestern University</span></div>
       <p class="tagline">Open-Jev-27B inference in <b>20.1 ms</b> instead of <b>257.0 ms</b> on one local NVIDIA B300. Same model, bf16, a drop-in replacement for Open-Jev's local server.</p>
       <div class="publication-links">
         <span class="link-block">
@@ -173,7 +177,6 @@
 <footer class="footer">
   <div class="container is-max-desktop">
     <div class="content has-text-centered">
-      <p>Yiqi Lyu · Advisor: Zhaoran Wang · 2026</p>
       <p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io">Nerfies</a> project page, and is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
     </div>
   </div>

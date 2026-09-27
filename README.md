@@ -1,4 +1,4 @@
-# open-jev-fast
+# OpenJev-Fast: Accelerating Open-Jev-27B Inference with Prefix Sharing and Fused CUDA Kernels
 
 **Report:** [web page](https://yiqilyu.me/open-jev-fast/) · [PDF](docs/report.pdf)
 
