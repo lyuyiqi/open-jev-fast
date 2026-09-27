@@ -19,7 +19,7 @@ Open-Jev's default install does not include flash-linear-attention (FLA) [4], so
 
 ![Latency ladder](docs/ladder.png)
 
-*Example request on one B300; each bar is the median latency of the forward pass plus scoring head. The first two bars and the last bar were measured together with `bench/e2e_bench.py`; the middle bars were measured during development (see Test conditions).*
+*Example request: 3 questions, 7 candidates, 539 tokens. Median latency of the forward pass plus scoring head.*
 
 The Open-Jev-27B-v1.1 model card reports 197/231 on public JevBench for this checkpoint; our local run of the original server scored 198/231.
 

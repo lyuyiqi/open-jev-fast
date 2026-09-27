@@ -42,9 +42,7 @@ s.append(Paragraph("<b>Summary:</b> for the example request (3 questions / 7 can
                    "It runs locally as a drop-in replacement for Open-Jev's own local server (same request format).", KEY))
 s.append(Image("ladder_en.png", width=172*mm, height=95*mm))
 s.append(Paragraph("Figure 1. Latency of one inference on the example request as optimizations are added. Phase 1 works at the PyTorch level; "
-                   "phase 2 replaces the phase-1 path with hand-written CUDA kernels plus a prefix tree. Each bar is the median latency (ms) of the forward pass plus scoring head "
-                   "on one B300. The first two bars and the last bar were measured together "
-                   "with one script (bench/e2e_bench.py); the middle bars were measured during development.", NOTE))
+                   "phase 2 replaces the phase-1 path with hand-written CUDA kernels plus a prefix tree. Median latency of the forward pass plus scoring head.", NOTE))
 
 s.append(Paragraph("1. Test conditions", H2)); s.append((
     table([["Item", "Single inference (Figure 1, 20.1 ms, etc.)", "JevBench (Section 7)"],
