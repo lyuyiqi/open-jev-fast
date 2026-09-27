@@ -2,7 +2,7 @@
 
 **Report:** [web page](https://yiqilyu.me/open-jev-fast/) · [PDF](docs/report.pdf)
 
-![One inference of the example request in three implementations, measured latencies replayed 40× slower](docs/race.gif)
+![The 231 JevBench tasks sent one after another to each server, replayed at real speed from the measured per-task latencies](docs/race.gif)
 
 **A faster inference backend for [Open-Jev](https://github.com/Zefan-Cai/Open-Jev).** It runs locally as a drop-in replacement for Open-Jev's own local server (`python -m jev.server`, same request format), with the same model ([Open-Jev-27B-v1.1](https://huggingface.co/ZefanCai/Open-Jev-27B-v1.1) on [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B)), in bf16 with no quantization. It replaces the model forward pass with hand-written CUDA kernels (including its own Gated DeltaNet and tree-attention kernels), a prefix tree that computes shared prompt text once, tuned matrix multiplies and CUDA Graphs.
 
