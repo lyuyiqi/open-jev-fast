@@ -1,6 +1,7 @@
 """Animated latency ladder: one bar per optimization step, each starting at the previous latency and shrinking to its own,
 until the final 17.3 ms. Values: bench/e2e_bench.py for the two baselines and the final bar (results/e2e_latency.json),
-development measurements for the steps in between (same values as docs/ladder.svg). Writes ladder.gif.
+development measurements for the steps in between (same values as docs/ladder.svg).
+Writes ladder.gif (1920 px), ladder_x.gif (1280 px, within X's GIF limits) and ladder.mp4.
 Usage: python ladder_anim.py <repo> <font> <outdir>"""
 import json, subprocess, sys, io
 import numpy as np, matplotlib; matplotlib.use("Agg")
@@ -64,11 +65,17 @@ def frame(t):
 T_END = len(steps) * (SHRINK + HOLD) + FINAL
 frames = [frame(i / FPS) for i in range(int(T_END * FPS))]
 ff = imageio_ffmpeg.get_ffmpeg_exe()
-p = subprocess.Popen([ff, "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W * SS}x{H * SS}", "-r", str(FPS), "-i", "-",
-                      "-vf", "scale=1920:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=128:stats_mode=diff[p];[b][p]paletteuse=dither=none:diff_mode=rectangle",
-                      f"{OUT}/ladder.gif"], stdin=subprocess.PIPE)
-for f in frames: p.stdin.write(f.tobytes())
-p.stdin.close(); p.wait()
+def encode(out, frs, args):
+    p = subprocess.Popen([ff, "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W * SS}x{H * SS}", "-r", str(FPS), "-i", "-"]
+                         + args + [f"{OUT}/{out}"], stdin=subprocess.PIPE)
+    for f in frs: p.stdin.write(f.tobytes())
+    p.stdin.close(); p.wait()
+GIF = "split[a][b];[a]palettegen=max_colors=128:stats_mode=diff[p];[b][p]paletteuse=dither=none:diff_mode=rectangle"
+encode("ladder.gif", frames, ["-vf", "scale=1920:-1:flags=lanczos," + GIF])
+# X (Twitter) GIF limits: <= 1280x1080, <= 350 frames, <= 300M pixels in total
+encode("ladder_x.gif", frames[:350], ["-vf", "scale=1280:-1:flags=lanczos," + GIF])
+encode("ladder.mp4", frames, ["-vf", "scale=1920:-2:flags=lanczos", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high",
+                              "-crf", "16", "-preset", "slow", "-tune", "animation", "-movflags", "+faststart"])
 from PIL import Image
 Image.fromarray(frames[int(4.2 * FPS)]).save(f"{OUT}/ladder_mid.png"); Image.fromarray(frames[-1]).save(f"{OUT}/ladder_end.png")
 print("ladder ok", len(frames), "frames")
